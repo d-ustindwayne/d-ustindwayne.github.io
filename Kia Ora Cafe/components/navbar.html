@@ -1,0 +1,65 @@
+<div class="container-fluid mx-lg-5 mx-md-0 mx-sm-2" id="navmenucollapse">
+    <a href="index.html" class="navbar-brand pb-2">
+        <img class="object-fit-contain" id="brand-icon" src="images/kia-ora-cafe-icons/light/logotype.png"
+            alt="Kia Ora Cafe">
+    </a>
+
+    <button class="navbar-toggler" data-bs-target="#nav" data-bs-toggle="collapse" aria-controls="nav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
+        <div class="tabs mx-lg-5 mx-md-0">
+            <ul class="navbar-nav gap-md-4 fw-semibold align-items-md-center">
+                <li class="nav-item dropdown heading-semibold">
+                    <a href="about.html" id="dd-about" class="nav-link px-0 d-inline-block">About</a>
+                    <span class="dropdown-toggle dropdown-toggle-split pointer nav-link ps-1 d-inline-block"
+                        data-bs-toggle="dropdown" data-bs-target="#about-dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </span>
+                    <div class="dropdown-menu bgcolor-main heading-semibold" id="about-dropdown" aria-labelledby="dd-about">
+                        <a class="dropdown-item" href="about.html#who-we-are">Who We Are</a>
+                        <a class="dropdown-item" href="about.html#mission-vision">Mission  & Vision</a>
+                        <a class="dropdown-item" href="about.html#our-story">Our Story</a>
+                        <a class="dropdown-item" href="about.html#team">Team</a>
+                        <a class="dropdown-item" href="about.html#gallery">Gallery</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown heading-semibold">
+                    <a href="menu.html" id="dd-menu" class="nav-link px-0 d-inline-block">Menu</a>
+                    <span class="dropdown-toggle dropdown-toggle-split pointer nav-link ps-1 d-inline-block"
+                        data-bs-toggle="dropdown" data-bs-target="#menu-dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </span>
+                    <div class="dropdown-menu bgcolor-main heading-semibold" id="menu-dropdown" aria-labelledby="dd-menu">
+                        <a class="dropdown-item" href="menu-food.html">Food</a>
+                        <a class="dropdown-item" href="menu-drinks.html#">Drinks</a>
+                    </div>
+                </li>
+
+                <li class="nav-item heading-semibold"><a href="branches.html" class="nav-link">Branches</a></li>
+                <li class="nav-item heading-semibold"><a href="courses.html" class="nav-link">Courses</a></li>
+                <li class="nav-item heading-semibold"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="account mb-2 mb-md-0">
+            <ul class="rounded-start-4 navbar-nav d-md-inline-flex d-block gap-2 flex-row pe-4 pe-md-0">
+                <li class="nav-item d-md-inline d-block"><a class="pointer nav-link" onclick="alertMessage('featUnavailableAccount', 'warning')">
+                    <i class="d-md-inline d-none acc-ic bi h3 bi-person-fill mb-0"></i>
+                    <span class="d-md-none d-flex heading-semibold acc-text">Account</span>
+                </a></li>
+                <li class="nav-item d-md-inline d-block"><a class="pointer nav-link" onclick="alertMessage('featUnavailable', 'warning')">
+                    <i class="d-md-inline d-none acc-ic bi h3 bi-cart-fill mb-0"></i>
+                    <span class="d-md-none d-flex heading-semibold acc-text">Cart</span>
+                </a></li>
+            </ul>
+        </div>
+        <hr class="container-fluid opacity-75 textcolor-primary d-block d-md-none">
+        <div class="form-check form-switch d-md-none">
+            <label for="dark-mode-phone" class="form-check-label form-label heading-semibold">Dark Mode</label>
+            <input type="checkbox" id="dark-mode-phone" class="form-check-input" role="switch">
+        </div>
+    </div>
+</div>
