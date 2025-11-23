@@ -21,7 +21,7 @@ The website tells the story of Kia Ora Cafe, founded by Jasmine Sison Taboy, fea
 
 ## 🚀 Live Demo
 
-[View Live Website](https://d-ustindwayne.github.io/kia-ora-cafe)
+[View Live Website](https://d-ustindwayne.github.io/Kia%20Ora%20Cafe/index.html)
 
 ## 🛠️ Built With
 
