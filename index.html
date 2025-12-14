@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Dustin Dwayne Diaz</title>
+
+    <style>
+
+        :root {
+            --green: #00c17a;
+        }
+
+        body {
+            margin: 0;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .header {
+            background-color: #af0c0c;
+            padding: .5rem 1rem;
+            font-weight: bolder;
+        }
+
+        .accordion *, .nav-item {transition: 0.25s ease-in-out;}
+        
+        .accordion {
+            background: #1a1a1a;
+            border-radius: 8px;
+            border: 1px solid #2a2a2a;
+            overflow: hidden;
+        }
+
+        .accordion-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #00a86b1a;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-btn:hover, .accordion-btn.active:hover {
+            background: #00a86b;
+        }
+
+        .accordion-btn.active {
+            background: #00a86b33;
+        }
+
+        .arrow {
+            font-weight: bolder;
+            transform: rotate(180deg);
+            color: white;
+        }
+        
+        .accordion-btn.active .arrow {
+            transform: rotate(360deg);
+            transition: 0.2s ease-in-out!important;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: scroll;
+            padding: 0 1rem;
+            color: #b0b0b0;
+        }
+        
+        .accordion-content.active {
+            max-height: 350px;
+            text-align: center;
+            border: 3.5px solid #00a86b33;
+            border-top: none;
+        }
+
+        .accordion-content > a img {
+            width: clamp(100px, 14vw, 10rem);
+            margin: clamp(5px, 1.5%, 0.5rem);
+        }
+
+        .nav {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item {
+            display: inline-block;
+            padding: 0.5rem;
+            background-color: #00a86b;
+            border-radius: 0.75rem;
+            margin: 0 0.25rem;
+        }
+
+        .nav-item:hover {
+            background-color: #00c17a;
+        }
+        
+        .nav-item a {
+            text-decoration: none;
+            color: palegreen;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item img, .accordion-content > a img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+
+        .contain {
+            object-fit: contain!important;
+        }
+
+        .nav-item img {
+            width: 20px;
+            border-radius: 100%;
+            margin-right: 0.3rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <p class="header">My name is Dustin Dwayne Diaz. This page is still work in progess. But you can check out projects that I have
+        done.</p>
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a href="Planets/planet.html">
+                <img src="Planets/img/earthmap.jpg" alt="Earth">
+                Sun, Earth, & Moon</a>
+        </li>
+        <li class="nav-item">
+            <a href="Minecraft Inventory/minecraft_inventory.html">
+                <img src="Minecraft Inventory/minecraft_icon.png" alt="Minecraft" class="contain">
+                Minecraft Inventory</a>
+        </li>
+        <li class="nav-item">
+            <a href="Kia Ora Cafe/index.html">
+                <img src="Kia Ora Cafe/images/favicon.ico" alt="Cafe" class="contain">
+                Kia Ora Cafe Website</a>
+        </li>
+    </ul>
+
+    <div class="accordion">
+        <button class="accordion-btn">
+            <span>Photos</span>
+            <span class="arrow">^</span>
+        </button>
+        <div class="accordion-content"></div>
+    </div>
+
+    <script>
+        const gallery = document.querySelector('.accordion-content');
+        const btn = document.querySelector('.accordion-btn');
+
+        for (let i = 1; i < 19; i++) {
+            let aTag = document.createElement("a");
+            let image = document.createElement('img');
+            aTag.href = image.src = `src/image${i}.png`;
+            image.alt = `Image ${i}`;
+            image.loading = "lazy";
+            aTag.target = "_blank";
+            aTag.append(image);
+            gallery.append(aTag);
+        }
+
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            gallery.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>

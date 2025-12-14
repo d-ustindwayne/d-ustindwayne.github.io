@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Kia Ora Cafe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/components.js"></script>
+</head>
+
+<body>
+    <nav></nav>
+    <aside></aside>
+    <article></article>
+    
+    <section class="container-fluid px-0">
+        <img src="images/menu/menu-best-seller.png" class="img-fluid object-fit-contain d-md-inline d-none"
+        alt="Best Sellers">
+        <img src="images/menu/menu-best-seller-phone.png" class="img-fluid object-fit-contain d-md-none d-inline"
+        alt="Best Sellers">
+    </section>
+
+    <section class="container py-4">
+        <div class="row d-none d-md-flex my-5">
+            <div class="col-4 invisible"></div>
+            <div class="col-4"><h2 class="h2 heading-bold text-center">Menus</h2></div>
+            <div class="col-4 text-end"><button class="btn" type="button"
+                data-bs-target="#download-modal" data-bs-toggle="modal">
+                Download Menu
+            </button></div>
+        </div>
+        <div class="row g-4 d-md-flex d-none">
+            <div class="col-6">
+                <a href="menu-food.html">
+                    <img src="images/menu/menu-food-icon.png" class="img-fluid ratio ratio-1x1 object-fit-contain hover-to-tilt"
+                    alt="Food Menu">
+                </a>
+                <p class="text-center heading-semibold h4">Food Menu</p>
+            </div>
+            <div class="col-6">
+                <a href="menu-drinks.html">
+                    <img src="images/menu/menu-drinks-icon.png" class="img-fluid ratio ratio-1x1 object-fit-contain hover-to-tilt"
+                    alt="Drinks Menu">
+                </a>
+                <p class="text-center heading-semibold h4">Drinks Menu</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-md-2 row-cols-1 g-4 d-md-none d-flex">
+            <div class="col-6">
+                <a href="images/menu/food-menu.png" download>
+                    <img src="images/menu/food-menu.png" class="img-fluid ratio ratio-1x1 object-fit-contain hover-to-tilt scale-2 p-4"
+                    alt="Food Menu">
+                </a>
+                <p class="text-center heading-semibold h4">Food Menu</p>
+            </div>
+            <div class="col-6">
+                <a href="images/menu/drinks-menu.png" download>
+                    <img src="images/menu/drinks-menu.png" class="img-fluid ratio ratio-1x1 object-fit-contain hover-to-tilt scale-2 p-4"
+                    alt="Drinks Menu">
+                </a>
+                <p class="text-center heading-semibold h4">Drinks Menu</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="download-modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header align-items-start">
+                        <p class="heading-semibold mb-0">Download Menu</p>
+                    </div>
+                    <div class="modal-body">
+                        <p class="heading-regular">Choose File</p>
+                        <a class="btn bgcolor-base invert-text" href="files/full-menu.pdf" download>Full Menu</a>
+                        <a class="btn bgcolor-base invert-text" href="files/food-menu.pdf" download>Food Menu</a>
+                        <a class="btn bgcolor-base invert-text" href="files/drinks-menu.pdf" download>Drinks Menu</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger btn-no-hover" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <footer></footer>
+</body>
+
+</html>

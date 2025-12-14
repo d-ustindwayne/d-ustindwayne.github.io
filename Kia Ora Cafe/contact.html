@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Kia Ora Cafe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/components.js"></script>
+</head>
+
+<body>
+    <nav></nav>
+    <aside></aside>
+    <article></article>
+    
+    <header class="container-fluid bg-img-fit text-center" id="contact-banner">
+        <h1 class="h1 heading-bold text-white text-hovered mt-3">Connect with Us</h1>
+        <h5 class="h5 heading-semibold text-white text-hovered my-4 pb-3">Have questions about our branches, courses, or events? Reach out—our team is here to help.</h5>
+    </header>
+    
+    <main class="container-fluid bgcolor-main rounded-3 py-5">
+        <div class="row mx-1">
+            <div class="col-xl-3 col-md-4 col-12 text-center d-none d-md-inline-block
+            d-flex justify-content-md-start flex-md-column flex-row textcolor-primary">
+            <a href="branches.html" class="btn rounded-pill w-100 d-flex flex-row align-items-center">
+                <i class="bi bi-house-door-fill p-2 contact-icon"></i>
+                <p class="d-inline-block h6 textcolor-primary-hover heading-regular ms-md-2 ms-3 mb-0">View All Branches</p>
+            </a>
+            <a href="tel:+639990001122" class="mt-3 btn rounded-pill w-100 d-flex flex-row align-items-center">
+                <i class="bi bi-telephone-fill p-2 contact-icon"></i>
+                    <p class="d-inline-block h6 textcolor-primary-hover heading-regular ms-md-2 ms-3 mb-0">+63-999-000-1122</p>
+                </a>
+                <a href="mailto:jasmine@kia-ora.cafe" class="mt-3 btn rounded-pill w-100 d-flex flex-row align-items-center">
+                    <i class="bi bi-envelope-fill p-2 contact-icon"></i>
+                    <p class="d-inline-block h6 textcolor-primary-hover heading-regular ms-md-2 ms-3 mb-0">jasmine@kia-ora.cafe</p>
+                </a>
+            </div>
+            <div class="col-xl-9 col-md-8 col-12 textcolor-primary">
+                <div class="accordion accordion-flush shadow-br" id="contact-accordion">
+                    <!-- Message -->
+                    <div class="accordion-item" id="mess">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#message-accordion" aria-expanded="false" aria-controls="message-accordion">
+                            Message Us
+                        </button>
+                    </h2>
+                    <div id="message-accordion" class="accordion-collapse collapse show"
+                    data-bs-parent="#contact-accordion">
+                    <div class="accordion-body bgcolor-container">
+                        <form class="message-form needs-validation" novalidate>
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="col-12 d-flex flex-row p-0 my-2">
+                                        <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                            <input type="text" id="message-firstName" name="message-firstName" class="form-control bgcolor-main" placeholder="" minlength="2" maxlength="50" required>
+                                            <label class="fw-semibold" for="message-firstName">First Name</label>
+                                        </div>
+                                        <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                            <input type="text" id="message-lastName" name="message-lastName" class="form-control bgcolor-main" placeholder="" minlength="2" maxlength="50" required>
+                                            <label class="fw-semibold" for="message-lastName">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex flex-row p-0 my-2">
+                                        <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                            <input type="email" id="message-email" name="message-email" class="form-control bgcolor-main" 
+                                            pattern="[a-zA-Zo0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="" maxlength="50" required>
+                                            <label class="fw-semibold" for="message-email">Email</label>
+                                        </div>
+                                    </div>
+                                            <div class="col-12 d-flex flex-row p-0 my-2">
+                                                <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                                    <textarea name="message-message" id="message-message" class="form-control bgcolor-main" placeholder="" minlength="10" maxlength="250" required></textarea>
+                                                    <label class="fw-semibold" for="message-message">Message</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row-reverse">
+                                                <p class="font-monospace mb-1" id="message-textarea">0/250</p>
+                                            </div>
+                                            <div class="col-12 d-flex flex-row-reverse p-0 my-2">
+                                                <button class="btn me-2" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feedback -->
+                    <div class="accordion-item" id="feed">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#feedback-accordion" aria-expanded="false" aria-controls="feedback-accordion">
+                            Give Feedback
+                        </button>
+                    </h2>
+                    <div id="feedback-accordion" class="accordion-collapse collapse"
+                    data-bs-parent="#contact-accordion">
+                    <div class="accordion-body bgcolor-container">
+                        <form class="feedback-form needs-validation" novalidate>
+                            <div class="container">
+                                <div class="row row-cols-1">
+                                    <div class="col-12 d-flex flex-row p-0 my-2">
+                                        <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                            <input type="text" id="feedback-firstName" name="feedback-firstName" class="form-control bgcolor-main" placeholder="" minlength="2" maxlength="50" required>
+                                            <label class="fw-semibold" for="feedback-firstName">First Name</label>
+                                        </div>
+                                        <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                            <input type="text" id="feedback-lastName" name="feedback-lastName" class="form-control bgcolor-main" placeholder="" minlength="2" maxlength="50" required>
+                                                    <label class="fw-semibold" for="feedback-lastName">Last Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex flex-row p-0 my-2">
+                                                <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                                    <input type="email" id="feedback-email" name="feedback-email" class="form-control bgcolor-main" 
+                                                    pattern="[a-zA-Zo0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" placeholder="" maxlength="50" required>
+                                                    <label class="fw-semibold" for="feedback-email">Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex flex-row p-0 my-2">
+                                                <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                                    <select name="feedback-branch" id="feedback-branch" class="form-select bgcolor-main" required>
+                                                        <option value="" selected aria-selected="true">Select a branch</option>
+                                                        <option value="Antipolo">Antipolo</option>
+                                                        <option value="Baler">Baler</option>
+                                                        <option value="Caloocan">Caloocan</option>
+                                                        <option value="Candelaria">Candelaria</option>
+                                                        <option value="Concepcion">Concepcion</option>
+                                                        <option value="Mabalacat">Mabalacat</option>
+                                                        <option value="Naga">Naga</option>
+                                                        <option value="Pasig">Pasig</option>
+                                                        <option value="SJDM">SJDM</option>
+                                                        <option value="Sual">Sual</option>
+                                                        <option value="Tagaytay">Tagaytay</option>
+                                                    </select>
+                                                    <label class="fw-semibold" for="feedback-email">Branch</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex flex-row p-0 my-2">
+                                                <div class="form-floating w-100 mx-2 shadow-br-sm">
+                                                    <textarea name="feedback-feedback" id="feedback-feedback" class="form-control bgcolor-main" placeholder="" minlength="10" maxlength="250" required></textarea>
+                                                    <label class="fw-semibold" for="feedback-feedback">Feedback</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row-reverse">
+                                                <p class="font-monospace mb-1" id="feedback-textarea">0/250</p>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <p class="small fw-semibold align-self-end my-0 ms-1 me-3">Rate and share your visit:</p>
+                                                <div id="rating-valid-icon" class="d-none z-2 bg-img-fit" style="width: 20px; height: 20px;"></div>
+                                                <div id="rating-invalid-icon" class="d-none z-2 bg-img-fit" style="width: 20px; height: 20px;"></div>
+                                            </div>
+                                            <div class="col-12 d-flex mt-2 flex-row align-top p-0 my-2">
+                                                <div class="w-100 mx-2">
+                                                    <div class="container shadow-br-sm py-2 bgcolor-main d-flex justify-content-between flex-row align-items-center">
+                                                        <div class="rating-container d-flex flex-row flex-row-reverse mb-1 mt-1 align-items-center gap-1">
+                                                            <p id="star-count" class="small textcolor-muted d-none mb-0 text-end ms-1">(0 Stars)</p>
+                                                            <input type="radio" value="5" name="feedback-stars" id="star5" class="form-control feedback-star-input form-check p-0">
+                                                            <label class="feedback-star-label fw-semibold h4 mb-0" id="label-star5" for="star5">&starf;</label>
+                                                            <input type="radio" value="4" name="feedback-stars" id="star4" class="form-control feedback-star-input form-check p-0">
+                                                            <label class="feedback-star-label fw-semibold h4 mb-0" id="label-star4" for="star4">&starf;</label>
+                                                            <input type="radio" value="3" name="feedback-stars" id="star3" class="form-control feedback-star-input form-check p-0">
+                                                            <label class="feedback-star-label fw-semibold h4 mb-0" id="label-star3" for="star3">&starf;</label>
+                                                            <input type="radio" value="2" name="feedback-stars" id="star2" class="form-control feedback-star-input form-check p-0">
+                                                            <label class="feedback-star-label fw-semibold h4 mb-0" id="label-star2" for="star2">&starf;</label>
+                                                            <input type="radio" value="1" name="feedback-stars" id="star1" class="form-control feedback-star-input form-check p-0">
+                                                            <label class="feedback-star-label fw-semibold h4 mb-0" id="label-star1" for="star1">&starf;</label>
+                                                            <p class="d-inline-block mt-1 mb-1 fw-semibold me-1">Rating:</p>
+                                                        </div>
+                                                        
+                                                        <div class="photo-upload-container d-flex flex-row mb-1 gap-1 align-items-center mt-1">
+                                                            <button class="btn btn-sm d-none d-sm-inline-block m-0" type="button" onclick="document.getElementById('feedback-photo').click();"> Upload Photo</button>
+                                                            <p class="d-sm-none d-inline-block fw-semibold mb-0">Upload:</p>
+                                                            <button class="btn d-inline-block d-sm-none" type="button" onclick="document.getElementById('feedback-photo').click();"><i class="bi bi-camera-fill"></i></button>
+                                                            <input type="file" name="feedback-photo" id="feedback-photo"
+                                                            class="d-none form-control bgcolor-btn rounded-0" multiple required
+                                                            accept="image/png, image/jpg, image/jpeg, image/webp, image/heic, image/heif">
+                                                            <!--Allow only png jpg and other photo file format-->
+                                                        </div>
+                                                    </div>
+                                                    <p id="file-upload" class="small textcolor-muted mb-0 text-end d-none me-3 align-self-end"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex flex-row-reverse p-0 my-2">
+                                                <button class="btn me-2" type="submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>    
+    <script src="js/contact.js"></script>
+    <footer></footer>
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/minecraftia" type="text/css"/> 
+    <title>Minecraft Inventory</title>
+    <style>
+
+        @import url('https://fonts.cdnfonts.com/css/pixelcraft-2');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .inventory{
+            border: 4px solid black;
+            border-radius: 15px;
+        }
+        
+        .inventory .inner {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(198,198,198);
+            width: 705px;
+            height: 660px;
+            border-radius: 10px;
+            border-top: 8px solid rgb(255, 255, 255);
+            border-left: 8px solid rgb(255, 255, 255);
+            border-bottom: 8px solid rgb(85, 85, 85);
+            border-right: 8px solid rgb(85, 85, 85);
+        }
+        
+        .inner > * {
+            margin-top: 3%;
+        }
+        
+        .top, .mid, .bot {
+            width: 705px;
+        }
+
+        .top, .top .armor > *, .knowledge-book-outer, .knowledge-book-inner, .shield, .kb-container, .crafting-right, .crafting-right .crafting-output {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .top .armor > * > .placeholder, .kb-photo, .shield .placeholder, .crafting-output .output-arrow {
+            aspect-ratio: 1/1;
+            height: 3.8em;
+            background-size: contain;
+        }
+
+        .shield-container, .crafting-left {
+            height: 288px;
+        }
+
+        .character {
+            height: 280px;
+            background-color: black;
+            aspect-ratio: 5/8;
+            display: flex;
+            justify-content: center;
+            border-top: 4px solid rgb(55, 55, 55);
+            border-left: 4px solid rgb(55, 55, 55);
+            border-bottom: 4px solid rgb(255, 255, 255);
+            border-right: 4px solid rgb(255, 255, 255);
+        }
+
+        .character-photo {
+            height: 86%;
+            align-self: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .shield-container {
+            display: flex;
+            align-items: end;
+        }
+
+        .kb-container {
+            margin-top: 16px;
+        }
+
+        .knowledge-book-outer {
+            border: 4px solid black;
+            border-radius: 10px;
+            aspect-ratio: 1/1;
+        }
+
+        .knowledge-book-inner {
+            height: 60px;
+            display: block;
+            border-radius: 4px;
+            border-top: 2.8px solid rgb(255, 255, 255);
+            border-left: 2.8px solid rgb(255, 255, 255);
+            border-bottom: 2.8px solid rgb(85,85,85);
+            border-right: 2.8px solid rgb(85,85,85);
+            background-color: rgb(198, 198, 198);
+        }
+
+        .kb-photo {
+            cursor: pointer;
+            transform: scale(0.95);
+            height: 60px;
+            aspect-ratio: 1/1;
+        }
+
+        .crafting-left {
+            margin-left: 24px;
+        }
+        
+        .crafting-left .crafting-title {
+            font-family: 'PixelCraft', sans-serif;
+            color: rgb(63, 63, 63);
+            margin: 0;
+            padding: 0;
+            line-height: 20px;
+            align-self: flex-start;
+        }
+        
+        .crafting-left .crafting-grid {
+            margin-top: 36px;
+        }
+
+        .crafting-right {
+            width: 150px;
+            margin-bottom: 28px;
+        }
+
+        .crafting-right .crafting-output > * {
+            margin-left: 10px;
+        }
+
+        .inventory .inner .mid {
+            display: table;
+            width: 100%;
+            table-layout: 'row1' 'row2' 'row3';
+        }
+
+        .row1, .row2, .row3, .bot, .crafting-row1, .crafting-row2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .row1 > *, .row2 > *, .row3 > *, .bot > *, .top .armor > *, .shield, .crafting-col1, .crafting-col2, .output-box {
+            display: block;
+            background-color: rgb(139, 139, 139);
+            aspect-ratio: 1/1;
+            height: 64px;
+            border-top: 4px solid rgb(55, 55, 55);
+            border-left: 4px solid rgb(55, 55, 55);
+            border-bottom: 4px solid rgb(255, 255, 255);
+            border-right: 4px solid rgb(255, 255, 255);
+        }
+
+        .inventory .inner .bot {
+            margin-top: 2.5%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="inventory">
+        <div class="inner">
+            <div class="top">
+                <div class="armor">
+                    <div class="helmet">
+                        <img src="armor-helmet.png" alt="" class="placeholder">
+                    </div>
+                    <div class="chestplate">
+                        <img src="armor-chestplate.png" alt="" class="placeholder">
+                    </div>
+                    <div class="leggings">
+                        <img src="armor-leggings.png" alt="" class="placeholder">
+                    </div>
+                    <div class="boots">
+                        <img src="armor-boots.png" alt="" class="placeholder">
+                    </div>
+                </div>
+                <div class="character">
+                    <img class="character-photo" src="character.png" alt="Player">
+                </div>
+                <div class="shield-container">
+                    <div class="shield">
+                        <img src="shield.png" alt="" class="placeholder">
+                    </div>
+                </div>
+                <div class="crafting-left">
+                    <h2 class="crafting-title">Crafting</h5>
+                    <div class="crafting-grid">
+                        <div class="crafting-row1">
+                            <div class="crafting-col1"></div>
+                            <div class="crafting-col2"></div>
+                        </div>
+                        <div class="crafting-row2">
+                            <div class="crafting-col1"></div>
+                            <div class="crafting-col2"></div>
+                        </div>
+                    </div>
+                    <div class="kb-container">
+                        <div class="knowledge-book-outer">
+                            <div class="knowledge-book-inner">
+                                <a href="https://www.minecraftcraftingguide.net/" target="_blank"><img class="kb-photo" src="knowledge_book.png" alt="Recipe knowledge_book"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="crafting-right">
+                    <div class="crafting-output">
+                        <img src="right-arrow.png" alt="" class="output-arrow">
+                        <div class="output-box"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mid">
+                <div class="row1">
+                    <div class="col1"></div>
+                    <div class="col2"></div>
+                    <div class="col3"></div>
+                    <div class="col4"></div>
+                    <div class="col5"></div>
+                    <div class="col6"></div>
+                    <div class="col7"></div>
+                    <div class="col8"></div>
+                    <div class="col9"></div>
+                </div>
+                <div class="row2">
+                    <div class="col1"></div>
+                    <div class="col2"></div>
+                    <div class="col3"></div>
+                    <div class="col4"></div>
+                    <div class="col5"></div>
+                    <div class="col6"></div>
+                    <div class="col7"></div>
+                    <div class="col8"></div>
+                    <div class="col9"></div>
+                </div>
+                <div class="row3">
+                    <div class="col1"></div>
+                    <div class="col2"></div>
+                    <div class="col3"></div>
+                    <div class="col4"></div>
+                    <div class="col5"></div>
+                    <div class="col6"></div>
+                    <div class="col7"></div>
+                    <div class="col8"></div>
+                    <div class="col9"></div>
+                </div>
+            </div>
+            
+            <div class="bot">
+                <div class="hotbar1"></div>
+                <div class="hotbar2"></div>
+                <div class="hotbar3"></div>
+                <div class="hotbar4"></div>
+                <div class="hotbar5"></div>
+                <div class="hotbar6"></div>
+                <div class="hotbar7"></div>
+                <div class="hotbar8"></div>
+                <div class="hotbar9"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
