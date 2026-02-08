@@ -1,0 +1,407 @@
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  }
+  
+  body {
+  animation: fadeIn 0.5s ease-out;
+  }
+  
+
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* NAVBAR */
+  
+  body{
+    background-color: #171717;
+    color: white;
+	font-family: "Inter";
+  }
+  .top-section{
+    background:url(PHOTOS/LandingPage/LandingPageBg1.png);
+    background-size: cover;
+  }
+  
+  .nav-bar{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: fixed;
+    box-shadow: 0px 4px 15px 4px rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+  
+  .nav-container{
+    margin: auto;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .nav-items{
+    width: 60%;
+  }
+  
+  .nav-items p{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  
+  .nav-items .navbutton a{
+    padding: 5px;
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  
+  .navbutton{
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .logo p{
+    padding: 0;
+    margin: 0;
+    font-family: "Kaisei HarunoUmi", serif;
+    font-weight: 400;
+    font-style: normal;
+  
+  }
+  .navbutton a{
+    box-sizing: border-box;
+    transition: 0.3s ease-out;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+  }
+  
+  
+  .navbutton a:hover{
+    transition: 0.3s ease-out;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+  .jmword{
+    font-size: 13px;
+  }
+  .jmword .fletter{
+    color: #b99d7d;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+
+  
+/* CONTENTS */
+
+.details{
+	margin-top: 100px;
+}
+.description{
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	  
+}
+.tn-detail{
+	width: 230px;
+	
+}
+.details h3{
+  font-weight: 700;
+}
+.duration{
+  font-weight: 200;
+  font-size: 12px;
+}
+.duration,
+.course-level,
+.price {
+	font-family: "Inter";
+	margin: 0;
+	padding: 0;
+}
+
+
+.course-level{
+	font-family: "Inter";
+	font-size: 18px;
+	font-weight:600;
+}
+
+.price{
+	font-family: "Inter";
+	font-size: 25px;
+	font-weight:600;
+	color: #B48B6E;
+}
+.btn-purchase{
+  transition: 0.1s ease-out;
+  padding: 10px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
+	font-size: 12px;
+	width: 140px;
+	height: 40px;
+	border-radius: 5px;
+	background: #A87755;
+}
+.btn-purchase:hover{
+  transition: 0.3s ease-out;
+  padding: 10px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
+	font-size: 13px;
+	width: 140px;
+	height: 40px;
+	border-radius: 5px;
+	background: #725947;
+}
+
+
+.divider {
+  visibility: visible;
+  border: 2px solid #B48B6E;
+  border-radius: 5px;
+  height: 2px; /* Ensure height is not set to 0 */
+  width: 975px;
+  color: #B48B6E;
+}
+
+/* INSIDE COURSES */
+
+.subtn-detail{
+	width: 120px;
+}
+.inside-courses p{
+  margin: 0;
+  margin-left: 50px;
+  padding: 0;
+}
+
+.inside-courses div{
+  margin: 10px;
+}
+
+
+
+
+/* CART */
+
+/* Cart Offcanvas */
+.offcanvas {
+  background-color: #ffffff;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 1.2rem;
+}
+
+/* Cart Toggle Button */
+.cart-toggle-button {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #A87755;
+  color: white;
+  border: none;
+}
+
+.cart-toggle-button:hover {
+  background-color: #A87755; /* Ensure the color stays the same on hover */
+  color: white;
+}
+
+/* Checkout Button */
+.btn-primary {
+  background-color: #A87755;
+  border-color: #A87755;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #A87755;
+  border-color: #A87755;
+  color: white;
+}
+
+/* Active State for Cart Toggle Button and Checkout Button */
+.cart-toggle-button.active,
+.btn-primary.active {
+    background-color: #ffffff;
+    border: 1px solid #A87755;
+    color: #A87755;
+}
+
+.cart-toggle-button.active:hover,
+.btn-primary.active:hover {
+    background-color: #ffffff;
+    border: 1px solid #A87755;
+    color: #A87755;
+}
+
+.btn-link{
+  text-decoration: none;
+}
+
+/* MAILLIST SECTION */
+
+#maillist-section{
+  background-color: #F1EBE7;
+  height: 250px;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+}
+
+#maillist-section h3{
+  size: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+#maillist-section p{
+  size: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.maillist-input{
+  border-radius: 20px;
+  height: 50px;
+  width: 500px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 5px;
+}
+
+.btn-div .btn-subscribe{
+  margin-left: 2px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  transition: 0.4s ease;
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #9b5a1e;
+}
+
+.btn-div .btn-subscribe:hover{
+  margin-left: 2px;
+  color: #864100;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #ffffff;
+  border: 1px #864100 solid;
+}
+
+#maillist-section {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+
+/* FOOTER */
+.footer div, h4, p{
+  margin: 2px;
+  padding: 0;
+  font-family: "Inter";
+}
+.footer-logo{
+  width: 100px;
+  height: 100px;
+}
+.footer div h4{
+  color: #AF987D;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.footer div p{
+  font-weight: 200;
+  font-size: 14px;
+  transition: 0.3s ease-out;
+}
+.terms, .harang, .privacy{
+  font-size: 14px;
+  font-weight: 200;
+  
+}
+.terms, .privacy{
+  color: #ddb485;
+}
+
+.terms:hover, .privacy:hover{
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  
+}
+
+.footer div p:hover{
+  transition: 0.15s ease-out;
+  text-shadow: 0 0 10px white;
+  text-underline-offset: 2px;
+}

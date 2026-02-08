@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ink: #2d3436;
+            --paper: #fdfbf7;
+            --highlight: #51dc55df;
+            --blue-pen: #0984e3;
+            --red-pen: #d63031;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.25rem;
+            background-image: linear-gradient(#e1e1e1 1px, transparent 1px), linear-gradient(90deg, #e1e1e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .sketch-box {
+            border: 2px solid var(--ink);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            transition: all 0.2s ease-in-out;
+            background: white;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+
+        .sketch-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px rgba(0,0,0,0.2);
+            border-color: var(--blue-pen);
+        }
+
+        .sketch-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--ink);
+            border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: bold;
+            position: relative;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .sketch-btn:hover {
+            background: var(--ink);
+            color: white;
+            animation: wiggle 0.3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(250, 177, 160, 0) 0%, var(--highlight) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 40%;
+            background-position: 0 88%;
+        }
+
+        .taped-image {
+            position: relative;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .taped-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 100px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 3rem 0;
+            position: relative;
+        }
+        hr::after {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--paper);
+            padding: 0 10px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        .coffee-stain {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 8px solid rgba(139, 69, 19, 0.08);
+            box-shadow: 0 0 0 5px rgba(139, 69, 19, 0.03), inset 0 0 20px rgba(139, 69, 19, 0.05);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .cv-container {
+            perspective: 1500px;
+            width: 100%;
+            max-width: 650px;
+            height: 120vh;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .inner-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .cv-container.is-flipped .inner-card {
+            transform: rotateY(180deg);
+        }
+
+        .front-button {
+            opacity: 1;
+            transition: opacity 250ms ease-in-out;
+        }
+
+        .cv-container.is-flipped .front-button {
+            opacity: 0;
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: 2px solid var(--ink);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            border-color: #333;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-content {
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-bottom: 1px dashed #ccc;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background-color: #f0f9ff;
+            color: var(--blue-pen);
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden relative">
+
+    <div class="coffee-stain top-10 right-10 rotate-45 hidden md:block"></div>
+    <div class="coffee-stain bottom-40 left-10 rotate-12 hidden md:block" style="width: 120px; height: 120px; border-color: rgba(139,69,19,0.05);"></div>
+
+    <div class="max-w-4xl mx-auto px-4 pt-16 pb-20">
+
+        <section id="intro" class="text-center mb-20">
+            <div class="relative inline-block">
+                <div class="taped-image rotate-[-3deg] hover:rotate-[5deg] transition-all inline-block mb-6">
+                    <img src="src/me.png" alt="Me" class="w-32 h-32 object-cover md:w-48 md:h-48">
+                </div>
+                <div class="hidden md:block absolute top-10 -right-40 w-32 text-left">
+                    <span class="text-red-600 text-lg transform -rotate-12 block">&lt;-- me, a really good boy</span>
+                </div>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 mt-4">
+                Hi, I'm <span class="highlight">Dustin Dwayne Diaz</span>.
+            </h1>
+            <p class="text-2xl text-gray-600 rotate-1" id="description">
+            </p>
+            
+            <div class="flex flex-row justify-center align-start">
+                <div class="mt-8 me-1">
+                    <button onclick="toggleModal()" class="sketch-btn">Contact Me!</button>
+                </div>
+                <div class="mt-8 ms-1 text-center">
+                    <a href="#cv" class="sketch-btn bg-black text-white hover:bg-white hover:text-black">
+                        Check My CV.
+                    </a>
+                    <span class="text-sm text-gray-400 block mt-2 transform rotate-1">I need job :)</span>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="projects">
+            <div class="flex items-center justify-start mb-10">
+                <h2 class="text-4xl font-bold underline decoration-wavy decoration-blue-400">Projects I Actually Finished</h2>
+                <span class="text-sm text-gray-500 rotate-3 border border-dashed border-gray-400 ms-4 p-1">which is honestly surprising</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="sketch-box p-6 relative">
+                    <div class="absolute -top-3 -right-3 bg-red-100 text-red-600 px-2 py-1 transform rotate-12 border border-red-200 text-sm font-bold shadow-sm">
+                        Most proud of this
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Kia Ora Cafe</h3>
+                    <div class="group relative h-32 bg-gray-100 mb-4 flex items-center justify-center border border-dashed border-gray-400 overflow-hidden">    
+                        <img src="src/kia-ora-cafe-thumbnail.png" alt="Kia Ora Cafe" class="w-full h-full object-cover object-center">
+                        <img src="src/kia-ora-cafe-screenshot.png" alt="Kia Ora Cafe" class="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                    </div>
+                    <p class="mb-4">I created a website for a fictional coffee shop. I put my girlfriend as the owner. I think that is the reason why this school project received a 50/50 marks.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-orange-300 px-2 rounded-sm text-sm">HTML</span>
+                        <span class="bg-blue-300 px-2 rounded-sm text-sm">CSS</span>
+                        <span class="bg-yellow-300 px-2 rounded-sm text-sm">Javascript</span>
+                        <span class="bg-violet-300 px-2 rounded-sm text-sm">Bootstrap</span>
+                    </div>
+                    <a href="https://github.com/d-ustindwayne/Kia-Ora-Cafe-Website" target="_blank" class="text-blue-600 underline hover:text-red-500">View Code</a>
+                    <a href="https://kia-ora-cafe.netlify.app/" target="_blank" class="text-amber-700 underline hover:text-blue-500">View Live Preview</a>
+                </div>
+
+                <div class="sketch-box p-6">
+                    <h3 class="text-2xl font-bold mb-2">John Mazel</h3>
+                    <div class="group relative h-32 bg-gray-100 mb-4 flex items-center justify-center border border-dashed border-gray-400 overflow-hidden">    
+                        <img src="src/john-mazel-website-thumbnail.png" alt="John Mazel" class="w-full h-full object-cover object-center">
+                        <img src="src/john-mazel-website-screenshot.png" alt="John Mazel" class="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                    </div>
+                    <p class="mb-4">Group project; I probably only did 10% of work. I'll just put it here anyway :D </p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-orange-300 px-2 rounded-sm text-sm">HTML</span>
+                        <span class="bg-blue-300 px-2 rounded-sm text-sm">CSS</span>
+                        <span class="bg-violet-300 px-2 rounded-sm text-sm">Bootstrap</span>
+                    </div>
+                    <a href="https://github.com/d-ustindwayne/John-Mazel" target="_blank" class="text-blue-600 underline hover:text-red-500">View Code</a>
+                    <a href="https://d-ustindwayne.github.io/John%20Mazel/index.html" target="_blank" class="text-amber-700 underline hover:text-blue-500">View Live Preview</a>
+                </div>
+                
+                <div class="sketch-box p-6">
+                    <h3 class="text-2xl font-bold mb-2">Minecraft Inventory</h3>
+                    <div class="group relative h-32 bg-gray-100 mb-4 flex items-center justify-center border border-dashed border-gray-400 overflow-hidden">    
+                        <img src="src/minecraft-inventory-thumbnail.png" alt="Minecraft" class="w-full h-full object-cover object-center">
+                        <img src="src/minecraft-inventory-screenshot.png" alt="Minecraft" class="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                    </div>
+                    <p class="mb-4">Ts not even a project, just a thing to fill this part out</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-orange-300 px-2 rounded-sm text-sm">HTML</span>
+                        <span class="bg-blue-300 px-2 rounded-sm text-sm">CSS</span>
+                    </div>
+                    <a href="https://github.com/d-ustindwayne/d-ustindwayne.github.io/tree/main/Minecraft%20Inventory" target="_blank" class="text-blue-600 underline hover:text-red-500">View Code</a>
+                    <a href="https://d-ustindwayne.github.io/Minecraft%20Inventory/minecraft_inventory.html" target="_blank" class="text-amber-700 underline hover:text-blue-500">View Live Preview</a>
+                </div>
+                
+                <div class="sketch-box p-6">
+                    <h3 class="text-2xl font-bold mb-2">Sun, Earth, & Moon</h3>
+                    <div class="group relative h-32 bg-gray-100 mb-4 flex items-center justify-center border border-dashed border-gray-400 overflow-hidden">    
+                        <img src="src/sun-earth-moon-thumbnail.png" alt="Earth" class="w-full h-full object-cover object-center">
+                        <img src="src/sun-earth-moon-screenshot.png" alt="Earth" class="absolute inset-0 w-full h-full object-cover object-middle    opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                    </div>
+                    <p class="mb-4">Also this. Did this because I don't know Three js that time.</p>
+                    <div class="flex gap-2 mb-4">
+                        <span class="bg-orange-300 px-2 rounded-sm text-sm">HTML</span>
+                        <span class="bg-blue-300 px-2 rounded-sm text-sm">CSS</span>
+                    </div>
+                    <a href="https://github.com/d-ustindwayne/d-ustindwayne.github.io/tree/main/Planets" target="_blank" class="text-blue-600 underline hover:text-red-500">View Code</a>
+                    <a href="https://d-ustindwayne.github.io/Planets/planet.html" target="_blank" class="text-amber-700 underline hover:text-blue-500">View Live Preview</a>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="gallery">
+            <h2 class="text-4xl font-bold my-8 underline decoration-wavy decoration-green-400">
+                Photo Gallery
+            </h2>
+            <p class="mb-6 text-xl">A carefully curated selection of photos to summarize my life.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="taped-image rotate-2 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/meandjasmine.png" alt="Love of my life" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">My pretty girlfriend</p>
+                </div>
+
+                <div class="taped-image -rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/cousins.png" alt="Cousins" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">A random cousins' hangout</p>
+                </div>
+
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/buday.png" alt="Buday" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">BUDAYYYYYYYY</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/babygirl.png" alt="Ling" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">OH NOOOO, BABYGIRLLL</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/unimates.png" alt="BDT" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">Bachelor of Digital Technology mates (without Janica)</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/meandmama.png" alt="Mama" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">Young me</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/firsttimeonaplane.png" alt="Plane" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">On my way to New Zealand</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/nothing.png" alt="Nothing Phone" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">My missing phone btw</p>
+                </div>
+                
+                <div class="taped-image rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <img src="src/prettygirl.png" alt="Jasmine" class="w-full h-48 object-cover">
+                    <p class="text-center mt-2 font-bold text-sm text-gray-500">Unbelievably breathtaking beauty cutie patootie</p>
+                </div>
+
+
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="cv" class="mb-10">
+            <div class="text-center mb-10">
+                <h2 class="text-4xl font-bold underline decoration-wavy my-5 decoration-purple-400">My CV</h2>
+                <p class="text-gray-500 mt-2">(Flip to see the dark side)</p>
+            </div>
+
+            <div id="cv-container" class="cv-container" onclick="toggleFlip()">
+                <div class="inner-card">
+                    
+                    <div class="p-5 card-face">
+
+                        <button class="front-button absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 rounded-full px-3 py-1 text-sm font-bold text-gray-500 z-10 flex items-center">
+                            Flip It <span class="ml-1">↻</span>
+                        </button>
+
+                        <h3 class="text-4xl font-bold mb-1">Dustin Dwayne N. Diaz</h3>
+                        <p class="text-gray-500 mb-2 italic">International Student &bull; Pukekohe, Auckland</p>
+                        
+                        <div class="space-y-6 flex-grow overflow-y-auto">
+                            <h4 class="text-3xl font-bold mt-2">Skills</h4>
+                            <ul class="list-disc pl-5 mt-2 text-sm text-gray-600 space-y-1">
+                                <li>Reliability: Time Management & Punctuality.</li>
+                                <li>Service: Customer Service, Communication & Cash Handling.</li>
+                                <li>Attitude: Teamwork, Problem-Solving, and Willingness to Learn.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow overflow-y-auto">
+                            <h4 class="text-3xl font-bold mt-2">Education</h4>
+                            <div class="border-l-4 border-gray-300 pl-4">
+                                <h4 class="text-xl font-bold">Bachelor of Digital Technologies</h4>
+                                <h2 class="text-lg italic">Feb 2025 - Present</h2>
+                                <p class="text-gray-500 text-sm">Major in Software and Web Development @ Manukau Institute of Technology</p>
+                            </div>
+                            <div class="border-l-4 border-gray-300 pl-4">
+                                <h4 class="text-xl font-bold">Bachelor of Science in Computer Science</h4>
+                                <h2 class="text-lg italic">August 2023 - July 2024</h2>
+                                <p class="text-gray-500 text-sm">@ Our Lady of Fatima University</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow overflow-y-auto">
+                            <h4 class="text-3xl font-bold mt-2">Work History</h4>
+                            <div class="border-l-4 border-gray-300 pl-4">
+                                <h4 class="text-xl font-bold">Salesman</h4>
+                                <p class="text-gray-500 text-sm">2022 - 2025 @ Winnie's Meatshop</p>
+                                <ul class="list-disc pl-5 mt-2 text-sm text-gray-600 space-y-1">
+                                    <li>Assisted customers with their meat selections and provided excellent customer service.</li>
+                                    <li>Maintained cleanliness and organization of the shop.</li>
+                                    <li>Processed transactions and managed inventory. </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="text-lg italic mt-3">&mdash;&nbsp;Referees available upon request</h4>
+                        
+                        <div class="mt-4 mb-2 pt-4 text-sm text-gray-500 text-center">
+                            Dustin Dwayne N. Diaz | nepomucenodwayne@gmail.com | +64225400799
+                        </div>
+                    </div>
+
+                    <div class="p-5 card-face card-back">
+                        
+                        <button class="absolute top-4 right-4 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-full px-3 py-1 text-sm font-bold text-green-400 z-10 flex items-center">
+                            Go Back <span class="ml-1">↻</span>
+                        </button>
+
+                        <h3 class="text-3xl font-bold mb-1 text-green-400 font-mono">Dustin Dwayne N. Diaz</h3>
+                        <p class="text-gray-400 mb-6 font-mono">> Software and Web Developer</p>
+                        
+                        <div class="space-y-6 flex-grow overflow-y-auto overflow-y-auto">
+                            <h4 class="inline text-3xl font-bold mt-2">Skills & Technologies</h4>
+                            <span class="inline text-sm rotate-3 bg-blue-900 font-mono ms-4 p-1">&darr; scroll down &darr;</span>
+                            <ul class="list-none pl-5 mt-2 text-base space-y-1">
+                                <li><span class="px-1 bg-emerald-800 text-bold">Programming Languages:</span> Python, C, C++, Java, JavaScript, TypeScript, PHP, SQL</li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Web Development:</span> HTML, CSS, Bootstrap, Tailwind CSS, jQuery, React, Express.js, EJS </li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Tools & Platform:</span>Git, Node.js, Vite, Docker, Visual Studio Code, Apache, MySQL</li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Design & UI/UX:</span>Figma, Canva, Draw.io, ERDPlus</li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Data & Analysis:</span>Microsoft Power BI, Access, Excel, AI Studio (RapidMiner) </li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Softwares & Systems:</span>Microsoft Office Suite, NetBeans, Rufus, OBS Studio, Piskel</li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Technical Concepts:</span>Object-Oriented Programming, Data Structures, System Analysis & Design, Human-Computer Interaction</li>
+                                <li><span class="px-1 bg-emerald-800 text-bold">Hardware & Embedded:</span>PC Assembly, Windows/Linux Installation, Arduino, Raspberry Pi, Embedded Systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-6 flex-grow overflow-y-auto">
+                            <h4 class="text-3xl font-bold mt-2">Education</h4>
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="text-xl font-bold">Bachelor of Digital Technologies</h4>
+                                <h2 class="text-lg italic">Feb 2025 - Present</h2>
+                                <p class="text-sm">Major in Software and Web Development @ Manukau Institute of Technology</p>
+                            </div>
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="text-xl font-bold">Bachelor of Science in Computer Science</h4>
+                                <h2 class="text-lg italic">August 2023 - July 2024</h2>
+                                <p class="text-sm">@ Our Lady of Fatima University</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6 flex-grow overflow-y-auto">
+                            <h4 class="text-3xl font-bold mt-2">Work History</h4>
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <h4 class="text-xl font-bold">Salesman</h4>
+                                <p class="text-sm">2022 - 2025 @ Winnie's Meatshop</p>
+                                <ul class="list-disc pl-5 mt-2 text-sm text-blue-200 space-y-1">
+                                    <li>Assisted customers with their meat selections and provided excellent customer service.</li>
+                                    <li>Maintained cleanliness and organization of the shop.</li>
+                                    <li>Processed transactions and managed inventory. </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h4 class="text-lg italic mt-3">&mdash;&nbsp;Referees available upon request</h4>
+
+                        <div class="mt-4 mb-2 pt-4 text-sm text-center">
+                            Dustin Dwayne N. Diaz | nepomucenodwayne@gmail.com | +64225400799
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <footer class="mt-20 mb-10 text-center text-gray-500" id="contact"> 
+            <br>
+            <p class="mt-4">
+                © <span id="year">2026</span>
+                Made on a random 2 am breakdown
+                <br>by 
+                <a href="mailto:nepomucenodwayne@gmail.com" class="text-gray-700 hover:underline">Dustin Dwayne Diaz</a>
+            </p>
+        </footer>
+    </div>
+
+    <div id="contact-modal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="sketch-box modal-content p-8 max-w-sm w-full relative mx-4 rotate-1" onclick="event.stopPropagation()">
+            <div class="absolute -top-3 -left-3 bg-red-100 text-red-600 px-2 py-1 transform -rotate-12 border border-red-200 text-sm font-bold shadow-sm">
+                don't spam me please hihi
+            </div>
+            <button class="absolute -top-4 -right-4 bg-red-500 text-white w-10 h-10 rounded-full border-2 border-black font-bold transform hover:scale-110 transition-transform shadow-md z-10" onclick="toggleModal()">X</button>
+            <h2 class="text-3xl font-bold mb-6 text-center underline decoration-wavy decoration-blue-400">Contacts</h2>
+            
+            <ul class="space-y-2 text-lg">
+                <li>
+                    <a href="https://www.facebook.com/buday.py" class="social-link group">
+                        <i class="fab fa-facebook-f w-8 text-blue-600 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/mapang.he" class="social-link group">
+                        <i class="fab fa-instagram w-8 text-pink-600 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/diaz5195/" class="social-link group">
+                        <i class="fab fa-linkedin-in w-8 text-blue-700 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/d-ustindwayne" class="social-link group">
+                        <i class="fab fa-github w-8 text-gray-800 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:nepomucenodwayne@gmail.com" class="social-link group">
+                        <i class="fas fa-envelope w-8 text-red-500 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>nepomucenodwayne@gmail.com</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:+64225400799" class="social-link group border-none">
+                        <i class="fas fa-phone-alt w-8 text-green-600 text-xl group-hover:scale-125 transition-transform"></i>
+                        <span>+6422-540-0799</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const myBirthday = new Date("2005-04-14T07:09:00");
+        function updateTimer() {
+            const currentTime = new Date();
+
+            let diff = currentTime - myBirthday;
+
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+            diff -= years * (1000 * 60 * 60 * 24 * 365.25);
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff -= days * (1000 * 60 * 60 * 24);
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            diff -= hours * (1000 * 60 * 60);
+
+            const minutes = Math.floor(diff / (1000 * 60));
+            diff -= minutes * (1000 * 60);
+
+            const seconds = Math.floor(diff / 1000);
+
+            document.getElementById('description').innerText = `My chaotic life started exactly ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds ago.`;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
+        
+        document.getElementById('year').innerText = new Date().getFullYear();
+        
+        const boxes = document.querySelectorAll('.sketch-box');
+        boxes.forEach(box => {
+            if(!box.closest('.cv-container') && !box.classList.contains('card-face')) {
+                const rot = Math.random() * 2 - 1; 
+                box.style.transform = `rotate(${rot}deg)`;
+            }
+        });
+
+        function toggleFlip() {
+            const container = document.getElementById('cv-container');
+            container.classList.toggle('is-flipped');
+        }
+
+        function toggleModal() {
+            const modal = document.getElementById('contact-modal');
+            modal.classList.toggle('open');
+            
+            if(modal.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function closeModal(event) {
+            if (event.target.id === 'contact-modal') {
+                toggleModal();
+            }
+        }
+    </script>
+</body>
+</html>

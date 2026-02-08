@@ -1,0 +1,719 @@
+
+@keyframes fadeIn {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
+
+body {
+animation: fadeIn 0.5s ease-out;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+
+
+/* NAVBAR */
+
+body{
+background-color: #181818;
+color: white;
+}
+.top-section{
+background:url(PHOTOS/LandingPage/LandingPageBg1.png);
+background-size: cover;
+}
+
+
+
+.nav-bar{
+background-color: rgba(0, 0, 0, 0.3);
+width: 100%;
+position: fixed;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.055);
+backdrop-filter: blur(5px);
+z-index: 1000;
+}
+
+.nav-container{
+margin: auto;
+width: 100%;
+padding: 10px 20px;
+}
+.nav-items{
+width: 60%;
+}
+
+.nav-items p{
+margin: 0;
+font-size: 12px;
+font-family: "Montserrat", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+
+.nav-items .navbutton a{
+padding: 5px;
+}
+
+
+a{
+text-decoration: none;
+color: white;
+
+}
+.logo p{
+  padding: 0;
+  margin: 0;
+  font-family: "Kaisei HarunoUmi", serif;
+  font-weight: 400;
+  font-style: normal;
+  
+  }
+
+.navbutton a{
+  transition: 0.3s ease-in-out;
+  box-sizing: border-box;
+  transition: 0.4s ease;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-decoration: none;
+}
+
+
+.navbutton a:hover{
+  transition: 0.3s ease-in-out;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.jmword{
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.jmword .fletter{
+  color: #b99d7d;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+
+
+/* TOP SECTION */
+
+#top-section{
+  background-image: url('PHOTOS/LandingPage/LandingPageBg1.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+
+
+
+}
+
+#top-section h1{
+  color: #FFF;
+  text-align: left;
+  font-family: "Kaisei HarunoUmi";
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  width: 900;
+  transition: 0.5s ease;
+}
+#top-section h1:hover{
+  transition: 0.5s ease;
+  text-shadow: 0 0 50px rgba(255, 175, 54, 0.466);
+  font-size: 74px;
+  }
+
+.career{
+text-align: left;
+font-family: "Silka Mono";
+font-size: 26.356px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+margin-bottom: 20px;
+}
+
+.socials .socbtn{
+  margin: 0px 7px;
+  transition: 0.3s ease;
+}
+.socbtn:hover {
+  transition: 0.3s ease;
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 10px rgba(255, 175, 54, 0.466));
+}
+
+.btn-div .btn-getintouch{
+color: #FFF;
+text-align: center;
+font-family: "Silka Mono";
+font-size: 11.7px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-bottom: 20px;
+/* border: 1px rgb(255, 255, 255) solid; */
+
+width: 200px;
+height: 50px;
+background-color: transparent;
+border-radius: 31.627px 0px;
+/* background: #865838b2; */
+background: #ac6b2f8f;
+transition: 0.4s ease;
+
+
+}
+
+.btn-div .btn-getintouch:hover {
+  font-size: 13px;
+  background-color: #fff;
+  color: #864100;
+  /* border: 1px #A05B2A solid; */
+  }
+
+
+.socials a{
+  margin: 10px 0;
+}
+
+#top-section #jmphoto{
+  width: 700px;
+  margin-top: 100px;
+}
+
+
+
+.top-section-container{
+  position: relative;
+}
+
+
+
+/* GALLERY SECTION */
+#gallery-section{
+  background-image: url('PHOTOS/LandingPage/LandingPageBg2.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  
+}
+
+
+.carousel-gallery-item{
+  height: 400px;
+}
+
+.category{
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+.image-item{
+  
+  width: 25%;
+  margin: 0px 20px 0px 20px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+  @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+  @import url(https://db.onlinewebfonts.com/c/836a54e6f5313f999bb7066c762ea893?family=Silka+Mono);
+  
+
+  /* Container that holds all the category cards */
+  .gallery-album {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    gap: 15px;
+  
+    > div {
+      flex: 0 0 120px;
+      border-radius: 0.5rem;
+      transition: 0.4s ease-in-out;
+      cursor: pointer;
+      box-shadow: 1px 5px 15px #f1f1f111;
+      position: relative;
+      overflow: hidden;
+  
+      /* Background images for each category card */
+      &:nth-of-type(1) {
+        background: url("https://images.pexels.com/photos/8185815/pexels-photo-8185815.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=279.825&fit=crop&h=453.05") no-repeat 50% / cover;
+      }
+      &:nth-of-type(2) {
+        background: url("https://images.pexels.com/photos/2088202/pexels-photo-2088202.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat 50% / cover;
+      }
+      &:nth-of-type(3) {
+        background: url("https://images.pexels.com/photos/3949755/pexels-photo-3949755.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat 30% / cover;
+      }
+      &:nth-of-type(4) {
+        background: url("https://images.pexels.com/photos/3848184/pexels-photo-3848184.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat 50% / cover;
+      }
+      &:nth-of-type(5) {
+        background: url("https://images.pexels.com/photos/3082764/pexels-photo-3082764.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat 58% / cover;
+      }
+      &:nth-of-type(6) {
+        background: url("https://images.pexels.com/photos/2834917/pexels-photo-2834917.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat 50% / cover;
+      }
+      
+      /* Content inside each category card */
+      
+      .gallery-album-content {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        opacity: 0;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+        background: rgb(2, 2, 46);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.600) 0%, rgba(255, 255, 255, 0) 100%);
+        transform: translatey(100%);
+        transition: opacity 0.5s ease-out, transform 0.4s 0.2s;
+        visibility: hidden;
+      }
+  
+      /* Hover effect for category cards */
+      &:hover {
+        flex: 0 0 250px;
+        box-shadow: 1px 3px 15px #fcfcfc67;
+        transform: translatey(-30px);
+      }
+  
+      /* Show content on hover */
+      &:hover .gallery-album-content {
+        opacity: 1;
+        transform: translatey(0%);
+        visibility: visible;
+        
+      }
+    }
+  }
+
+  .gallery-album .gallery-album-content h4{
+    font-family: "Silka Mono", monospace;
+    font-size: 18px;
+    color: #fff;
+  }
+  .btn-viewall a{   
+    font-family: "Silka Mono", monospace;
+    font-size: 11.7px;
+    text-align: center;
+    transition: 0.4s ease;
+    text-decoration: underline;
+    color: #fff;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px;
+}
+.btn-viewall a:hover{   
+  font-family: "Silka Mono", monospace;
+  font-size: 13px;
+  transition: all 0.2s ease-out;
+}
+
+
+
+/* ABOUT SECTION */
+#about-section{
+  background-image: url('PHOTOS/LandingPage/LandingPageBg3.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 850px;
+  
+}
+
+#about-section #jmphoto2{
+  width: 350px;
+  height: 350px;
+}
+
+
+.about-section-content{
+  margin-right: 30px;
+}
+
+
+.brief-bio{
+  text-align: left;
+  font-family: "Dubai";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+
+
+.btn-div .btn-seemore{
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  
+  transition: 0.4s ease;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 30px 0px;
+  border: 1px solid #FFF;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.btn-div .btn-seemore:hover{
+  color: #000000;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 30px 0px;
+  border: 1px solid #FFF;
+  background: rgb(255, 255, 255);
+  
+}
+
+.socbtn2{
+  transition: 0.3s ease;
+
+}
+.socbtn2:hover {
+  transition: 0.3s ease;
+  transform: scale(1.2) rotate(-6deg);
+  filter: drop-shadow(0 0 10px rgba(255, 175, 54, 0.466));
+}
+
+
+
+
+
+
+.btn-div .btn-resources{
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7pxpx;
+  font-weight: 100;
+  margin-bottom: 20px;
+  
+  transition: 0.4s ease;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 30px 0px;
+  border: 1px #B67343 solid;
+  }
+
+.btn-div .btn-resources:hover{
+  color: #864100;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  
+  transition: 0.3s ease-out;
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border-radius: 30px 0px;
+  border: 1px #ffffff solid;
+  }
+
+  
+
+
+
+
+
+
+/* RESOURCES SECTION */
+#resources-section{
+  background-image: url('PHOTOS/LandingPage/LandingPageBg4.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1100px;
+}
+
+
+.brief-resource{
+  text-align: left;
+  font-family: "Dubai";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+h4{
+  text-align: left;
+  font-family: "Dubai";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.presets h4{
+  text-align: left;
+  font-family: "Dubai";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.presets-content {
+    margin-bottom: 40px;
+}
+
+.presets-content img{
+  width: 200px;
+}
+
+.preset-div {
+  transition: transform 0.3s ease;
+}
+
+.preset-div:hover {
+  transform: scale(1.2) rotate(-3deg); /* Scale up the div to 120% of its original size and rotate it slightly by 5 degrees */
+  filter: drop-shadow(0 0 30px rgba(255, 239, 204, 0.349));
+}
+
+
+.btn-div .btn-resources{
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  transition: 0.4s ease;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  border: 1px #B67343 solid;
+  }
+
+
+
+/* MAILLIST SECTION */
+
+#maillist-section{
+  background-color: #F1EBE7;
+  height: 320px;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+}
+
+#maillist-section h3{
+  size: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+#maillist-section p{
+  size: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.maillist-input{
+  border-radius: 20px;
+  height: 50px;
+  width: 500px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 5px;
+}
+
+.btn-div .btn-subscribe{
+  margin-left: 2px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  transition: 0.4s ease;
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #9b5a1e;
+}
+
+.btn-div .btn-subscribe:hover{
+  margin-left: 2px;
+  color: #864100;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #ffffff;
+  border: 1px #864100 solid;
+}
+
+
+
+/* FOOTER */
+.footer div, h4, p{
+  margin: 2px;
+  padding: 0;
+  font-family: "Inter";
+}
+.footer-logo{
+  width: 100px;
+  height: 100px;
+}
+.footer div h4{
+  color: #AF987D;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.footer div p{
+  font-weight: 200;
+  font-size: 14px;
+  transition: 0.3s ease-out;
+}
+.terms, .harang, .privacy{
+  font-size: 14px;
+  font-weight: 200;
+  
+}
+.terms, .privacy{
+  color: #ddb485;
+}
+
+.terms:hover, .privacy:hover{
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  
+}
+
+.footer div p:hover{
+  transition: 0.15s ease-out;
+  text-shadow: 0 0 10px white;
+  text-underline-offset: 2px;
+}
+
+
+
+
+
+
+
+
+/* INDEXING */
+#top-section{
+  z-index: 100;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  position: relative;
+  box-shadow: 0 0 40px rgba(255, 243, 225, 0.308);
+}
+#gallery-section{
+  z-index: 90; 
+  margin-top: -80px; 
+  position: relative;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  box-shadow: 0 0 25px rgba(255, 243, 225, 0.308);
+}
+#about-section{
+  z-index: 80;
+  position: relative;
+  margin-top: -80px;
+  box-shadow: 0 0 25px rgba(255, 243, 225, 0.308);
+}
+#resources-section{
+  z-index: 90;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  position: relative;
+  margin-top: -100px;
+  box-shadow: 0 0 25px rgba(255, 243, 225, 0.308);
+}
+#maillist-section{
+  z-index: 100;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px; 
+  position: relative;
+  margin-top: -80px;
+  box-shadow: 0 0 25px rgba(255, 243, 225, 0.308);
+}
+
+
+
+
+
+
+

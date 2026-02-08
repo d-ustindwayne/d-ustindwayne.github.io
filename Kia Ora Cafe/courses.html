@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses | Kia Ora Cafe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/components.js"></script>
+</head>
+
+<body>
+    <nav></nav>
+    <aside></aside>
+    <article></article>
+
+    <div class="container-fluid px-3 bgcolor-container pb-4 h-100" id="courses-header">
+        <img src="images/kia-ora-cafe-icons/light/logotype.png" alt="Kia Ora Cafe" id="header-icon"
+        class="pt-4 pt-md-3 mb-3 mt-4 mb-md-3 mt-md-4" width="200">
+        <h4 class="display-4 heading-bold py-3">Coffee Courses & Workshops</h4>
+        <p class="lead mb-0">Master the art of coffee through our hands-on courses. From perfect pouring techniques to
+            advanced latte artistry, learn directly from our certified baristas in small, focused classes designed for
+            all skill levels.</p>
+    </div>
+    <div class="container-fluid nav bgcolor-main p-0" id="courses-nav">
+        <div class="row w-100 m-0 d-flex justify-content-center align-items-center invert-base-bg row-cols-lg-5">
+            <div class="col col-lg col-md-4 col-12 d-block d-md-flex course-nav-item text-start text-md-center p-0">
+                <a class="d-sm-block d-none nav-link base-hover hover-to-highlight heading-semibold course-link w-100" href="#bean-to-cup">Bean to Cup</a>
+                <a class="pointer d-sm-none d-block nav-link base-hover hover-to-highlight heading-semibold course-link w-100" onclick="goCourseCarousel()"
+                data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="0">Bean to Cup</a>
+            </div>
+            <div class="col col-lg col-md-4 col-12 d-block d-md-flex course-nav-item text-start text-md-center p-0">
+                <a class="d-sm-block d-none nav-link base-hover hover-to-highlight heading-semibold course-link w-100" href="#brewing-basics">Brewing Basics</a>
+                <a class="pointer d-sm-none d-block nav-link base-hover hover-to-highlight heading-semibold course-link w-100" onclick="goCourseCarousel()"
+                data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="1">Brewing Basics</a>
+            </div>
+            <div class="col col-lg col-md-4 col-12 d-block d-md-flex course-nav-item text-start text-md-center p-0">
+                <a class="d-sm-block d-none nav-link base-hover hover-to-highlight heading-semibold course-link w-100" href="#latte-artistry">Latte Artistry</a>
+                <a class="pointer d-sm-none d-block nav-link base-hover hover-to-highlight heading-semibold course-link w-100" onclick="goCourseCarousel()"
+                data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="2">Latte Artistry</a>
+            </div>
+            <div class="col col-lg col-md-6 col-12 d-block d-md-flex course-nav-item text-start text-md-center p-0">
+                <a class="d-sm-block d-none nav-link base-hover hover-to-highlight heading-semibold course-link w-100" href="#milk-mastery">Milk Mastery</a>
+                <a class="pointer d-sm-none d-block nav-link base-hover hover-to-highlight heading-semibold course-link w-100" onclick="goCourseCarousel()"
+                data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="3">Milk Mastery</a>
+            </div>
+            <div class="col col-lg col-md-6 col-12 d-block d-md-flex course-nav-item text-start text-md-center p-0">
+                <a class="d-sm-block d-none nav-link base-hover hover-to-highlight heading-semibold course-link w-100" href="#the-perfect-pour">The Perfect Pour</a>
+                <a class="pointer d-sm-none d-block nav-link base-hover hover-to-highlight heading-semibold course-link w-100" onclick="goCourseCarousel()"
+                data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="4">The Perfect Pour</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h3 class="h3 heading-bold py-4 mt-3 mb-0">Courses</h3>
+    </div>
+    <hr class="container opacity-100 textcolor-primary">
+
+    <section class="container px-md-5 py-md-3 p-0 rounded bgcolor-container mt-3 d-none d-sm-block" id="bean-to-cup">
+        <div class="row">
+            <div class="col-12 text-center heading-semibold h4 textcolor-primary py-3">Bean to Cup</div>
+            <div class="col-12 pb-4">
+                <div class="row">
+                    <div class="col-12 col-md-5 text-center">
+                        <video class="course-video object-fit-cover rounded-3 border-solid border-3 bordercolor-base" loop src="videos/bean-to-cup.mp4"></video>
+                        <div class="course-price shadow-br badge invert-base-bg textcolor-primary p-md-2 p-sm-3 p-1 heading-bold position-absolute translate-middle"><span class="fs-6 font-monospace">₱</span>3,500</div>
+                        <div class="row row-cols-2 hover-to-highlight remove-hover-md">
+                            <div class="col heading-bold text-md-start text-end textcolor-primary p-0">Difficulty:</div>
+                            <div class="col heading-regular text-md-end text-start textcolor-primary ps-md-0 ps-2 p-0">Beginner</div>
+                        </div>
+                        <button class="btn mt-2" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    </div>
+                    <div class="col-11 col-md-7 textcolor-primary py-md-0 py-3 mx-3 mx-md-0">
+                        &emsp;&emsp;Journey through the complete coffee lifecycle in this immersive <span class="fw-bold">4.5-hour course</span>. Explore bean origins,
+                        processing methods, and roast profiles to understand how each stage affects your final brew. Practice proper grinding
+                        techniques and learn to calibrate equipment for optimal extraction. Includes a coffee tasting session to develop your
+                        palate and a comprehensive guide to selecting beans that match your preferred flavor profile.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container px-md-5 py-md-3 p-0 rounded bgcolor-container mt-3 d-none d-sm-block" id="brewing-basics">
+        <div class="row">
+            <div class="col-12 text-center heading-semibold h4 textcolor-primary py-3">Brewing Basics</div>
+            <div class="col-12 pb-4">
+                <div class="row flex-column-reverse flex-md-row">
+                    <div class="col-11 col-md-7 textcolor-primary py-md-0 py-3 mx-3 mx-md-0">
+                        &emsp;&emsp;Perfect for home enthusiasts, this <span class="fw-bold">3.5-hour course</span> covers essential brewing methods beyond the espresso
+                        machine. Compare and contrast French press, AeroPress, Moka pot, and cold brew techniques with hands-on practice. Learn
+                        troubleshooting tips for common brewing problems, proper equipment maintenance, and how to adjust variables to suit your
+                        taste preferences. Includes recipe cards and sampling of different brewing styles.
+                    </div>
+                    <div class="col-12 col-md-5 text-center">
+                        <video class="course-video object-fit-cover rounded-3 border-solid border-3 bordercolor-base" loop src="videos/brewing-basics.mp4"></video>
+                        <div class="course-price shadow-br badge invert-base-bg textcolor-primary p-md-2 p-sm-3 p-1 heading-bold position-absolute translate-middle"><span class="fs-6 font-monospace">₱</span>3,200</div>
+                        <div class="row row-cols-2 hover-to-highlight remove-hover-md">
+                            <div class="col heading-bold text-md-start text-end textcolor-primary p-0">Difficulty:</div>
+                            <div class="col heading-regular text-md-end text-start textcolor-primary ps-md-0 ps-2 p-0">Beginner</div>
+                        </div>
+                        <button class="btn mt-2" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container px-md-5 py-md-3 p-0 rounded bgcolor-container mt-3 d-none d-sm-block" id="latte-artistry">
+        <div class="row">
+            <div class="col-12 text-center heading-semibold h4 textcolor-primary py-3">Latte Artistry</div>
+            <div class="col-12 pb-4">
+                <div class="row">
+                    <div class="col-12 col-md-5 text-center">
+                        <video class="course-video object-fit-cover rounded-3 border-solid border-3 bordercolor-base" loop src="videos/latte-artistry.mp4"></video>
+                        <div class="course-price shadow-br badge invert-base-bg textcolor-primary p-md-2 p-sm-3 p-1 heading-bold position-absolute translate-middle">
+                            <span class="text-decoration-line-through-thick discounted"><span class="fs-6 font-monospace">₱</span>4,200</span><br>
+                            <span class="fs-6 font-monospace">₱</span>3,800
+                        </div>
+                        <div class="row row-cols-2 hover-to-highlight remove-hover-md">
+                            <div class="col heading-bold text-md-start text-end textcolor-primary p-0">Difficulty:</div>
+                            <div class="col heading-regular text-md-end text-start textcolor-primary ps-md-0 ps-2 p-0">Intermediate</div>
+                        </div>
+                        <button class="btn mt-2" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    </div>
+                    <div class="col-11 col-md-7 textcolor-primary py-md-0 py-3 mx-3 mx-md-0">
+                        &emsp;&emsp;Transform your lattes into canvas masterpieces with our intensive <span class="fw-bold">5-hour course</span>. Begin with milk steaming
+                        fundamentals to achieve velvety microfoam, then progress through essential patterns including hearts, rosettas, and
+                        tulips. Advanced students can explore swans and free-pour designs under expert guidance. Course includes personalized
+                        feedback, slow-motion demonstrations, and unlimited practice milk. Perfect for aspiring baristas and coffee enthusiasts.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container px-md-5 py-md-3 p-0 rounded bgcolor-container mt-3 d-none d-sm-block" id="milk-mastery">
+        <div class="row">
+            <div class="col-12 text-center heading-semibold h4 textcolor-primary py-3">Milk Mastery</div>
+            <div class="col-12 pb-4">
+                <div class="row flex-column-reverse flex-md-row">
+                    <div class="col-11 col-md-7 textcolor-primary py-md-0 py-3 mx-3 mx-md-0">
+                        &emsp;&emsp;Elevate your espresso-based drinks with perfect milk texture and temperature control in this <span class="fw-bold"> 4-hour specialized course</span>.
+                        Focuses exclusively on milk science, teaching you to consistently create silky microfoam for
+                        cappuccinos, flat whites, and lattes. Learn temperature management, stretching techniques, and pouring control for both
+                        dairy and alternative milks. Includes sensory exercises and practical techniques for busy environments.
+                    </div>
+                    <div class="col-12 col-md-5 text-center">
+                        <video class="course-video object-fit-cover rounded-3 border-solid border-3 bordercolor-base" loop src="videos/milk-mastery.mp4"></video>
+                        <div class="course-price shadow-br badge invert-base-bg textcolor-primary p-md-2 p-sm-3 p-1 heading-bold position-absolute translate-middle">
+                            <span class="text-decoration-line-through-thick discounted"><span class="fs-6 font-monospace">₱</span>4,000</span><br>
+                            <span class="fs-6 font-monospace">₱</span>3,499
+                        </div>
+                        <div class="row row-cols-2 hover-to-highlight remove-hover-md">
+                            <div class="col heading-bold text-md-start text-end textcolor-primary p-0">Difficulty:</div>
+                            <div class="col heading-regular text-md-end text-start textcolor-primary ps-md-0 ps-2 p-0">Intermediate</div>
+                        </div>
+                        <button class="btn mt-2" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container px-md-5 py-md-3 p-0 rounded bgcolor-container my-3 d-none d-sm-block" id="the-perfect-pour">
+        <div class="row">
+            <div class="col-12 text-center heading-semibold h4 textcolor-primary py-3">The Perfect Pour</div>
+            <div class="col-12 pb-4">
+                <div class="row">
+                    <div class="col-12 col-md-5 text-center">
+                        <video class="course-video object-fit-cover rounded-3 border-solid border-3 bordercolor-base" loop src="videos/the-perfect-pour.mp4"></video>
+                        <div class="course-price shadow-br badge invert-base-bg textcolor-primary p-md-2 p-sm-3 p-1 heading-bold position-absolute translate-middle"><span class="fs-6 font-monospace">₱</span>3,150</div>
+                        <div class="row row-cols-2 hover-to-highlight remove-hover-md">
+                            <div class="col heading-bold text-md-start text-end textcolor-primary p-0">Difficulty:</div>
+                            <div class="col heading-regular text-md-end text-start textcolor-primary ps-md-0 ps-2 p-0">Beginner</div>
+                        </div>
+                        <button class="btn mt-2" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    </div>
+                    <div class="col-11 col-md-7 textcolor-primary py-md-0 py-3 mx-3 mx-md-0">
+                        &emsp;&emsp;Master the art of manual coffee brewing in this comprehensive <span class="fw-bold">4-hour workshop</span>. Learn precise pouring
+                        techniques, water temperature control, and extraction timing using various pour-over methods including V60, Chemex, and
+                        Kalita Wave. Understand how to bring out the best flavor profiles from different bean origins, and discover the science
+                        behind achieving the perfect balance in every cup. Includes hands-on practice with professional equipment and a
+                        take-home brewing guide.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="kia-courses-carousel-sm" class="carousel slide d-block d-sm-none" data-ride="carousel">
+        <div class="carousel-indicators minus-bottom-2">
+            <button type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="carousel-inner bgcolor-main mb-3 mt-2 py-3">
+            <div class="carousel-item text-center active">
+                <a data-bs-toggle="modal" data-bs-target="#course-bean-to-cup">
+                    <img src="images/courses/bean-to-cup.png" class="course-item hover-to-tilt" alt="Course 1">
+                </a>
+            </div>
+            <div class="carousel-item text-center">
+                <a data-bs-toggle="modal" data-bs-target="#course-brewing-basics">
+                    <img src="images/courses/brewing-basics.png" class="course-item hover-to-tilt" alt="Course 2">
+                </a>
+            </div>
+            <div class="carousel-item text-center">
+                <a data-bs-toggle="modal" data-bs-target="#course-latte-artistry">
+                    <img src="images/courses/latte-artistry.png" class="course-item hover-to-tilt" alt="Course 4">
+                </a>
+            </div>
+            <div class="carousel-item text-center">
+                <a data-bs-toggle="modal" data-bs-target="#course-milk-mastery">
+                    <img src="images/courses/milk-mastery.png" class="course-item hover-to-tilt" alt="Course 4">
+                </a>
+            </div>
+            <div class="carousel-item text-center">
+                <a data-bs-toggle="modal" data-bs-target="#course-the-perfect-pour">
+                    <img src="images/courses/the-perfect-pour.png" class="course-item hover-to-tilt" alt="Course 5">
+                </a>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#kia-courses-carousel-sm" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Modals for phone view when an item from the carousel is clicked -->
+
+    <div class="modal collapse" id="course-bean-to-cup" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="h4 heading-bold">Bean to Cup</p>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" data-bs-target="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <video class="object-fit-cover w-75 p-3 pt-4 rounded rounded-5 ratio-1x1" autoplay loop src="videos/bean-to-cup.mp4"></video>
+                    <p class="heading-regular text-justify px-3">
+                        Journey through the complete coffee lifecycle in this immersive course. Explore bean origins, processing methods, and
+                        roast profiles to understand how each stage affects your final brew. Practice proper grinding techniques and learn to
+                        calibrate equipment for optimal extraction. Includes a coffee tasting session to develop your palate and a comprehensive
+                        guide to selecting beans that match your preferred flavor profile.
+                    </p>
+                    <div class="list-group mt-3 text-start px-3 pb-3">
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Difficulty:</div>&ensp;Beginner</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Duration:</div>&ensp;4.5 Hours</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Price:</div>&ensp;₱3,500</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgcolor-success" data-bs-dismiss="modal" data-bs-target="modal" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    <button type="button" class="btn bgcolor-danger" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal collapse" id="course-brewing-basics" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="h4 heading-bold">Brewing Basics</p>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" data-bs-target="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <video class="object-fit-cover w-75 p-3 pt-4 rounded rounded-5 ratio-1x1" autoplay loop src="videos/brewing-basics.mp4"></video>
+                    <p class="heading-regular text-justify px-3">
+                        Perfect for home enthusiasts, this course covers essential brewing methods beyond the espresso machine. Compare and
+                        contrast French press, AeroPress, Moka pot, and cold brew techniques with hands-on practice. Learn troubleshooting tips
+                        for common brewing problems, proper equipment maintenance, and how to adjust variables to suit your taste preferences.
+                        Includes recipe cards and a sampling of different brewing styles.
+                    </p>
+                    <div class="list-group mt-3 text-start px-3 pb-3">
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Difficulty:</div>&ensp;Beginner</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Duration:</div>&ensp;3.5 Hours</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Price:</div>&ensp;₱3,200</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgcolor-success" data-bs-dismiss="modal" data-bs-target="modal" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    <button type="button" class="btn bgcolor-danger" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal collapse" id="course-latte-artistry" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="h4 heading-bold">Latte Artistry</p>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" data-bs-target="modal"></button>
+                </div>
+                <div class="modal-body  p-0 text-center">
+                    <video class="object-fit-cover w-75 p-3 pt-4 rounded rounded-5 ratio-1x1" autoplay loop src="videos/latte-artistry.mp4"></video>
+                    <p class="heading-regular text-justify px-3">
+                        Transform your lattes into canvas masterpieces with our intensive latte art course. Begin with milk steaming
+                        fundamentals to achieve velvety microfoam, then progress through essential patterns including hearts, rosettas, and
+                        tulips. Advanced students can explore swans and free-pour designs under expert guidance. Course includes personalized
+                        feedback, slow-motion demonstrations, and unlimited practice milk. Perfect for aspiring baristas and coffee enthusiasts
+                        seeking Instagram-worthy creations.
+                    </p>
+                    <div class="list-group mt-3 text-start px-3 pb-3">
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Difficulty:</div>&ensp;Intermediate</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Duration:</div>&ensp;5 Hours</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Price:</div>&ensp;₱3,800 <span class="discounted text-decoration-line-through-thick">(₱4,200)</span></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgcolor-success" data-bs-dismiss="modal" data-bs-target="modal" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    <button type="button" class="btn bgcolor-danger" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal collapse" id="course-milk-mastery" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="h4 heading-bold">Milk Mastery</p>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" data-bs-target="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <video class="object-fit-cover w-75 p-3 pt-4 rounded rounded-5 ratio-1x1" autoplay loop src="videos/milk-mastery.mp4"></video>
+                    <p class="heading-regular text-justify px-3">
+                        Elevate your espresso-based drinks with perfect milk texture and temperature control. This specialized course focuses
+                        exclusively on milk science, teaching you to consistently create silky microfoam for cappuccinos, flat whites, and
+                        lattes. Learn temperature management, stretching techniques, and pouring control for both dairy and alternative milks.
+                        Includes sensory exercises to identify properly textured milk and practical techniques for busy cafe environments.
+                    </p>
+                    <div class="list-group mt-3 text-start px-3 pb-3">
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Difficulty:</div>&ensp;Intermediate</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Duration:</div>&ensp;4 Hours</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Price:</div>&ensp;₱3,499 <span class="discounted text-decoration-line-through-thick">(₱4,000)</span></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgcolor-success" data-bs-dismiss="modal" data-bs-target="modal" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    <button type="button" class="btn bgcolor-danger" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal collapse" id="course-the-perfect-pour" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="h4 heading-bold">The Perfect Pour</p>
+                    <button type="button" class="btn btn-close" data-bs-dismiss="modal" data-bs-target="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <video class="object-fit-cover w-75 p-3 pt-4 rounded rounded-5 ratio-1x1" autoplay loop src="videos/the-perfect-pour.mp4"></video>
+                    <p class="heading-regular text-justify px-3">
+                        Master the art of manual coffee brewing in this comprehensive workshop. Learn precise pouring techniques, water
+                        temperature control, and extraction timing using various pour-over methods including V60, Chemex, and Kalita Wave.
+                        Understand how to bring out the best flavor profiles from different bean origins, and discover the science behind
+                        achieving the perfect balance in every cup. Includes hands-on practice with professional equipment and a take-home
+                        brewing guide.
+                    </p>
+                    <div class="list-group mt-3 text-start px-3 pb-3">
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Difficulty:</div>&ensp;Beginner</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Duration:</div>&ensp;4 Hours</div>
+                        <div class="list-group-item bg-transparent heading-semibold textcolor-primary"><div class="heading-bold">Price:</div>&ensp;₱3,150</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bgcolor-success" data-bs-dismiss="modal" data-bs-target="modal" onclick="alertMessage('featUnavailable', 'warning')">Buy Now!</button>
+                    <button type="button" class="btn bgcolor-danger" data-bs-dismiss="modal" data-bs-target="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer></footer>
+</body>
+
+</html>

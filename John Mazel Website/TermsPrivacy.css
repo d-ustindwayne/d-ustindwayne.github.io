@@ -1,0 +1,194 @@
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  }
+  
+  body {
+  animation: fadeIn 0.5s ease-out;
+  }
+  
+
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* NAVBAR */
+  
+  body{
+    background-color: #171717;
+    color: white;
+	font-family: "Inter";
+  }
+  .top-section{
+    background:url(PHOTOS/LandingPage/LandingPageBg1.png);
+    background-size: cover;
+  }
+  
+  .nav-bar{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: fixed;
+    box-shadow: 0px 4px 15px 4px rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+  
+  .nav-container{
+    margin: auto;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .nav-items{
+    width: 60%;
+  }
+  
+  .nav-items p{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  
+  .nav-items .navbutton a{
+    padding: 5px;
+  }
+  
+  /* .dropdown-menu .dropdown-item{
+    width: 0px;
+  }
+  
+  
+  .nav-items .dropdown-menu p{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  
+  a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  /* .dropdown-menu a{
+    color: black;
+  } */
+  
+  .navbutton{
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .logo p{
+    padding: 0;
+    margin: 0;
+    font-family: "Kaisei HarunoUmi", serif;
+    font-weight: 400;
+    font-style: normal;
+  
+  }
+  .navbutton a{
+    box-sizing: border-box;
+    transition: 0.3s ease-out;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+  }
+  
+  
+  .navbutton a:hover{
+    transition: 0.3s ease-out;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+
+  .jmword{
+    font-size: 13px;
+  }
+  .jmword .fletter{
+    color: #b99d7d;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+
+  
+/* CONTENTS */
+
+.details{
+	margin-top: 100px;
+}
+.description{
+	font-family: "Poppins", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	  
+}
+.tn-detail{
+	width: 230px;
+	
+}
+
+
+
+/* FOOTER */
+.footer div, h4, p{
+  margin: 2px;
+  padding: 0;
+  font-family: "Inter";
+}
+.footer-logo{
+  width: 100px;
+  height: 100px;
+}
+.footer div h4{
+  color: #AF987D;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.footer div p{
+  font-weight: 200;
+  font-size: 14px;
+  transition: 0.3s ease-out;
+}
+.terms, .harang, .privacy{
+  font-size: 14px;
+  font-weight: 200;
+  
+}
+.terms, .privacy{
+  color: #ddb485;
+}
+
+.terms:hover, .privacy:hover{
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  
+}
+
+.footer div p:hover{
+  transition: 0.15s ease-out;
+  text-shadow: 0 0 10px white;
+  text-underline-offset: 2px;
+}

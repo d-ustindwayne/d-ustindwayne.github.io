@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | Kia Ora Cafe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/components.js"></script>
+</head>
+
+<body class="d-flex justify-content-center align-items-center" id="account-bg">
+    
+    <div class="d-none">
+        <nav></nav>
+        <aside></aside>
+        <article></article>
+        <footer></footer>
+    </div>
+
+    <div class="container flip-card m-0">
+        <div class="row justify-content-center mt-5 align-items-center flip-card-inner">
+                <div class="flip-card-front" id="front">
+                    <div class="card container rounded-2 invert-base-bg">
+                        <div class="card-header row py-2 mt-2 px-1">
+                            <div class="col-2 text-start"><a href="index.html" class="btn bg-transparent d-inline"><i class="h3 bi bi-arrow-left"></i></a></div>
+                            <h3 class="col-8 h3 heading-bold fw-bolder mb-0 text-center">Register</h3>
+                            <div class="col-2 p-0 pe-2 d-md-flex d-none"></div>
+                        </div>
+                        <div class="card-body row bgcolor-container rounded-2 pt-3 px-2">
+                            <div class="col-12">
+                                <div class="form-floating w-100 p-0 rounded-0 my-2 shadow-br-sm">
+                                    <input type="email" id="register-email" name="register-email" class="form-control bgcolor-main"
+                                        placeholder="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                                    <label class="fw-semibold" for="register-email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating w-100 p-0 rounded-0 my-2 shadow-br-sm">
+                                    <input type="password" id="register-password" name="register-password" class="form-control bgcolor-main"
+                                        placeholder="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                                    <label class="fw-semibold" for="register-password">Password</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating w-100 p-0 rounded-0 my-2 shadow-br-sm">
+                                    <input type="password" id="register-confirmPassword" name="register-confirmPassword" class="form-control bgcolor-main"
+                                        placeholder="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                                    <label class="fw-semibold" for="register-confirmPassword">Confirm Password</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn w-100 my-1">Register</button>
+                                <p>Already have an account? <span class="pointer fw-semibold textcolor-base preview-link" id="log">Log-in</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card-back" id="back">
+                    <div class="card container invert-base-bg">
+                        <div class="card-header row py-2 mt-2 px-1">
+                            <div class="col-2 text-start"><a href="index.html" class="btn bg-transparent d-inline"><i class="h3 bi bi-arrow-left"></i></a></div>
+                            <h3 class="col-8 h3 heading-bold fw-bolder mb-0 text-center">Log-in</h3>
+                            <div class="col-2 p-0 pe-2 d-md-flex d-none"></div>
+                        </div>
+                        <div class="card-body row bgcolor-container rounded-2 pt-3 px-2">
+                            <div class="col-12">
+                                <div class="form-floating w-100 p-0 rounded-0 my-2 shadow-br-sm">
+                                    <input type="email" id="login-email" name="login-email" class="form-control bgcolor-main"
+                                        placeholder="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                                    <label class="fw-semibold" for="login-email">Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating w-100 p-0 rounded-0 my-2 shadow-br-sm">
+                                    <input type="password" id="login-password" name="login-password" class="form-control bgcolor-main"
+                                        placeholder="" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                                    <label class="fw-semibold" for="login-password">Password</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn w-100 my-1">Log-in</button>
+                                <p>Don't have an account? <span class="pointer fw-semibold textcolor-base preview-link" id="reg">Register</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script>
+        const logButton = document.getElementById("log");
+        const regButton = document.getElementById("reg");
+        /**@type HTMLDivElement*/
+        const inner = document.querySelector(".flip-card-inner");
+        const front = document.getElementById("front");
+        const back = document.getElementById("back");
+
+        logButton .addEventListener("click", () => {
+            inner.style.transform = "rotateY(180deg)";
+            front.style.opacity = "0"
+            back.style.opacity = "1"
+        });
+        regButton.addEventListener("click", () => {
+            inner.style.transform = "rotateY(0deg)";
+            front.style.opacity = "1"
+            back.style.opacity = "0"
+        });
+    </script>
+
+</body>
+
+</html>

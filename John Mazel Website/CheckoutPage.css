@@ -1,0 +1,140 @@
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+    }
+    
+    body {
+    animation: fadeIn 0.5s ease-out;
+    }
+    
+
+body {
+    background-color: #121212;
+    color: #000000;
+}
+
+
+.container {
+    margin-top: 50px;
+}
+.form-control, .form-check-input {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+/* CUSTOMER INFORMATION INPUT */
+.customer-information input::placeholder{
+    color: #424242;
+}
+.customer-information input{
+    color: #424242;
+}
+
+.customer-information input:focus{
+    color: black;
+}
+
+.btn-primary {
+    background-color: #A87755;
+    border: none;
+}
+
+/* CARD INFORMATION INPUT */
+.card input::placeholder {
+    color: #424242; 
+}
+
+.btn-primary:hover {
+    background-color: #af9c95;
+}
+.card {
+    background-color: #1e1e1e;
+    border: none;
+    color: white;
+}
+.card-body {
+    padding: 1rem;
+}
+.card img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.summary-item img {
+    margin-right: 10px;
+}
+.summary-item .price {
+    font-weight: bold;
+}
+.summary-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.form-check {
+    margin-bottom: 1rem;
+}
+
+
+
+.btn-outline-secondary{
+        background-color: #A87755;
+        border: none;
+        color: white;
+}
+
+
+.btn-outline-secondary:hover{
+    background-color: #af9c95;
+    border: none;
+    color: white;
+}
+
+
+
+
+
+
+
+/* Set the font color to white for specific elements */
+body,
+.form-control,
+.form-check-input,
+.form-check-label,
+.btn-primary {
+    color: #fff !important; /* Set the font color to white */
+}
+
+/* Set the font color to white for specific sections */
+/* Set the font color to white for input labels */
+.card-title,
+.summary-item,
+#cardNumber + label,
+#expirationDate + label,
+#securityCode + label {
+    color: #fff; /* Change label color to white */
+}
+
+
+.terms, .privacy{
+    text-decoration: none;
+    color: #ddb485;
+}
+
+.terms:hover, .privacy:hover{
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: #ddb485;
+}

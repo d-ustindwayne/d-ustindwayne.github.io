@@ -1,0 +1,506 @@
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  }
+  
+  body {
+  animation: fadeIn 0.5s ease-out;
+  }
+  
+
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* NAVBAR */
+  
+  body{
+    background-color: #181818;
+    color: white;
+  }
+  .top-section{
+    background:url(PHOTOS/LandingPage/LandingPageBg1.png);
+    background-size: cover;
+  }
+  
+  .nav-bar{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    position: fixed;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.055);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+  
+  .nav-container{
+    margin: auto;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .nav-items{
+    width: 60%;
+  }
+  
+  .nav-items p{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  
+  .nav-items .navbutton a{
+    padding: 5px;
+  }
+  
+  /* .dropdown-menu .dropdown-item{
+    width: 0px;
+  }
+  
+  
+  .nav-items .dropdown-menu p{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+  
+  a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  /* .dropdown-menu a{
+    color: black;
+  } */
+  
+  .navbutton{
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .logo p{
+    padding: 0;
+    margin: 0;
+    font-family: "Kaisei HarunoUmi", serif;
+    font-weight: 400;
+    font-style: normal;
+  
+  }
+  
+  .navbutton a{
+    box-sizing: border-box;
+    transition: 0.3s ease-out;
+    font-size: 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+  }
+  
+  
+  .navbutton a:hover{
+    transition: 0.3s ease-out;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+  
+  .jmword{
+    font-size: 13px;
+  }
+  .jmword .fletter{
+    color: #b99d7d;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+/* CONTENTS */
+
+.bgcover{
+  background:url(PHOTOS/ResourcesPage/ResourcesCover.png) center center;
+
+}
+
+.cover{
+  height: 35vh;
+}
+
+h1{
+margin-top: 50px;
+margin-left: 50px;
+}
+
+.playlist-cards-container{
+  color: black;
+}
+
+   /* PLAYLISTS */
+   .playlist-card {
+    position: relative; /* Allows absolute positioning within the card */
+    width: 200px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    padding-bottom: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Thumbnail section with background image */
+.thumbnail {
+    background-size: cover; /* Ensures the image covers the div */
+    background-position: center; /* Centers the image */
+    width: 100%;
+    height: 110px; /* Adjusted height to show as a thumbnail */
+}
+
+.playlist-card:nth-child(1) .thumbnail{
+  background-image: url('PHOTOS/Course1/FundamentalsThumbnail.png');
+}
+.playlist-card:nth-child(2) .thumbnail{
+  background-image: url('PHOTOS/Course2/IntermediateThumbnail.png');
+}
+.playlist-card:nth-child(3) .thumbnail{
+  background-image: url('PHOTOS/Course3/AdvancedThumbnail.png');
+}
+.playlist-card:nth-child(4) .thumbnail{
+  background-image: url('PHOTOS/Course4/SpecializedThumbnail.png');
+}
+
+
+
+
+/* Playlist info section */
+.playlist-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px; /* Spacing from the thumbnail */
+}
+
+.video-item p{
+  font-size: 12px;
+}
+
+.duration {
+  font-size: 11px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.course-level {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  margin-top: -7px;
+  color: #76370B;
+}
+
+
+.playlist-card a{
+  color: #181818;
+}
+
+
+
+
+/* Expanded content with absolute position to overlap other elements */
+.playlist-card .expand-content {
+    position: absolute; /* Pwede overlapping */
+    top: 182px; /* Distansya sa card */
+    left: 0;
+    width: 200px; /* Same sa card */
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 0 0 8px 8px; /* Matches the card's border */
+    padding: 10px;
+    z-index: 100; /* Ensures it appears on top */
+    transition: height 0.3s ease, opacity 0.3s ease;
+    height: 0; /* Initially hidden */
+    opacity: 0; /* Initially transparent */
+    overflow: hidden;
+    box-shadow: inset 0 -40px 30px -25px rgba(0, 0, 0, 0.979); /* Inner shadow at the bottom */
+}
+
+/* Hover effect to expand the content */
+.playlist-card:hover {
+    background-color: #e0e0e0; /* Slight change to indicate hover */
+}
+
+/* Hover effect to expand the content */
+.playlist-card:hover .expand-content {
+    height: 195px; /* Adjusted to fit all content */
+    opacity: 1; /* Become visible */
+}
+
+/* Style for each video item within the expanded content */
+.video-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.video-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.video-item:last-child {
+    margin-bottom: 0; /* Avoid extra space at the end */
+}
+
+/* Additional content to ensure the expanded content overlaps it */
+.other-content {
+    margin-top: 20px; /* Provide space below the card */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e8e8e8; /* Distinct background color */
+    font-size: 16px;
+}
+
+h4{
+  color: white;
+}
+
+.presets-content img{
+  width: 200px;
+}
+
+.preset-div {
+  transition: transform 0.3s ease;
+}
+
+.preset-div:hover {
+  transform: scale(1.2) rotate(-3deg); /* Scale up the div to 120% of its original size and rotate it slightly by 5 degrees */
+  filter: drop-shadow(0 0 30px rgba(255, 239, 204, 0.349));
+}
+.price2{
+  color: #ddb485;
+}
+/* CART */
+
+/* Cart Offcanvas */
+.offcanvas {
+  background-color: #ffffff;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 1.2rem;
+}
+
+/* Cart Toggle Button */
+.cart-toggle-button {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-radius: 0;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #A87755;
+  color: white;
+  border: none;
+}
+
+.cart-toggle-button:hover {
+  background-color: #A87755; /* Ensure the color stays the same on hover */
+  color: white;
+}
+
+/* Checkout Button */
+.btn-primary {
+  background-color: #A87755;
+  border-color: #A87755;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #A87755;
+  border-color: #A87755;
+  color: white;
+}
+
+/* Active State for Cart Toggle Button and Checkout Button */
+.cart-toggle-button.active,
+.btn-primary.active {
+    background-color: #ffffff;
+    border: 1px solid #A87755;
+    color: #A87755;
+}
+
+.cart-toggle-button.active:hover,
+.btn-primary.active:hover {
+    background-color: #ffffff;
+    border: 1px solid #A87755;
+    color: #A87755;
+}
+
+.btn-link{
+  text-decoration: none;
+}
+
+/* MAILLIST SECTION */
+
+#maillist-section{
+  background-color: #F1EBE7;
+  height: 250px;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+}
+
+#maillist-section h3{
+  size: 20px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+#maillist-section p{
+  size: 20px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.maillist-input{
+  border-radius: 20px;
+  height: 50px;
+  width: 500px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 5px;
+}
+
+.btn-div .btn-subscribe{
+  margin-left: 2px;
+  color: #FFF;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 11.7px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  transition: 0.4s ease;
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #9b5a1e;
+}
+
+.btn-div .btn-subscribe:hover{
+  margin-left: 2px;
+  color: #864100;
+  text-align: center;
+  font-family: "Silka Mono";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+  border: 0;
+
+  width: 165px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 31.627px 0px;
+  background: #ffffff;
+  border: 1px #864100 solid;
+}
+
+#maillist-section {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+
+/* FOOTER */
+.footer div, h4, p{
+  margin: 2px;
+  padding: 0;
+  font-family: "Inter";
+}
+.footer-logo{
+  width: 100px;
+  height: 100px;
+}
+.footer div h4{
+  color: #AF987D;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.footer div p{
+  font-weight: 200;
+  font-size: 14px;
+  transition: 0.3s ease-out;
+}
+.terms, .harang, .privacy{
+  font-size: 14px;
+  font-weight: 200;
+  
+}
+.terms, .privacy{
+  color: #ddb485;
+}
+
+.terms:hover, .privacy:hover{
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  
+}
+
+.footer div p:hover{
+  transition: 0.15s ease-out;
+  text-shadow: 0 0 10px white;
+  text-underline-offset: 2px;
+}

@@ -1,0 +1,54 @@
+urlset {
+    display: block;
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+url {
+    display: block;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+loc {
+    display: block;
+    color: #d63384;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+lastmod, changefreq, priority {
+    display: block;
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-left: 20px;
+}
+
+lastmod {
+    color: #198754;
+}
+
+changefreq {
+    color: #fd7e14;
+}
+
+priority {
+    color: #0d6efd;
+}
+
+urlset::before {
+    content: "Kia Ora Cafe | XML Sitemap";
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+}

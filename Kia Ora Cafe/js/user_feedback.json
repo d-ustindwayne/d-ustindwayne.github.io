@@ -1,0 +1,86 @@
+{
+  "1": {
+    "feedback": "This is my new main character energy spot.",
+    "customer": "Althea Gutierrez",
+    "branch": "Sual",
+    "star_count": 5
+  },
+  "2": {
+    "feedback": "The vibe here is immaculate, 10/10 would study here again",
+    "customer": "Kendra Cordero",
+    "branch": "Candelaria",
+    "star_count": 5
+  },
+  "3": {
+    "feedback": "The service was exceptionally efficient, and the barista was knowledgeable about the single-origin brew options. A great spot for a focused work session.",
+    "customer": "Liam Reyes",
+    "branch": "Mabalacat",
+    "star_count": 4.5
+  },
+  "4": {
+    "feedback": "Cool place, but the music was a bit mid today, ngl.",
+    "customer": "Kael Santilan",
+    "branch": "Naga City",
+    "star_count": 4.5
+  },
+  "5": {
+    "feedback": "I was impressed by the sustainability initiatives, like the compostable cups and the discount for bringing your own tumbler. It reflects well on the brand.",
+    "customer": "Jairo Gallardo",
+    "branch": "Tagaytay",
+    "star_count": 5
+  },
+  "6": {
+    "feedback": "The latte is so smooth, I'm literally obsessed.",
+    "customer": "Sofia Reyes",
+    "branch": "Antipolo",
+    "star_count": 5
+  },
+  "7": {
+    "feedback": "OMG the ube latte is so TikTok-worthy and actually tastes bomb.",
+    "customer": "Brix Lacson",
+    "branch": "Sual",
+    "star_count": 5
+  },
+  "8": {
+    "feedback": "The aesthetic is giving cozy, modern hobbit core. I'm here for it.",
+    "customer": "Angel Marie Dela Cruz",
+    "branch": "Caloocan City",
+    "star_count": 4.5
+  },
+  "9": {
+    "feedback": "Perfect spot to pull out my laptop and pretend to be productive.",
+    "customer": "Seraphina Lee-Dizon",
+    "branch": "Concepcion",
+    "star_count": 5
+  },
+  "10": {
+    "feedback": "Got the Mince & Cheese Pie and it was pure serotonin.",
+    "customer": "Chiara Ann Venturanza",
+    "branch": "San Jose Del Monte",
+    "star_count": 5
+  },
+  "11": {
+    "feedback": "The barista lowkey remembered my order, so sweet!",
+    "customer": "Lyra Agustin",
+    "branch": "Pasig City",
+    "star_count": 5
+  },
+  "12": {
+    "feedback": "Free WiFi and plenty of outlets? You love to see it.",
+    "customer": "Zoren James Almeda",
+    "branch": "Antipolo",
+    "star_count": 5
+  },
+  "13": {
+    "feedback": "The seating is comfortable with ample access to power outlets, making it an ideal location for remote workers or students. The consistent WiFi is a major plus.",
+    "customer": "Miguel Tan",
+    "branch": "Tagaytay",
+    "star_count": 5
+  },
+  "14": {
+    "feedback": "Their iced coffee just hits different, no cap.",
+    "customer": "Isabel Santos",
+    "branch": "Pasig City",
+    "star_count": 5
+  }
+}
