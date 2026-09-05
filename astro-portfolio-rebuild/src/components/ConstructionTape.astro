@@ -1,0 +1,18 @@
+---
+import { lang } from "./Config.astro";
+import textContent from "../data/textContent.json";
+const contructionText: string = textContent[lang].constructionTape.text;
+
+const tapes = Array.from({ length: 4 }, (_, i) => ({
+  topClass: ['top-[20%]', 'top-[40%]', 'top-[60%]', 'top-[80%]'][i],
+  index: i,
+}));
+---
+
+{tapes.map((tape) => (
+  <div class={`absolute ${tape.topClass} left-[-10%] w-[120%] ${tape.index % 2 === 0 ? '-rotate-6' : 'rotate-12'} bg-yellow-400 border-y-4 border-black z-50 pointer-events-none`}>
+    <p class="py-2 text-center font-black text-2xl tracking-widest text-black">
+      &#9888; {contructionText} &#9888;
+    </p>
+  </div>
+))}

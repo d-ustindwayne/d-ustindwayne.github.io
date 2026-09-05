@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: PatrickHand;
+    src: url('PatrickHand-Regular.ttf') format('truetype');
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.25rem;
+    background-image: linear-gradient(#e1e1e1 1px, transparent 1px), linear-gradient(90deg, #e1e1e1 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+
+  p, h1, h2, h3, h4, h5, h6 {
+    font-family: PatrickHand, system-ui;
+  }
+}
+
+@layer components {
+    .highlight {
+        @apply [background:linear-gradient(120deg,rgba(250,177,160,0)_0%,var(--highlight)_100%)] bg-no-repeat bg-size-[100%_20%] bg-position-[0_88%]
+    }
+  /* .sketch-btn {
+    @apply inline-block px-6 py-2 border-2 border-black rounded-full text-black font-bold relative bg-transparent cursor-pointer;
+  }
+  .sketch-btn:hover {
+    @apply bg-black text-white animate-wiggle;
+  } */
+}
+
+@theme {
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  --animate-wiggle: wiggle 0.3s ease-in-out infinite; /* Custom animation for button wiggle effect */
+  --animate-popIn: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Custom animation for modal pop-in effect */
+}
+
+:root {
+    --ink: #2d3436;
+    --paper: #fdfbf7;
+    --highlight: #51dc55df;
+    --blue-pen: #0984e3;
+    --red-pen: #d63031;
+    --grid-color: #e1e1e1;
+    scroll-behavior: smooth;
+}
+
+[data-theme="dark"] {
+    --ink: #fdfbf7;
+    --paper: #1a1a1a;
+    --highlight: #2d3436;
+    --blue-pen: #74b9ff;
+    --red-pen: #ff7675;
+    --grid-color: #333333;
+}
+
+body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.25rem;
+    background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* .sketch-box {
+    border: 2px solid var(--ink);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    transition: all 0.2s ease-in-out;
+    background: white;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+.sketch-box:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0px rgba(0,0,0,0.2);
+    border-color: var(--blue-pen);
+}
+
+.sketch-btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--ink);
+    border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: bold;
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+}
+
+.sketch-btn:hover {
+    background: var(--ink);
+    color: white;
+}
+
+.highlight {
+    background: linear-gradient(120deg, rgba(250, 177, 160, 0) 0%, var(--highlight) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 88%;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin: 3rem 0;
+    position: relative;
+}
+hr::after {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--paper);
+    padding: 0 10px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.coffee-stain {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 8px solid rgba(139, 69, 19, 0.08);
+    box-shadow: 0 0 0 5px rgba(139, 69, 19, 0.03), inset 0 0 20px rgba(139, 69, 19, 0.05);
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(1px);
+}
+
+.inner-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.cv-container.is-flipped .inner-card {
+    transform: rotateY(180deg);
+}
+
+.front-button {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+}
+
+.cv-container.is-flipped .front-button {
+    opacity: 0;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 2px solid var(--ink);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    border-color: #333;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px dashed #ccc;
+    transition: all 0.2s;
+}
+
+.social-link:hover {
+    background-color: #f0f9ff;
+    color: var(--blue-pen);
+    padding-left: 1.5rem;
+} */

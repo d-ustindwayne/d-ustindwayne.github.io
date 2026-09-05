@@ -1,0 +1,22 @@
+---
+import { type ClassAppendable } from "./ClassAppendable.astro";
+export interface ImageProps extends ClassAppendable {
+    imageUrl: string,
+    imageAlt?: string,
+    tapeColor?: string,
+    backgroundColor?: string,
+    cls?: string
+};
+
+export function getRandomRotate(): string {
+    const rotates: Array<string> = [
+        "rotate-3",
+        "-rotate-3",
+        "-rotate-4",
+        "rotate-4",
+        "-rotate-2"
+    ];
+    const randomIndex: number = Math.floor(Math.random() * rotates.length);
+    return rotates[randomIndex];
+}
+---

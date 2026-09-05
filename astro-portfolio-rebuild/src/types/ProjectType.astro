@@ -1,0 +1,26 @@
+---
+import { type Props } from "../types/MetaProps.astro";
+interface ProjectImageObject {
+    thumbnail: string,
+    screenshot: string
+}
+
+interface ProjectLinkObject {
+    code: string,
+    live: string
+}
+
+interface ProjectTapeObject {
+    style: string,
+    text: string
+}
+
+export interface ProjectData extends Props {
+    title: string,
+    description: string,
+    technologies: Array<string>,
+    image: ProjectImageObject,
+    links: ProjectLinkObject,
+    tape?: ProjectTapeObject
+}
+---

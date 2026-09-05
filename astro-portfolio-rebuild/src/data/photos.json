@@ -1,0 +1,41 @@
+{
+    "en": [
+        { "src": "/me.png", "alt": "Dustin Dwayne Diaz", "caption": "Me, a really good boy" },
+        { "src": "/babygirl.png", "alt": "My baby girl cute cute", "caption": "OH NOOOO, BABYGIRLLL" },
+        { "src": "/buday.png", "alt": "Buday Cute Dog", "caption": "BUDAYYYYYYYY" },
+        { "src": "/cousins.png", "alt": "Nepomuceno Cousins", "caption": "A random cousins' hangout" },
+        { "src": "/firsttimeonaplane.png", "alt": "Dustin's first time on a plane", "caption": "On my way to New Zealand" },
+        { "src": "/graduation.png", "alt": "Dustin's graduation", "caption": "Barely came out alive from high school" },
+        { "src": "/meandjasmine.png", "alt": "My pretty girlfriend", "caption": "My pretty girlfriend" },
+        { "src": "/meandmama.png", "alt": "Me and mama when I was a baby", "caption": "Young me" },
+        { "src": "/nothing.png", "alt": "Me and my missing phone", "caption": "My missing phone btw" },
+        { "src": "/prettygirl.png", "alt": "My wife", "caption": "Unbelievably breathtakingly beautiful cutie patootie" },
+        { "src": "/unimates.png", "alt": "MIT Friends", "caption": "Bachelor of Digital Technology mates (without Janica)" }
+    ],
+    "es": [
+        { "src": "/me.png", "alt": "Dustin Dwayne Diaz", "caption": "Yo, un buen chico" },
+        { "src": "/babygirl.png", "alt": "Mi niña mono mono", "caption": "OH NOOOO, MI NIÑAAAAAA" },
+        { "src": "/buday.png", "alt": "Mi perrita Buday", "caption": "BUDAYYYYYYYY" },
+        { "src": "/cousins.png", "alt": "Primos Nepomuceno", "caption": "Una quedada random con mis primos" },
+        { "src": "/firsttimeonaplane.png", "alt": "La primera vez que Dustin viajó en avión", "caption": "En camino a Nueva Zelanda" },
+        { "src": "/graduation.png", "alt": "Graduación de Dustin", "caption": "Casi no sobreviví a la secundaria" },
+        { "src": "/meandjasmine.png", "alt": "Mi linda novia", "caption": "Mi linda novia" },
+        { "src": "/meandmama.png", "alt": "Yo y mi mamá cuando era un bebé", "caption": "Yo joven" },
+        { "src": "/nothing.png", "alt": "mi teléfono perdida", "caption": "Mi teléfono perdido btw" },
+        { "src": "/prettygirl.png", "alt": "Mi esposa", "caption": "Increíblemente, deslumbrantemente hermosa, mi preciosa reina de mi vida, cosita" },
+        { "src": "/unimates.png", "alt": "Amigos de MIT", "caption": "Compañeros de la carrera de Tecnologías Digitales (sin Janica)" }
+    ],
+    "tl": [
+        { "src": "/me.png", "alt": "Dustin Dwayne Diaz", "caption": "Ako, mabait na bata" },
+        { "src": "/babygirl.png", "alt": "Aking cute na baby girl", "caption": "OH NOOOO, BABYGIRLLL KO" },
+        { "src": "/buday.png", "alt": "Buday Buday cute kong aso", "caption": "BUDAYYYYYYYY" },
+        { "src": "/cousins.png", "alt": "Magpipinsang Nepomuceno", "caption": "Inuman session nang wala sa oras" },
+        { "src": "/firsttimeonaplane.png", "alt": "Unang beses ko sa eroplano", "caption": "perstaym sa eroplano" },
+        { "src": "/graduation.png", "alt": "Aking graduation", "caption": "muntik na mamatay noong high school" },
+        { "src": "/meandjasmine.png", "alt": "Aking pinakamagandang girlfriend", "caption": "Aking pretty girlfriend" },
+        { "src": "/meandmama.png", "alt": "Ako at ang aking nanay nung ako ay sanggol", "caption": "literal na babyboy" },
+        { "src": "/nothing.png", "alt": "Ako at ang aking nawalang telepono", "caption": "Ang aking nawalang telepono nga pala" },
+        { "src": "/prettygirl.png", "alt": "Misis ko", "caption": "Sobrang latina" },
+        { "src": "/unimates.png", "alt": "Kaibigan ko sa MIT", "caption": "Mga kaibigan ko sa Bachelor of Digital Technology (absent: Janica)" }
+    ]
+}

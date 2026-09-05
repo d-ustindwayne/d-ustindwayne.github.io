@@ -1,0 +1,33 @@
+<script is:inline>
+    // Checks local storage or system preference
+    const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    })();
+
+    const lang = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) {
+            return localStorage.getItem('lang');
+        }
+        return 'en'; // Default
+    })();
+
+    // Apply theme to documentElement to avoid flicker
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    // Apply language
+    document.documentElement.setAttribute('data-language', lang);
+    
+    // Save to local storage
+    window.localStorage.setItem('theme', theme);
+    window.localStorage.setItem('lang', lang);
+</script>

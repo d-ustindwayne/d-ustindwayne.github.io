@@ -1,0 +1,163 @@
+---
+import { lang } from "./Config.astro";
+import textContent from "../data/textContent.json";
+import cvData from "../data/cv.json";
+import { type CVData } from "../types/CVType.astro";
+const cv: CVData = cvData[lang];
+---
+
+<section id="cv" class="mb-10">
+    <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold underline decoration-wavy my-5 decoration-purple-400">{textContent[lang].cv.title}</h2>
+        <p class="text-gray-500 mt-2">({textContent[lang].cv.sublabel})</p>
+    </div>
+
+    <div id="cv-container" class="cv-container" onclick="toggleFlip()">
+        <div class="inner-card">
+            
+            <div class="p-5 card-face">
+
+                <button class="front-button absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 border-2 border-gray-300 rounded-full px-3 py-1 text-sm font-bold text-gray-500 z-10 flex items-center">
+                    {textContent[lang].cv.frontButton} <span class="ml-1">↻</span>
+                </button>
+
+                <h3 class="text-4xl font-bold mb-1">{cv.name}</h3>
+                <p class="text-gray-500 mb-2 italic">{cv.title.general} &bull; {cv.location}</p>
+                
+                <div class="space-y-6 grow overflow-y-auto">
+                    <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.skillsText}</h4>
+                    <ul class="list-disc pl-5 mt-2 text-sm text-gray-600 space-y-1">
+                        <!-- Output Key : all value -->
+                        {Object.entries(cv.skills.general).map(([key, value]) => (
+                            <li><span class="px-1 bg-gray-200 text-bold">{key.replaceAll("_", " ")}:</span> {value}</li>
+                        ))}
+                    </ul>
+                </div>
+                
+                {cv.education.length > 0 && (
+                    <div class="space-y-6 grow overflow-y-auto">
+                        <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.educationText}</h4>
+                        {cv.education.map((edu) => (
+                            <div class="border-l-4 border-gray-300 pl-4">
+                                <h4 class="text-xl font-bold">{edu.degree}</h4>
+                                <p class="text-gray-500 text-sm">{edu.date} @ {edu.institute}, {edu.location}</p>
+                                <p class="text-sm text-gray-600 mt-1">Specialization: {edu.specialization}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+                
+                {cv.experience.length > 0 && (
+                    <div class="space-y-6 grow overflow-y-auto">
+                        <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.workExperiencesText}</h4>
+                        {cv.experience.map((exp) => (
+                            <div class="border-l-4 border-gray-300 pl-4">
+                                <h4 class="text-xl font-bold">{exp.title}</h4>
+                                <p class="text-gray-500 text-sm">{exp.date} @ {exp.company}, {exp.location}</p>
+                                <ul class="list-disc pl-5 mt-1 text-sm text-gray-600 space-y-1">
+                                    {exp.roles.map((role) => (
+                                        <li>{role}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                <h4 class="text-lg italic mt-3">&mdash;&nbsp;{textContent[lang].cv.refereesText}</h4>
+                
+                <div class="mt-4 mb-2 pt-4 text-sm text-gray-500 text-center">
+                    Dustin Dwayne N. Diaz | nepomucenodwayne@gmail.com | +64225400799
+                </div>
+            </div>
+
+            <div class="p-5 card-face card-back">
+                
+                <button class="absolute top-4 right-4 bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-full px-3 py-1 text-sm font-bold text-green-400 z-10 flex items-center">
+                    {textContent[lang].cv.backButton} <span class="ml-1">↻</span>
+                </button>
+
+                <h3 class="text-3xl font-bold mb-1 text-green-400 font-mono">{cv.name}</h3>
+                <p class="text-gray-400 mb-6 font-mono">&gt; {cv.title.it}</p>
+                
+                <!-- <div class="space-y-6 grow overflow-y-auto">
+                    <h4 class="inline text-3xl font-bold mt-2">Skills & Technologies</h4>
+                    <span class="inline text-sm rotate-3 bg-blue-900 font-mono ms-4 p-1">&darr; scroll down &darr;</span>
+                    <ul class="list-none pl-5 mt-2 text-base space-y-1">
+                        <li><span class="px-1 bg-emerald-800 text-bold">Programming Languages:</span> Python, C, C++, Java, JavaScript, TypeScript, PHP, SQL</li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Web Development:</span> HTML, CSS, Bootstrap, Tailwind CSS, jQuery, React, Express.js, EJS </li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Tools & Platform:</span>Git, Node.js, Vite, Docker, Visual Studio Code, Apache, MySQL</li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Design & UI/UX:</span>Figma, Canva, Draw.io, ERDPlus</li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Data & Analysis:</span>Microsoft Power BI, Access, Excel, AI Studio (RapidMiner) </li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Softwares & Systems:</span>Microsoft Office Suite, NetBeans, Rufus, OBS Studio, Piskel</li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Technical Concepts:</span>Object-Oriented Programming, Data Structures, System Analysis & Design, Human-Computer Interaction</li>
+                        <li><span class="px-1 bg-emerald-800 text-bold">Hardware & Embedded:</span>PC Assembly, Windows/Linux Installation, Arduino, Raspberry Pi, Embedded Systems</li>
+                    </ul>
+                </div> -->
+
+                <!-- <div class="space-y-6 grow overflow-y-auto">
+                    <h4 class="text-3xl font-bold mt-2">Education</h4>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="text-xl font-bold">Bachelor of Digital Technologies</h4>
+                        <h2 class="text-lg italic">Feb 2025 - Present</h2>
+                        <p class="text-sm">Major in Software and Web Development @ Manukau Institute of Technology</p>
+                    </div>
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <h4 class="text-xl font-bold">Bachelor of Science in Computer Science</h4>
+                        <h2 class="text-lg italic">August 2023 - July 2024</h2>
+                        <p class="text-sm">@ Our Lady of Fatima University</p>
+                    </div>
+                </div> -->
+
+                <div class="space-y-6 grow overflow-y-auto">
+                    <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.skillsText}</h4>
+                    <ul class="list-disc pl-5 mt-2 text-sm text-gray-600 space-y-1">
+                        {Object.entries(cv.skills.it).map(([key, value]) => (
+                            <li><span class="px-1 bg-gray-200 text-bold">{key.replaceAll("_", " ")}:</span> {value}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                {cv.education.length > 0 && (
+                    <div class="space-y-6 grow overflow-y-auto">
+                        <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.educationText}</h4>
+                        {cv.education.map((edu) => (
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="text-xl font-bold">{edu.degree}</h4>
+                                <h2 class="text-lg italic">{edu.date}</h2>
+                                <p class="text-sm">@ {edu.institute}, {edu.location}</p>
+                                <p class="text-sm text-gray-600 mt-1">Specialization: {edu.specialization}</p>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {cv.experience.length > 0 && (
+                    <div class="space-y-6 grow overflow-y-auto">
+                        <h4 class="text-3xl font-bold mt-2">{textContent[lang].cv.workExperiencesText}</h4>
+                        {cv.experience.map((exp) => (
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <h4 class="text-xl font-bold">{exp.title}</h4>
+                                <h2 class="text-lg italic">{exp.date}</h2>
+                                <p class="text-sm">@ {exp.company}, {exp.location}</p>
+                                <ul class="list-disc pl-5 mt-1 text-sm text-gray-600 space-y-1">
+                                    {exp.roles.map((role) => (
+                                        <li>{role}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                <h4 class="text-lg italic mt-3">&mdash;&nbsp;Referees available upon request</h4>
+
+                <div class="mt-4 mb-2 pt-4 text-sm text-center">
+                    Dustin Dwayne N. Diaz | nepomucenodwayne@gmail.com | +64225400799
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

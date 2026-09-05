@@ -1,0 +1,242 @@
+{
+    "en": {
+        "name": "Dustin Dwayne Diaz",
+        "title": {
+            "general": "International Student",
+            "it": "Software and Web Developer"
+        },
+        "birthdate": "2005-04-14",
+        "location": "Pukekohe, Auckland",
+        "skills": {
+            "general": {
+                "Soft_Skills": "Problem Solving, Critical Thinking, Communication, Teamwork, Adaptability",
+                "Languages": "English (Fluent), Filipino (Native), Spanish (Basic)",
+                "Transferable_Skills": "Project Management, Time Management, Research, Data Analysis, Customer Service"
+            },
+            "it": {
+                "Programming_Languages": "JavaScript, TypeScript, Python, Java, C, C++, C#, PHP, Kotlin, SQL (TSQL)",
+                "Web_and_Software_Development": "HTML, CSS, React, React Native, Tailwind CSS, Bootstrap, Material UI, WordPress, MERN stack, JAMstack, Node.js",
+                "Tools_and_Technologies": "Docker, Vite, XAMPP/MAMP/Local, Android Studio, VS Code, Figma, Power BI",
+                "Hardware_and_Systems": "PC Assembly, Hardware & Software Troubleshooting, Windows & Linux OS Installation, Arduino"
+            }
+        },
+        "education": [
+            {
+                "degree": "Bachelor of Digital Technologies",
+                "institute": "Manukau Institute of Technology",
+                "location": "Auckland, New Zealand",
+                "date": "2025 - Present",
+                "specialization": "Software and Web Development"
+            },
+            {
+                "degree": "Bachelor of Science in Computer Science",
+                "location": "Philippines",
+                "institute": "Our Lady of Fatima University",
+                "date": "2023 - 2024",
+                "specialization": "Incomplete / 1 Year Completed"
+            },
+            {
+                "degree": "High School Diploma",
+                "institute": "Prenza High School",
+                "location": "Philippines",
+                "date": "2017 - 2023",
+                "specialization": "STEM"
+            }
+        ],
+        "experience": [
+            {
+                "title": "Math Tutor (Superprof Platform)",
+                "date": "July 2026 - Present",
+                "company": "Freelance",
+                "location": "Pukekohe, New Zealand",
+                "roles": [
+                    "Developed individualized lesson plans based on each student's skill level and academic requirements.",
+                    "Explained complex mathematical concepts using simplified, easy-to-understand methods.",
+                    "Monitored student progress and provided regular feedback for continuous improvement."
+                ]
+            },
+            {
+                "title": "Software & Web Development Consultant",
+                "date": "May 2026 - Present",
+                "company": "Freelance",
+                "location": "Pukekohe, New Zealand",
+                "roles": [
+                    "Advised clients and peers on software development life cycles, technology stack selection, and programming best practices.",
+                    "Reviewed project concepts and recommended efficient, scalable solutions for web and software projects.",
+                    "Provided troubleshooting and debugging guidance across multiple programming languages and frameworks."
+                ]
+            },
+            {
+                "title": "Salesman",
+                "date": "November 2022 - January 2025",
+                "company": "Winnie's Meatshop",
+                "location": "Philippines",
+                "roles": [
+                    "Assisted customers with their meat selections and provided excellent customer service.",
+                    "Maintained cleanliness and organization of the shop.",
+                    "Processed transactions and managed inventory."
+                ]
+            }
+        ]
+    },
+    "es": {
+        "name": "Dustin Dwayne Diaz",
+        "title": {
+            "general": "Estudiante Internacional",
+            "it": "Desarrollador de Software y Web"
+        },
+        "birthdate": "2005-04-14",
+        "location": "Pukekohe, Auckland",
+        "skills": {
+            "general": {
+                "Características_Blandas": "Resolución de Problemas, Pensamiento Crítico, Comunicación, Trabajo en Equipo, Adaptabilidad",
+                "Idiomas": "Inglés (Fluido), Filipino (Nativo), Español (Básico)",
+                "Habilidades_Transferibles": "Gestión de Proyectos, Gestión del Tiempo, Investigación, Análisis de Datos, Atención al Cliente"
+            },
+            "it": {
+                "Lenguajes_de_Programación": "JavaScript, TypeScript, Python, Java, C, C++, C#, PHP, Kotlin, SQL (TSQL)",
+                "Desarrollo_Web_y_de_Software": "HTML, CSS, React, React Native, Tailwind CSS, Bootstrap, Material UI, WordPress, MERN stack, JAMstack, Node.js",
+                "Herramientas_y_Tecnologías": "Docker, Vite, XAMPP/MAMP/Local, Android Studio, VS Code, Figma, Power BI",
+                "Hardware_y_Sistemas": "Ensamblaje de PC, Diagnóstico y Solución de Problemas de Hardware y Software, Instalación de Windows y Linux, Arduino"
+            }
+        },
+        "education": [
+            {
+                "degree": "Licenciatura en Tecnologías Digitales",
+                "institute": "Manukau Institute of Technology",
+                "location": "Auckland, Nueva Zelanda",
+                "date": "2025 - Presente",
+                "specialization": "Software y Web desarrollador"
+            },
+            {
+                "degree": "Licenciatura en Ciencias de la Computación",
+                "location": "Filipinas",
+                "institute": "Our Lady of Fatima University",
+                "date": "2023 - 2024",
+                "specialization": "Incompleto / 1 Año Completado"
+            },
+            {
+                "degree": "Diploma de Educación Secundaria",
+                "institute": "Prenza High School",
+                "location": "Filipinas",
+                "date": "2017 - 2023",
+                "specialization": "STEM"
+            }
+        ],
+        "experience": [
+            {
+                "title": "Tutor de Matemáticas (Plataforma Superprof)",
+                "date": "Julio 2026 - Presente",
+                "company": "Freelance",
+                "location": "Pukekohe, Nueva Zelanda",
+                "roles": [
+                    "Desarrollé planes de estudio personalizados según el nivel de habilidad y las necesidades académicas de cada estudiante.",
+                    "Expliqué conceptos matemáticos complejos mediante métodos simplificados y fáciles de comprender.",
+                    "Supervisé el progreso de los estudiantes y proporcioné comentarios periódicos para fomentar la mejora continua."
+                ]
+            },
+            {
+                "title": "Consultor de Desarrollo de Software y Web",
+                "date": "Mayo 2026 - Presente",
+                "company": "Freelance",
+                "location": "Pukekohe, Nueva Zelanda",
+                "roles": [
+                    "Asesoré a clientes y compañeros sobre ciclos de vida del desarrollo de software, selección de tecnologías y buenas prácticas de programación.",
+                    "Revisé conceptos de proyectos y recomendé soluciones eficientes y escalables para proyectos web y de software.",
+                    "Proporcioné orientación para la resolución de problemas y depuración en múltiples lenguajes de programación y frameworks."
+                ]
+            },
+            {
+                "title": "Vendedor",
+                "date": "Noviembre 2022 - Enero 2025",
+                "company": "Winnie's Meatshop",
+                "location": "Filipinas",
+                "roles": [
+                    "Ayudé a los clientes a seleccionar productos cárnicos y proporcioné un excelente servicio al cliente.",
+                    "Mantuve la limpieza y el orden de la tienda.",
+                    "Procesé transacciones y gestioné el inventario."
+                ]
+            }
+        ]
+    },
+    "tl": {
+        "name": "Dustin Dwayne Diaz",
+        "title": {
+            "general": "International Student",
+            "it": "Software at Web Developer"
+        },
+        "birthdate": "2005-04-14",
+        "location": "Pukekohe, Auckland",
+        "skills": {
+            "general": {
+                "Malalambot_na_Kasanayan": "Paglutas ng Problema, Kritikal na Pag-iisip, Komunikasyon, Pagtutulungan, Kakayahang Makibagay",
+                "Mga_Wika": "Ingles (Mahusay), Filipino (Katutubong Wika), Espanyol (Baguhan)",
+                "Mga_Kasanayang_Naililipat": "Pamamahala ng Proyekto, Pamamahala ng Oras, Pananaliksik, Pagsusuri ng Datos, Serbisyo sa Mamimili"
+            },
+            "it": {
+                "Mga_Wika_sa_Programming": "JavaScript, TypeScript, Python, Java, C, C++, C#, PHP, Kotlin, SQL (TSQL)",
+                "Web_at_Software_Development": "HTML, CSS, React, React Native, Tailwind CSS, Bootstrap, Material UI, WordPress, MERN stack, JAMstack, Node.js",
+                "Kagamitan_at_Teknolohiya": "Docker, Vite, XAMPP/MAMP/Local, Android Studio, VS Code, Figma, Power BI",
+                "Hardware_at_Sistema": "Pagbuo at Pag-ayos ng PC, Pag-mekaniko ng Hardware at Software, Pag-install ng Windows at Linux OS, Arduino o Robotika"
+            }
+        },
+        "education": [
+            {
+                "degree": "Bachelor of Digital Technologies",
+                "institute": "Manukau Institute of Technology",
+                "location": "Auckland, New Zealand",
+                "date": "2025 - Kasalukuyan",
+                "specialization": "Software at Web Development"
+            },
+            {
+                "degree": "Bachelor of Science in Computer Science",
+                "location": "Pilipinas",
+                "institute": "Our Lady of Fatima University",
+                "date": "2023 - 2024",
+                "specialization": "Hindi Nakumpleto / 1 Taon ang Natapos"
+            },
+            {
+                "degree": "Diploma sa Senior High School",
+                "institute": "Prenza High School",
+                "location": "Pilipinas",
+                "date": "2017 - 2023",
+                "specialization": "STEM"
+            }
+        ],
+        "experience": [
+            {
+                "title": "Math Tutor (Superprof Platform)",
+                "date": "Hulyo 2026 - Kasalukuyan",
+                "company": "Freelance",
+                "location": "Pukekohe, New Zealand",
+                "roles": [
+                    "Gumawa ng mga lesson plan na angkop sa antas ng kasanayan at pang-akademikong pangangailangan ng bawat estudyante.",
+                    "Ipinaliwanag ang mga komplikadong konsepto sa matematika gamit ang simple at madaling maunawaang pamamaraan.",
+                    "Sinubaybayan ang progreso ng mga estudyante at nagbigay ng regular na feedback para sa patuloy na pag-unlad."
+                ]
+            },
+            {
+                "title": "Software at Web Development Consultant",
+                "date": "Mayo 2026 - Kasalukuyan",
+                "company": "Freelance",
+                "location": "Pukekohe, New Zealand",
+                "roles": [
+                    "Nagbigay ng payo sa mga kliyente at kasamahan tungkol sa software development life cycle, pagpili ng technology stack, at pinakamahusay na mga kasanayan sa programming.",
+                    "Sinuri ang mga konsepto ng proyekto at nagrekomenda ng mahusay at scalable na mga solusyon para sa web at software projects.",
+                    "Nagbigay ng gabay sa troubleshooting at debugging gamit ang iba't ibang programming languages at frameworks."
+                ]
+            },
+            {
+                "title": "Salesman",
+                "date": "Nobyembre 2022 - Enero 2025",
+                "company": "Winnie's Meatshop",
+                "location": "Pilipinas",
+                "roles": [
+                    "Tumulong sa mga customer sa pagpili ng kanilang mga produktong karne at nagbigay ng mahusay na serbisyo sa customer.",
+                    "Pinanatili ang kalinisan at kaayusan ng tindahan.",
+                    "Nagproseso ng mga transaksyon at namahala sa paninda."
+                ]
+            }
+        ]
+    }
+}

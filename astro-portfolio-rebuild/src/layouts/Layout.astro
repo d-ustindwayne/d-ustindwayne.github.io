@@ -1,0 +1,20 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import PageInit from "../components/PageInit.astro";
+import { type Props } from "../types/MetaProps.astro";
+import { lang, theme } from "../components/Config.astro";
+
+const { title, description } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+        <SEO title={title} description={description} />
+        <PageInit />
+	</head>
+	<body class="overflow-x-hidden relative" data-theme={theme} data-language={lang}>
+		<slot />
+	</body>
+</html>

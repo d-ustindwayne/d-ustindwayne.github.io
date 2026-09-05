@@ -1,0 +1,46 @@
+---
+import { type JSX } from "astro/jsx-runtime";
+import { type ProjectData } from "../types/ProjectType.astro";
+import { lang } from "./Config.astro";
+import textContent from "../data/textContent.json";
+import projectList from "../data/projects.json";
+import SketchBox from "./SketchBox.astro";
+import TechBadges from "../data/techBadge.json";
+import ConstructionTape from "./ConstructionTape.astro";
+
+const projects: Array<ProjectData> = projectList[lang];
+const Badges: Record<string, string> = TechBadges;
+const projectImageDir: string = "./projects";
+const githubProfileLink: string = "https://www.github.com/d-ustindwayne"; 
+const githubPagesLink: string = "https://d-ustindwayne.github.io"; 
+---
+<section class="relative">
+    <!-- <ConstructionTape /> -->
+    <div class="flex items-center justify-start mb-10">
+        <h2 class="text-4xl font-bold underline decoration-wavy decoration-blue-400">{textContent[lang].projects.title}</h2>
+        <span class="text-sm text-gray-500 rotate-3 border border-dashed border-gray-400 ms-4 p-1">{textContent[lang].projects.sublabel}</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.map((proj: ProjectData): JSX.Element => 
+            <SketchBox cls="p-6 relative">
+                {proj.tape &&
+                <div class={`absolute -top-3 -right-3 px-2 py-1 transform rotate-12 border border-transparent ${proj.tape.style} text-sm font-bold shadow-sm`}>
+                    {proj.tape.text}
+                </div>}
+                <h3 class="text-2xl font-bold mb-2">{proj.title}</h3>
+                <div class="group relative h-32 bg-gray-100 mb-4 flex items-center justify-center border border-dashed border-gray-400 overflow-hidden">    
+                    <img src={`${projectImageDir}${proj.image.thumbnail}`} alt=" " class="w-full h-full object-cover object-center"/>
+                    <img src={`${projectImageDir}${proj.image.screenshot}`} alt=" " class="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+                </div>
+                <p class="mb-4" set:html={proj.description} />
+                <div class="flex gap-2 mb-4">
+                    {proj.technologies.map((badge) => <span class={`${Badges[badge]} px-2 py-0.5 rounded-sm text-sm`}>{badge}</span>)}
+                </div>
+                <div class="flex gap-x-2">
+                    <a href={`${githubProfileLink}${proj.links.code}`} target="_blank" class="text-blue-600 hover:text-red-500 transition-all underline">{textContent[lang].projects.viewCode}</a>
+                    <a href={`${githubPagesLink}${proj.links.live}`} target="_blank" class="text-amber-700 hover:text-blue-500 transition-all underline">{textContent[lang].projects.viewLivePreview}</a>
+                </div>
+            </SketchBox>
+        )}
+    </div>
+</section>

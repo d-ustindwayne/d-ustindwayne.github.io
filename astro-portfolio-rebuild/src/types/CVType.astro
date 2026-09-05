@@ -1,0 +1,38 @@
+---
+
+interface CVTitle {
+    general: string,
+    it: string
+}
+
+interface CVSkills {
+    general: Record<string, string>,
+    it: Record<string, string>
+}
+
+interface CVEducation {
+    degree: string,
+    institute: string,
+    location: string,
+    date: string
+    specialization: string
+}
+
+interface CVExperience {
+    title: string,
+    date: string,
+    company: string,
+    location: string,
+    roles: string[]
+}
+
+export interface CVData {
+    name: string,
+    title: CVTitle,
+    birthdate: string,
+    location: string,
+    skills: CVSkills,
+    education: CVEducation[],
+    experience: CVExperience[],
+}
+---

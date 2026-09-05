@@ -1,0 +1,33 @@
+<div class="flex justify-center items-center bg-black p-4 rounded-lg">
+    <canvas id="doom" class="[image-rendering:pixelated] h-auto max-w-full"></canvas>
+</div>
+
+<script is:inline>
+    import { DOOM } from "wasm-doom";
+
+    const screenWidth = 640;
+    const screenHeight = 400;
+
+    const canvas = document.getElementById("doom");
+    if (!canvas) throw new Error("Canvas element not found"); 
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Failed to get 2D context for canvas");
+
+    canvas.width = screenWidth;
+    canvas.height = screenHeight;
+
+    const game = new DOOM({
+        screenWidth,
+        screenHeight,
+        enableLogs: false,
+        onFrameRender: ({ screen }) => {
+            const frame = new ImageData(
+                screen,
+                screenWidth,
+                screenHeight,
+            );
+            ctx.putImageData(frame, 0, 0);
+        },
+    });
+</script>

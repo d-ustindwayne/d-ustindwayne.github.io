@@ -1,0 +1,13 @@
+---
+import { type ImageProps, getRandomRotate } from "../types/ImageProps.astro";
+const { imageUrl, imageAlt, tapeColor, backgroundColor, cls } = Astro.props as ImageProps;
+---
+
+<div style={{ "--tape-color": tapeColor?? "rgba(255,255,255,0.5)", "--background-color": backgroundColor?? "white" }}
+class={`relative bg-[--background-color] p-2.5 [box-shadow:0_0.25rem_0.375rem_rgba(0,0,0,0.1)] ${getRandomRotate()} hover:rotate-0 transition-transform duration-300
+before:content-[''] before:absolute before:-top-3.75 before:left-1/2 before:translate-x-1/2 before:w-25 before:h-7.5
+before:bg-[--tape-color] before:border before:border-solid before:border-[rgba(0,0,0,0.1)] before:[box-shadow:0_1px_3px_rgba(0,0,0,0.1)] z-10
+${cls}`}>
+    <img src={imageUrl} alt={imageAlt?? imageUrl.substring(1, imageUrl.length - 3)} class="w-full h-48 object-cover" />
+    <p class="text-center mt-2 font-bold text-sm text-gray-500"><slot /></p>
+</div>

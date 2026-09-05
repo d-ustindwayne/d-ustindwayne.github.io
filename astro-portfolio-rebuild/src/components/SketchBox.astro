@@ -1,0 +1,21 @@
+---
+import { type ClassAppendable } from "../types/ClassAppendable.astro";
+const { cls } = Astro.props as ClassAppendable;
+const paperShapes: Array<string> = [
+    "rounded-[15px_225px_30px_255px/_255px_15px_225px_25px]",
+    "rounded-[255px_15px_225px_15px/15px_225px_15px_255px]",
+    "rounded-[225px_25px_245px_15px/_15px_255px_20px_235px]",
+    "rounded-[235px_20px_255px_25px/_20px_240px_15px_250px]",
+    "rounded-[20px_240px_15px_230px/_245px_25px_255px_15px]"
+];
+function getRandomShape(): string {
+    const randomIndex: number = Math.floor(Math.random() * paperShapes.length);
+    return paperShapes[randomIndex];
+}
+---
+
+<div class:list={[`relative ${getRandomShape()}
+border-2 border-black transition-all duration-200 ease-in-out bg-white shadow-md 
+hover:transform hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-lg hover:border-blue-500`, cls]}>
+    <slot />
+</div>

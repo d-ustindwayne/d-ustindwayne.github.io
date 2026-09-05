@@ -1,0 +1,32 @@
+{
+    "facebook": {
+        "color": "text-blue-600",
+        "icon": "fab fa-facebook-f",
+        "link": "https://www.facebook.com/buday.py"
+    },
+    "instagram": {
+        "color": "text-pink-600",
+        "icon": "fab fa-instagram",
+        "link": "https://www.instagram.com/mapang.he/"
+    },
+    "linkedin": {
+        "color": "text-blue-700",
+        "icon": "fab fa-linkedin-in",
+        "link": "https://www.linkedin.com/in/diaz5195/"
+    },
+    "github": {
+        "color": "text-gray-800",
+        "icon": "fab fa-github",
+        "link": "https://www.github.com/d-ustindwayne"
+    },
+    "email": {
+        "color": "text-red-600",
+        "icon": "fas fa-envelope",
+        "link": "mailto:nepomucenodwayne@gmail.com"
+    },
+    "phone": {
+        "color": "text-green-600",
+        "icon": "fas fa-phone",
+        "link": "tel:+64225400799"
+    }
+}

@@ -1,0 +1,160 @@
+{
+    "en": {
+        "header": {
+            "title": "Hi, I'm <span class=\"highlight\">Dustin Dwayne Diaz</span>",
+            "contactButton": "Contact Me!",
+            "cvButton": "Check My CV.",
+            "buttonSublabel": "I need job :)"
+        },
+
+        "projects": {
+            "title": "Projects I Actually Finished",
+            "sublabel": "Which is honestly surprising",
+            "viewCode": "View Code",
+            "viewLivePreview": "View Live Preview"
+        },
+
+        "gallery": {
+            "title": "Photo Gallery",
+            "sublabel": "A carefully curated selection of photos to summarize my life."
+        },
+
+        "cv": {
+            "title": "My CV",
+            "sublabel": "Flip to see the dark side",
+            "frontButton": "Flip it",
+            "backButton": "Go back",
+            "skillsText": "Skills",
+            "educationText": "Education",
+            "workExperiencesText": "Work Experiences",
+            "refereesText": "Referees available upon request"
+        },
+
+        "footer": {
+            "text": "&copy; 2026 Dustin Dwayne Diaz. Made on a random 2 am breakdown.",
+            "secondLine": "by <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" class=\"text-gray-700 hover:underline cursor-pointer\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contacts",
+            "tapeText": "don't spam me please hihi"
+        },
+
+        "constructionTape": {
+            "text": "Under Construction"
+        },
+
+        "settings": {
+            "title": "Sidebar",
+            "themeLabel": "Theme",
+            "languageLabel": "Language",
+            "languages": {"English": "en", "Spanish": "es", "Filipino": "tl"}
+        }
+    },
+
+    "es": {
+        "header": {
+            "title": "Hola, soy <span class=\"highlight\">Dustin Dwayne Diaz</span>",
+            "contactButton": "¡Contáctame!",
+            "cvButton": "Mira mi CV",
+            "buttonSublabel": "Necesito trabajo :)"
+        },
+
+        "projects": {
+            "title": "Proyectos que Realmente Terminé",
+            "sublabel": "Lo cual es sinceramente sorprendente",
+            "viewCode": "Ver Código",
+            "viewLivePreview": "Ver Sitio"
+        },
+
+        "gallery": {
+            "title": "Galería de Fotos",
+            "sublabel": "Una selección cuidadosamente hecha de fotos para resumir mi vida."
+        },
+
+        "cv": {
+            "title": "Mi CV",
+            "sublabel": "Dale la vuelta para ver el lado oscuro",
+            "frontButton": "Dale la vuelta",
+            "backButton": "Volver",
+            "skillsText": "Habilidades",
+            "educationText": "Educación",
+            "workExperiencesText": "Experiencias Laborales",
+            "refereesText": "Referencias disponibles a pedido"
+        },
+
+        "footer": {
+            "text": "&copy; 2026 Dustin Dwayne Diaz. Hecho durante una crisis aleatoria a las 2 de la mañana.",
+            "secondLine": "por <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" class=\"text-gray-700 hover:underline cursor-pointer\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contactos",
+            "tapeText": "no me mandes spam por favor hihi"
+        },
+
+        "constructionTape": {
+            "text": "En Construcción"
+        },
+
+        "settings": {
+            "title": "Barra Lateral",
+            "themeLabel": "Tema",
+            "languageLabel": "Idioma",
+            "languages": {"Inglés": "en", "Español": "es", "Filipino": "tl"}
+        }
+    },
+
+    "tl": {
+        "header": {
+            "title": "Hi, Ako si <span class=\"highlight\">Dustin Dwayne Diaz</span>",
+            "contactButton": "Contact Me!",
+            "cvButton": "Tingnan CV Ko",
+            "buttonSublabel": "kahit anong work po :)"
+        },
+
+        "projects": {
+            "title": "Mga Proyektong Natapos Ko",
+            "sublabel": "Na 'Di Ko Akalain Na Matatapos Ko",
+            "viewCode": "Tingnan Code",
+            "viewLivePreview": "Tingnan Preview"
+        },
+
+        "gallery": {
+            "title": "Photo Gallery",
+            "sublabel": "Maingat na piniling mga litrato para i-summarize ang buhay ko."
+        },
+
+        "cv": {
+            "title": "Aking CV",
+            "sublabel": "I-flip para makita ang dark side",
+            "frontButton": "I-flip",
+            "backButton": "Balik",
+            "skillsText": "Kasanayan",
+            "educationText": "Edukasyon",
+            "workExperiencesText": "Karanasan sa Trabaho",
+            "refereesText": "Mga Referee makukuha kapag hiningi"
+        },
+
+        "footer": {
+            "text": "&copy; 2026 Dustin Dwayne Diaz. Ginawa noong random 2 AM breakdown.",
+            "secondLine": "ni <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" class=\"text-gray-700 hover:underline cursor-pointer\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contact",
+            "tapeText": "wag niyo 'kong i-spam hihi"
+        },
+
+        "constructionTape": {
+            "text": "Kasalukuyang Ginagawa"
+        },
+
+        "settings": {
+            "title": "Sidebar",
+            "themeLabel": "Padilimin",
+            "languageLabel": "Wika",
+            "languages": {"Ingles": "en", "Espanyol": "es", "Pilipino": "tl"}
+        }
+    }
+}

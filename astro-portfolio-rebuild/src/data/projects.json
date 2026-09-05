@@ -1,0 +1,188 @@
+{
+    "en": [
+        {
+            "title": "This website",
+            "description": "My personal portfolio website built with Astro coz I am slowly hating on React",
+            "technologies": ["Astro", "Typescript", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png"
+            },
+            "links": {
+                "code": "/d-ustindwayne.github.io",
+                "live": "/"
+            }
+        },
+        {
+            "title": "Kia Ora Cafe",
+            "description": "I created a website for a fictional coffee shop. I put my girlfriend as the owner. I think that is the reason why this school project received a 50/50 marks.",
+            "technologies": ["HTML", "CSS", "Javascript", "Bootstrap"],
+            "image": {
+                "thumbnail": "/kia-ora-cafe-thumbnail.png",
+                "screenshot": "/kia-ora-cafe-screenshot.png"
+            },
+            "links": {
+                "code": "/Kia-Ora-Cafe-Website",
+                "live": "/Kia-Ora-Cafe-Website/"
+            },
+            "tape": {
+                "style": "bg-red-100 text-red-600 border-red-200",
+                "text": "Most proud of this"
+            }
+        },
+        {
+            "title": "John Mazel",
+            "description": "Group project; I probably only did 10% of work. I'll just put it here anyway :D ",
+            "technologies": ["HTML", "CSS", "Bootstrap"],
+            "image": {
+                "thumbnail": "/john-mazel-website-thumbnail.png",
+                "screenshot": "/john-mazel-website-screenshot.png"
+            },
+            "links": {
+                "code": "/john-mazel",
+                "live": "/john-mazel/"
+            }
+        },
+        {
+            "title": "beau | be you",
+            "description": "A react website project for UI/UX course collaboration with <a href=\"https://github.com/darawesome\" target=\"_blank\" class=\"text-blue-600 underline hover:text-red-500\">@darawesome</a>. Definitely rushed with 3 other projects we've done.",
+            "technologies": ["Typescript", "React", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/beau-thumbnail.png",
+                "screenshot": "/beau-screenshot.png"
+            },
+            "links": {
+                "code": "/beau",
+                "live": "/beau/"
+            },
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Most recent project"
+            }
+        }
+    ],
+    "es": [
+        {
+            "title": "Este sitio web",
+            "description": "Mi portafolio personal hecho con Astro porque poco a poco le estoy agarrando odio a React",
+            "technologies": ["Astro", "Typescript", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png"
+            },
+            "links": {
+                "code": "/d-ustindwayne.github.io",
+                "live": "/"
+            }
+        },
+        {
+            "title": "Kia Ora Cafe",
+            "description": "Creé un sitio web para una cafetería ficticia. Puse a mi novia como dueña. Creo que esa es la razón por la que este proyecto recibió 50/50 puntos.",
+            "technologies": ["HTML", "CSS", "Javascript", "Bootstrap"],
+            "image": {
+                "thumbnail": "/kia-ora-cafe-thumbnail.png",
+                "screenshot": "/kia-ora-cafe-screenshot.png"
+            },
+            "links": {
+                "code": "/Kia-Ora-Cafe-Website",
+                "live": "/Kia-Ora-Cafe-Website/"
+            },
+            "tape": {
+                "style": "bg-red-100 text-red-600 border-red-200",
+                "text": "Del que más orgulloso estoy"
+            }
+        },
+        {
+            "title": "John Mazel",
+            "description": "Proyecto grupal; probablemente solo hice el 10% del trabajo. Lo voy a poner aquí de todos modos :D",
+            "technologies": ["HTML", "CSS", "Bootstrap"],
+            "image": {
+                "thumbnail": "/john-mazel-website-thumbnail.png",
+                "screenshot": "/john-mazel-website-screenshot.png"
+            },
+            "links": {
+                "code": "/john-mazel",
+                "live": "/john-mazel/"
+            }
+        },
+        {
+            "title": "beau | be you",
+            "description": "Un proyecto de sitio web en React para el curso de UI/UX, en colaboración con <a href=\"https://github.com/darawesome\" target=\"_blank\" class=\"text-blue-600 underline hover:text-red-500\">@darawesome</a>. Definitivamente lo hicimos con prisa junto con otros 3 proyectos.",
+            "technologies": ["Typescript", "React", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/beau-thumbnail.png",
+                "screenshot": "/beau-screenshot.png"
+            },
+            "links": {
+                "code": "/beau",
+                "live": "/beau/"
+            },
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Proyecto más reciente"
+            }
+        }
+    ],
+    "tl": [
+        {
+            "title": "Itong pahinarya",
+            "description": "Pahinaryang kartera na ginawa ko gamit Astro kasi nagcacrashout ako sa React minsan",
+            "technologies": ["Astro", "Typescript", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png"
+            },
+            "links": {
+                "code": "/d-ustindwayne.github.io",
+                "live": "/"
+            }
+        },
+        {
+            "title": "Kia Ora Cafe",
+            "description": "Ginawa kong website para sa isang fictional na coffee shop. Ginawa kong owner ang girlfriend ko. Feeling ko 'yon dahilan kung bakit 50/50 ang nakuha kong grade rito eh.",
+            "technologies": ["HTML", "CSS", "Javascript", "Bootstrap"],
+            "image": {
+                "thumbnail": "/kia-ora-cafe-thumbnail.png",
+                "screenshot": "/kia-ora-cafe-screenshot.png"
+            },
+            "links": {
+                "code": "/Kia-Ora-Cafe-Website",
+                "live": "/Kia-Ora-Cafe-Website/"
+            },
+            "tape": {
+                "style": "bg-red-100 text-red-600 border-red-200",
+                "text": "Ito'y aking pinagmamalaki"
+            }
+        },
+        {
+            "title": "John Mazel",
+            "description": "Group project; parang 10% lang ata ng work ang gawa ko rito. Ilalagay ko na rin dito kahit na :D",
+            "technologies": ["HTML", "CSS", "Bootstrap"],
+            "image": {
+                "thumbnail": "/john-mazel-website-thumbnail.png",
+                "screenshot": "/john-mazel-website-screenshot.png"
+            },
+            "links": {
+                "code": "/john-mazel",
+                "live": "/john-mazel/"
+            }
+        },
+        {
+            "title": "beau | be you",
+            "description": "React website project para sa UI/UX course namin ni ate <a href=\"https://github.com/darawesome\" target=\"_blank\" class=\"text-blue-600 underline hover:text-red-500\">@darawesome</a>. Sobrang rushed dahil sabay-sabay naming ginawa yung iba pang 3 projects.",
+            "technologies": ["Typescript", "React", "TailwindCSS"],
+            "image": {
+                "thumbnail": "/beau-thumbnail.png",
+                "screenshot": "/beau-screenshot.png"
+            },
+            "links": {
+                "code": "/beau",
+                "live": "/beau/"
+            },
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Pinakabagong proyekto ko"
+            }
+        }
+    ]
+}

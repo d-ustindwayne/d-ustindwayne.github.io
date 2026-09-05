@@ -1,0 +1,17 @@
+{
+    "Javascript": "bg-yellow-400 text-black",
+    "Typescript": "bg-blue-500 text-white",
+    "Python": "bg-blue-300 text-black",
+    "HTML": "bg-orange-500 text-white",
+    "CSS": "bg-blue-600 text-white",
+    "React": "bg-blue-400 text-white",
+    "Astro": "bg-sky-400 text-white",
+    "TailwindCSS": "bg-teal-400 text-white",
+    "Bootstrap": "bg-purple-600 text-white",
+    "Java": "bg-red-600 text-white",
+    "C++": "bg-gray-600 text-white",
+    "PHP": "bg-purple-400 text-white",
+    "WordPress": "bg-blue-700 text-white",
+    "Kotlin": "bg-purple-500 text-white",
+    "Swift": "bg-red-400 text-white"
+}

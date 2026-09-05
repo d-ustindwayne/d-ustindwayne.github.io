@@ -1,0 +1,45 @@
+---
+import Image from "../../public/favicon.ico";
+import ThumbnailImage from "../../public/thumbnail.png";
+import { type Props } from "../types/MetaProps.astro";
+
+const OWNER = "Dustin Dwayne Diaz";
+const TITLE = `Portfolio - ${OWNER}`;
+const DESCRIPTION = "My webpage acting as my portfolio and a place where I put anything I want.";
+
+const SITE_URL = new URL(Astro.url.pathname, Astro.site);
+const FAVICON = new URL(Image, Astro.site);
+const THUMBNAIL = new URL(ThumbnailImage.src, Astro.site);
+
+const { title, description } = Astro.props as Props;
+---
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href={FAVICON}>
+
+<!-- Standard Search Tags -->
+<title>{title?? TITLE}</title>
+<meta name="description" content={description?? DESCRIPTION}>
+<meta name="author" content={OWNER}>
+<link rel="canonical" href={SITE_URL} />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={SITE_URL} />
+<meta property="og:title" content={title?? TITLE} />
+<meta property="og:description" content={description?? DESCRIPTION} />
+<meta property="og:image" content={THUMBNAIL}/>
+<meta property="og:image:alt" content={THUMBNAIL.pathname} />
+<meta property="og:locale" content="en_NZ">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title?? TITLE}>
+<meta name="twitter:description" content={description?? DESCRIPTION}>
+<meta name="twitter:image" content={THUMBNAIL}>
+<meta name="twitter:image:alt" content={THUMBNAIL.pathname}>
+
+<!-- Extra SEO Cleanups -->
+<meta name="generator" content={Astro.generator} />

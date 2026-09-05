@@ -1,0 +1,103 @@
+---
+import { lang } from "./Config.astro";
+import textContent from "../data/textContent.json";
+
+import photos from "../data/photos.json";
+import PhotoFilm from "./PhotoFilm.astro";
+import { type PhotoData } from "../types/PhotoType.astro";
+
+const introText: string = textContent[lang].header.title;
+const myPhoto: PhotoData = photos[lang][0];
+---
+
+<section id="intro" class="text-center mb-20">
+    <div class="relative inline-block">
+        <PhotoFilm imageUrl={`/gallery${myPhoto.src}`} imageAlt={myPhoto.alt} cls="rotate-[-3deg] hover:rotate-[5deg] transition-all inline-block mb-6" />
+        <div class="hidden md:block absolute top-10 -right-40 w-32 text-left">
+            <span class="text-red-600 text-lg transform -rotate-12 block">&lt;-- {myPhoto.caption}</span>
+        </div>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-bold mb-4 mt-4" set:html={introText} />
+
+    <p class="text-2xl text-gray-600 rotate-1" id="description">Timer</p>
+    
+    <div class="flex flex-row justify-center align-start">
+        <div class="mt-8 me-1">
+            <button onclick="toggleModal()" class="sketch-btn">{textContent[lang].header.contactButton}</button>
+        </div>
+        <div class="mt-8 ms-1 text-center">
+            <a href="#cv" class="sketch-btn bg-black text-white hover:bg-white hover:text-black">{textContent[lang].header.cvButton}</a>
+            <span class="text-sm text-gray-400 block mt-2 transform rotate-1">{textContent[lang].header.buttonSublabel}</span>
+        </div>
+    </div>
+</section>
+
+<script>
+const myBirthday: Date = new Date("2005-04-14T07:09:00");
+function updateTimer() {
+    const currentLanguage: string = document.getElementsByTagName('body')[0]?.dataset.language ?? 'en';
+    const currentTime: Date = new Date();
+
+    let diff: number = currentTime.getTime() - myBirthday.getTime();
+
+    const years: number = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    diff -= years * (1000 * 60 * 60 * 24 * 365.25);
+
+    const days: number = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * (1000 * 60 * 60 * 24);
+
+    const hours: number = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+
+    const minutes: number = Math.floor(diff / (1000 * 60));
+    diff -= minutes * (1000 * 60);
+
+    const seconds: number = Math.floor(diff / 1000);
+
+    const descElement: HTMLElement | null = document.getElementById('description');
+    if (!descElement) return;
+    
+    switch (currentLanguage) {
+        case "en":
+            descElement.innerText = `My chaotic life started exactly ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds ago.`;
+            break;
+        case "es":
+            descElement.innerText = `Mi caótica vida comenzó exactamente hace ${years} años, ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos.`;
+            break;
+        case "tl":
+            descElement.innerText = `Ang aking magulong buhay ay nagsimula eksaktong ${years} taon, ${days} araw, ${hours} oras, ${minutes} minuto, at ${seconds} segundo na ang nakalipas.`;
+            break;
+        default:
+            descElement.innerText = `My chaotic life started exactly ${years} years, ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds ago.`;
+    }
+}
+
+const yearTagElement: HTMLElement | null = document.getElementById('year');
+if (yearTagElement) yearTagElement.innerText = new Date().getFullYear().toString();
+
+function toggleFlip() {
+    const container: HTMLElement | null = document.getElementById('cv-container');
+    container?.classList.toggle('is-flipped');
+}
+
+function toggleModal() {
+    const modal: HTMLElement | null = document.getElementById('contact-modal');
+    modal?.classList.toggle('open');
+    
+    if(modal?.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function closeModal(event: MouseEvent) {
+    if (event.target instanceof HTMLElement && event.target.id === 'contact-modal') {
+        toggleModal();
+    }
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
