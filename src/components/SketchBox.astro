@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div"> & { tilt?: string };
+
+const pick = (items: string[]) => items[Math.floor(Math.random() * items.length)];
+
+// Slightly different hand-drawn outline and tilt for every box
+const shape = pick([
+    "rounded-[15px_225px_30px_255px/255px_15px_225px_25px]",
+    "rounded-[255px_15px_225px_15px/15px_225px_15px_255px]",
+    "rounded-[225px_25px_245px_15px/15px_255px_20px_235px]",
+    "rounded-[235px_20px_255px_25px/20px_240px_15px_250px]",
+    "rounded-[20px_240px_15px_230px/245px_25px_255px_15px]",
+]);
+const { tilt = pick(["rotate-1", "-rotate-1", "rotate-[0.5deg]", "-rotate-[0.5deg]"]), class: cls, ...attrs } = Astro.props;
+---
+
+<div
+    class:list={[
+        "relative border-2 border-ink bg-card shadow-sketch transition duration-200 hover:-translate-0.5 hover:border-blue-pen hover:shadow-sketch-lifted",
+        shape,
+        tilt,
+        cls,
+    ]}
+    {...attrs}
+>
+    <slot />
+</div>

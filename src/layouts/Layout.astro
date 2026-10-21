@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import { getContent } from "../i18n";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { lang } = getContent(Astro.currentLocale);
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <SEO {...Astro.props} />
+        <script is:inline>
+            // Applied before first paint to avoid a theme flash
+            try {
+                const saved = localStorage.getItem("theme");
+                const dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.dataset.theme = dark ? "dark" : "light";
+            } catch {}
+        </script>
+    </head>
+    <body class="relative overflow-x-hidden">
+        <slot />
+        <script>
+            // Shared modal wiring: <button data-dialog="id"> opens <dialog id="id">; clicking the backdrop closes it
+            document.addEventListener("click", (event) => {
+                const target = event.target as HTMLElement;
+                const opener = target.closest<HTMLElement>("[data-dialog]");
+                if (opener) {
+                    document.querySelector<HTMLDialogElement>(`#${opener.dataset.dialog}`)?.showModal();
+                } else if (target instanceof HTMLDialogElement) {
+                    target.close();
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import SketchBox from "./SketchBox.astro";
+import badgeStyles from "../data/techBadge.json";
+import { getContent } from "../i18n";
+import { loadImage } from "../images";
+
+const { ui, projects } = getContent(Astro.currentLocale);
+const badges: Record<string, string> = badgeStyles;
+const githubProfile = "https://github.com/d-ustindwayne";
+const githubPages = "https://d-ustindwayne.github.io";
+
+const visible = await Promise.all(
+    projects
+        .filter((project) => !project.hidden)
+        .map(async (project) => ({
+            ...project,
+            thumbnail: await loadImage(`projects${project.image.thumbnail}`),
+            screenshot: await loadImage(`projects${project.image.screenshot}`),
+        })),
+);
+---
+
+<section id="projects">
+    <div class="mb-10 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <h2 class="text-4xl font-bold underline decoration-blue-400 decoration-wavy">{ui.projects.title}</h2>
+        <span class="rotate-3 border border-dashed border-faint p-1 text-sm text-muted">{ui.projects.sublabel}</span>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {visible.map((project) => (
+            <SketchBox class="p-6">
+                {project.tape && (
+                    <div class:list={["absolute -top-3 -right-3 rotate-12 border px-2 py-1 text-sm font-bold shadow-sm", project.tape.style]}>
+                        {project.tape.text}
+                    </div>
+                )}
+                <h3 class="mb-2 text-2xl font-bold">{project.title}</h3>
+                <div class="group relative mb-4 h-32 overflow-hidden border border-dashed border-faint bg-paper" style={project.image.background && { background: project.image.background }}>
+                    <Image src={project.thumbnail} alt="" width={600} class:list={["size-full", project.image.background ? "object-scale-down" : "object-cover"]} />
+                    <Image src={project.screenshot} alt={project.title} widths={[480, 960]} sizes="(min-width: 768px) 400px, 90vw" class="absolute inset-0 size-full object-cover object-top opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </div>
+                <p class="mb-4" set:html={project.description} />
+                <ul class="mb-4 flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => <li class:list={["rounded-sm px-2 py-0.5 text-sm", badges[tech]]}>{tech}</li>)}
+                </ul>
+                <div class="flex flex-wrap gap-x-3">
+                    <a href={`${githubProfile}${project.links.code}`} target="_blank" rel="noopener" class="text-blue-pen underline transition-colors hover:text-red-pen">{ui.projects.viewCode}</a>
+                    <a href={`${githubPages}${project.links.live}`} target="_blank" rel="noopener" class="text-amber-700 underline transition-colors hover:text-blue-pen dark:text-amber-400">{ui.projects.viewLivePreview}</a>
+                </div>
+            </SketchBox>
+        ))}
+    </div>
+</section>

@@ -1,0 +1,29 @@
+---
+import { defaultLang, languages } from "../i18n";
+
+const codes = Object.keys(languages);
+---
+
+<!doctype html>
+<html lang={defaultLang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex" />
+        <title>Dustin Dwayne Diaz</title>
+        <link rel="canonical" href={`/${defaultLang}/`} />
+        <noscript><meta http-equiv="refresh" content={`0; url=/${defaultLang}/`} /></noscript>
+        <script is:inline define:vars={{ codes, defaultLang }}>
+            // Send visitors to their saved language, else their browser language, else English
+            let lang = defaultLang;
+            try {
+                const saved = localStorage.getItem("language");
+                const browser = navigator.language.toLowerCase().replace(/^fil/, "tl").slice(0, 2);
+                lang = [saved, browser].find((code) => codes.includes(code)) ?? defaultLang;
+            } catch {}
+            location.replace(`/${lang}/${location.hash}`);
+        </script>
+    </head>
+    <body>
+        <a href={`/${defaultLang}/`}>Continue</a>
+    </body>
+</html>

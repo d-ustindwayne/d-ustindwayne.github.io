@@ -1,0 +1,12 @@
+---
+import { getContent } from "../i18n";
+
+const { ui } = getContent(Astro.currentLocale);
+---
+
+<footer id="contact" class="text-center text-muted">
+    <p>
+        &copy; {new Date().getFullYear()} <Fragment set:html={ui.footer.text} /><br />
+        <Fragment set:html={ui.footer.secondLine} />
+    </p>
+</footer>

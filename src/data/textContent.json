@@ -1,0 +1,181 @@
+{
+    "en": {
+        "meta": {
+            "title": "Portfolio",
+            "description": "My webpage acting as my portfolio and a place where I put anything I want."
+        },
+
+        "header": {
+            "title": "Hi, I'm <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
+            "age": "My chaotic life started exactly {years} years, {days} days, {hours} hours, {minutes} minutes, and {seconds} seconds ago.",
+            "contactButton": "Contact Me!",
+            "cvButton": "Check My CV.",
+            "buttonSublabel": "I need job :)"
+        },
+
+        "projects": {
+            "title": "Projects I Actually Finished",
+            "sublabel": "Which is honestly surprising",
+            "viewCode": "View Code",
+            "viewLivePreview": "View Live Preview"
+        },
+
+        "gallery": {
+            "title": "Photo Gallery",
+            "sublabel": "A carefully curated selection of photos to summarize my life."
+        },
+
+        "cv": {
+            "title": "My CV",
+            "sublabel": "Flip to see the dark side",
+            "frontButton": "Flip it",
+            "backButton": "Go back",
+            "skillsText": "Skills",
+            "educationText": "Education",
+            "workExperiencesText": "Work Experiences",
+            "refereesText": "Referees available upon request",
+            "specializationLabel": "Specialization"
+        },
+
+        "footer": {
+            "text": "Dustin Dwayne Diaz. Made on a random 2 am breakdown.",
+            "secondLine": "by <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contacts",
+            "tapeText": "don't spam me please hihi",
+            "close": "Close"
+        },
+
+        "settings": {
+            "title": "Settings",
+            "open": "Open settings",
+            "themeLabel": "Dark Mode",
+            "languageLabel": "Language",
+            "doomButton": "Play DOOM",
+            "doomHint": "Keyboard only. Click the screen first, arrows to move, Ctrl to shoot.",
+            "close": "Close"
+        }
+    },
+
+    "es": {
+        "meta": {
+            "title": "Portafolio",
+            "description": "Mi página web que funciona como mi portafolio y un lugar donde pongo lo que quiero."
+        },
+
+        "header": {
+            "title": "Hola, soy <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
+            "age": "Mi caótica vida comenzó exactamente hace {years} años, {days} días, {hours} horas, {minutes} minutos y {seconds} segundos.",
+            "contactButton": "¡Contáctame!",
+            "cvButton": "Mira mi CV.",
+            "buttonSublabel": "Necesito trabajo :)"
+        },
+
+        "projects": {
+            "title": "Proyectos que Realmente Terminé",
+            "sublabel": "Lo cual es sinceramente sorprendente",
+            "viewCode": "Ver Código",
+            "viewLivePreview": "Ver Sitio"
+        },
+
+        "gallery": {
+            "title": "Galería de Fotos",
+            "sublabel": "Una selección cuidadosamente hecha de fotos para resumir mi vida."
+        },
+
+        "cv": {
+            "title": "Mi CV",
+            "sublabel": "Dale la vuelta para ver el lado oscuro",
+            "frontButton": "Dale la vuelta",
+            "backButton": "Volver",
+            "skillsText": "Habilidades",
+            "educationText": "Educación",
+            "workExperiencesText": "Experiencias Laborales",
+            "refereesText": "Referencias disponibles a pedido",
+            "specializationLabel": "Especialización"
+        },
+
+        "footer": {
+            "text": "Dustin Dwayne Diaz. Hecho durante una crisis aleatoria a las 2 de la mañana.",
+            "secondLine": "por <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contactos",
+            "tapeText": "no me mandes spam por favor hihi",
+            "close": "Cerrar"
+        },
+
+        "settings": {
+            "title": "Ajustes",
+            "open": "Abrir ajustes",
+            "themeLabel": "Modo Oscuro",
+            "languageLabel": "Idioma",
+            "doomButton": "Jugar DOOM",
+            "doomHint": "Solo con teclado. Haz clic en la pantalla primero, flechas para moverte, Ctrl para disparar.",
+            "close": "Cerrar"
+        }
+    },
+
+    "tl": {
+        "meta": {
+            "title": "Portfolio",
+            "description": "Ang aking webpage na nagsisilbing portfolio at lugar kung saan nilalagay ko kahit ano."
+        },
+
+        "header": {
+            "title": "Hi, Ako si <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
+            "age": "Ang aking magulong buhay ay nagsimula saktong {years} taon, {days} araw, {hours} oras, {minutes} minuto, at {seconds} segundo na ang nakalipas.",
+            "contactButton": "Kontakin ako",
+            "cvButton": "Tingnan CV Ko",
+            "buttonSublabel": "kahit anong work po :)"
+        },
+
+        "projects": {
+            "title": "Mga Proyektong Natapos Ko",
+            "sublabel": "Na 'Di Ko Akalain Na Matatapos Ko",
+            "viewCode": "Tingnan Code",
+            "viewLivePreview": "Tingnan Preview"
+        },
+
+        "gallery": {
+            "title": "Photo Gallery",
+            "sublabel": "Maingat na piniling mga litrato para i-summarize ang buhay ko."
+        },
+
+        "cv": {
+            "title": "Aking CV",
+            "sublabel": "I-flip para makita ang maitim na budhi",
+            "frontButton": "I-flip",
+            "backButton": "Balik",
+            "skillsText": "Kasanayan",
+            "educationText": "Edukasyon",
+            "workExperiencesText": "Karanasan sa Trabaho",
+            "refereesText": "Makukuha ang mga referee kapag hiningi",
+            "specializationLabel": "Espesyalisasyon"
+        },
+
+        "footer": {
+            "text": "Dustin Dwayne Diaz. Ginawa noong ako'y nagka-2 AM breakdown nang wala sa oras.",
+            "secondLine": "ni <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+        },
+
+        "contact": {
+            "title": "Contact",
+            "tapeText": "wag niyo 'kong i-spam hihi",
+            "close": "Isara"
+        },
+
+        "settings": {
+            "title": "Mga Setting",
+            "open": "Buksan ang settings",
+            "themeLabel": "Padilimin",
+            "languageLabel": "Wika",
+            "doomButton": "Laruin ang DOOM",
+            "doomHint": "Keyboard lang. I-click muna ang screen, arrows para gumalaw, Ctrl para bumaril.",
+            "close": "Isara"
+        }
+    }
+}

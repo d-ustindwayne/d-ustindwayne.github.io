@@ -1,0 +1,45 @@
+---
+import PhotoFilm from "./PhotoFilm.astro";
+import SketchButton from "./SketchButton.astro";
+import { getContent } from "../i18n";
+import { loadImage } from "../images";
+import { formatAge } from "../age";
+
+const { ui, photos } = getContent(Astro.currentLocale);
+const me = photos[0];
+---
+
+<section id="intro" class="mb-20 text-center">
+    <div class="relative inline-block">
+        <PhotoFilm
+            src={await loadImage(`gallery${me.src}`)}
+            alt={me.alt}
+            tilt="-rotate-3 hover:rotate-5"
+            imageClass="size-32 md:size-48"
+            loading="eager"
+            class="mb-6 inline-block"
+        />
+        <p class="absolute top-10 -right-40 hidden w-32 -rotate-12 text-left text-lg text-red-pen md:block">&lt;-- {me.caption}</p>
+    </div>
+
+    <h1 class="my-4 text-4xl font-bold sm:text-5xl md:text-7xl" set:html={ui.header.title} />
+
+    <p id="age" class="rotate-1 text-2xl text-muted" data-template={ui.header.age}>{formatAge(ui.header.age)}</p>
+
+    <div class="mt-8 flex flex-wrap items-start justify-center gap-2">
+        <SketchButton data-dialog="contact-modal">{ui.header.contactButton}</SketchButton>
+        <div>
+            <SketchButton href="#cv" variant="solid">{ui.header.cvButton}</SketchButton>
+            <span class="mt-2 block rotate-1 text-sm text-faint">{ui.header.buttonSublabel}</span>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { formatAge } from "../age";
+
+    const age = document.getElementById("age")!;
+    const tick = () => (age.textContent = formatAge(age.dataset.template!));
+    tick();
+    setInterval(tick, 1000);
+</script>

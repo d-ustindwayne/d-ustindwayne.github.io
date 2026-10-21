@@ -1,0 +1,42 @@
+---
+import { getContent, languages } from "../i18n";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const OWNER = "Dustin Dwayne Diaz";
+const ogLocales = { en: "en_NZ", es: "es_ES", tl: "fil_PH" } as const;
+
+const { lang, ui } = getContent(Astro.currentLocale);
+const { title = `${ui.meta.title} - ${OWNER}`, description = ui.meta.description } = Astro.props;
+
+const url = new URL(Astro.url.pathname, Astro.site);
+const thumbnail = new URL("/thumbnail.png", Astro.site);
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={OWNER} />
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={url} />
+{Object.keys(languages).map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, Astro.site)} />)}
+<link rel="alternate" hreflang="x-default" href={new URL("/en/", Astro.site)} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={thumbnail} />
+<meta property="og:image:alt" content={OWNER} />
+<meta property="og:locale" content={ogLocales[lang]} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={thumbnail} />

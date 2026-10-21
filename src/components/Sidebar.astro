@@ -1,0 +1,111 @@
+---
+import SketchButton from "./SketchButton.astro";
+import { getContent, languages } from "../i18n";
+
+const { lang, ui } = getContent(Astro.currentLocale);
+const row = "flex items-center justify-between gap-4 border-b border-dashed border-faint/60 py-4";
+---
+
+<button
+    popovertarget="settings"
+    aria-label={ui.settings.open}
+    class="fixed top-6 left-0 z-40 cursor-pointer rounded-r-xl border-2 border-l-0 border-ink bg-card p-2.5 text-ink shadow-sketch transition-colors hover:text-blue-pen"
+>
+    <svg aria-hidden="true" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 6h16M4 12h10M4 18h13" />
+    </svg>
+</button>
+
+<aside
+    id="settings"
+    popover
+    aria-labelledby="settings-title"
+    class="inset-y-0 right-auto left-0 m-0 h-dvh max-h-none w-72 max-w-[85vw] -translate-x-full overflow-y-auto border-0 border-r-2 border-ink bg-card p-6 text-ink shadow-sketch transition-[translate,overlay,display] transition-discrete duration-300 backdrop:bg-black/30 open:translate-x-0 motion-reduce:transition-none starting:open:-translate-x-full"
+>
+    <div class="mb-2 flex items-center justify-between">
+        <h2 id="settings-title" class="text-3xl font-bold underline decoration-blue-400 decoration-wavy">{ui.settings.title}</h2>
+        <button
+            popovertarget="settings"
+            popovertargetaction="hide"
+            aria-label={ui.settings.close}
+            class="size-9 cursor-pointer rounded-full border-2 border-ink font-bold transition-colors hover:bg-ink hover:text-paper"
+        >X</button>
+    </div>
+
+    <label class:list={[row, "cursor-pointer"]}>
+        {ui.settings.themeLabel}
+        <input id="theme-toggle" type="checkbox" role="switch" class="peer sr-only" />
+        <span
+            aria-hidden="true"
+            class="relative h-6 w-11 shrink-0 rounded-full border-2 border-ink bg-paper transition-colors peer-checked:bg-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blue-pen after:absolute after:top-0.5 after:left-0.5 after:size-4 after:rounded-full after:bg-ink after:transition-transform peer-checked:after:translate-x-5 peer-checked:after:bg-paper"
+        ></span>
+    </label>
+
+    <nav aria-labelledby="language-label" class:list={[row, "flex-col items-start"]}>
+        <span id="language-label">{ui.settings.languageLabel}</span>
+        <ul class="flex flex-wrap gap-2 text-lg">
+            {Object.entries(languages).map(([code, name]) => (
+                <li>
+                    <a
+                        href={`/${code}/`}
+                        hreflang={code}
+                        lang={code}
+                        data-lang={code}
+                        aria-current={code === lang ? "page" : undefined}
+                        class="block rounded-sketch-btn border-2 border-ink px-3 py-0.5 transition-colors hover:bg-ink hover:text-paper aria-[current=page]:bg-ink aria-[current=page]:text-paper"
+                    >{name}</a>
+                </li>
+            ))}
+        </ul>
+    </nav>
+
+    <div class="py-6 pointer-coarse:hidden">
+        <SketchButton data-dialog="doom-dialog" class="w-full">🎮 {ui.settings.doomButton}</SketchButton>
+    </div>
+</aside>
+
+<dialog id="doom-dialog" aria-label="DOOM" class="m-auto w-[min(56rem,calc(100vw-2rem))] bg-transparent p-0 backdrop:bg-black/80">
+    <div class="rounded-lg border-2 border-gray-600 bg-black p-3 text-gray-300">
+        <div class="mb-3 flex items-center justify-between gap-4 text-base">
+            <p>{ui.settings.doomHint}</p>
+            <form method="dialog">
+                <button aria-label={ui.settings.close} class="size-9 shrink-0 cursor-pointer rounded-full border-2 border-gray-500 font-bold transition-colors hover:bg-gray-300 hover:text-black">X</button>
+            </form>
+        </div>
+        <iframe title="DOOM" data-src="/doom/" class="aspect-8/5 w-full bg-black"></iframe>
+    </div>
+</dialog>
+
+<script>
+    const root = document.documentElement;
+    const save = (key: string, value: string) => {
+        try {
+            localStorage.setItem(key, value);
+        } catch {}
+    };
+
+    const themeToggle = document.getElementById("theme-toggle") as HTMLInputElement;
+    themeToggle.checked = root.dataset.theme === "dark";
+    themeToggle.addEventListener("change", () => {
+        root.dataset.theme = themeToggle.checked ? "dark" : "light";
+        save("theme", root.dataset.theme);
+    });
+
+    // Remember the chosen language and keep the reader's place on the page
+    document.querySelectorAll<HTMLAnchorElement>("[data-lang]").forEach((link) =>
+        link.addEventListener("click", () => {
+            save("language", link.dataset.lang!);
+            link.hash = location.hash;
+        }),
+    );
+
+    // DOOM runs in an iframe that only exists while the dialog is open:
+    // it keeps the game's keyboard capture off the page, and unloading it stops the game loop.
+    const doom = document.getElementById("doom-dialog") as HTMLDialogElement;
+    const frame = doom.querySelector("iframe")!;
+    new MutationObserver(() => {
+        if (doom.open) frame.src = frame.dataset.src!;
+    }).observe(doom, { attributeFilter: ["open"] });
+    doom.addEventListener("close", () => frame.removeAttribute("src"));
+    frame.addEventListener("load", () => frame.contentWindow?.focus());
+</script>

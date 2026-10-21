@@ -1,0 +1,43 @@
+---
+import type { SvgComponent } from "astro/types";
+import SketchBox from "./SketchBox.astro";
+import contacts from "../data/contacts.json";
+import { getContent } from "../i18n";
+
+// Icons: Font Awesome Free (CC BY 4.0), https://fontawesome.com/license/free
+const icons = import.meta.glob<{ default: SvgComponent }>("../icons/*.svg", { eager: true });
+const { ui } = getContent(Astro.currentLocale);
+---
+
+<dialog id="contact-modal" aria-labelledby="contact-title" class="m-auto overflow-visible bg-transparent p-4 text-ink backdrop:bg-black/50 backdrop:backdrop-blur-[2px] motion-safe:open:animate-pop-in">
+    <SketchBox tilt="rotate-1" class="w-[min(24rem,calc(100vw-2rem))] p-8">
+        <div class="absolute -top-3 -left-3 -rotate-12 border border-red-200 bg-red-100 px-2 py-1 text-sm font-bold text-red-600 shadow-sm">
+            {ui.contact.tapeText}
+        </div>
+        <form method="dialog">
+            <button aria-label={ui.contact.close} class="absolute -top-4 -right-4 z-10 size-10 cursor-pointer rounded-full border-2 border-black bg-red-500 font-bold text-white shadow-md transition-transform hover:scale-110">X</button>
+        </form>
+
+        <h2 id="contact-title" class="mb-6 text-center text-3xl font-bold underline decoration-blue-400 decoration-wavy">{ui.contact.title}</h2>
+
+        <ul class="text-lg">
+            {contacts.map((contact) => {
+                const Icon = icons[`../icons/${contact.id}.svg`].default;
+                const external = contact.link.startsWith("http");
+                return (
+                    <li class="border-b border-dashed border-faint/60 last:border-none">
+                        <a
+                            href={contact.link}
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noopener" : undefined}
+                            class="group flex items-center gap-3 p-3 break-all transition-all hover:bg-blue-pen/10 hover:pl-6 hover:text-blue-pen"
+                        >
+                            <Icon aria-hidden="true" class:list={["size-5 shrink-0 transition-transform group-hover:scale-125", contact.color]} />
+                            {contact.label}
+                        </a>
+                    </li>
+                );
+            })}
+        </ul>
+    </SketchBox>
+</dialog>

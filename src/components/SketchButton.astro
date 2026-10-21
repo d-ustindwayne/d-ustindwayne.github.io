@@ -1,0 +1,21 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"a"> & HTMLAttributes<"button"> & { variant?: "outline" | "solid" };
+
+const { variant = "outline", href, class: cls, ...attrs } = Astro.props;
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+    href={href}
+    type={href ? undefined : "button"}
+    class:list={[
+        "inline-block cursor-pointer rounded-sketch-btn border-2 border-ink px-6 py-2 font-bold transition-colors motion-safe:hover:animate-wiggle",
+        variant === "solid" ? "bg-ink text-paper hover:bg-paper hover:text-ink" : "text-ink hover:bg-ink hover:text-paper",
+        cls,
+    ]}
+    {...attrs}
+>
+    <slot />
+</Tag>

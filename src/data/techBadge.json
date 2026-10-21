@@ -1,0 +1,22 @@
+{
+    "HTML": "bg-orange-600 text-white",
+    "CSS": "bg-indigo-700 text-white",
+    "Javascript": "bg-yellow-300 text-black",
+    "Typescript": "bg-blue-600 text-white",
+    "Python": "bg-sky-900 text-yellow-300",
+    "React": "bg-cyan-300 text-slate-900",
+    "React Native": "bg-slate-800 text-cyan-300",
+    "Vue": "bg-emerald-400 text-emerald-950",
+    "Astro": "bg-linear-to-r from-orange-500 to-fuchsia-600 text-white",
+    "TailwindCSS": "bg-sky-400 text-slate-900",
+    "Bootstrap": "bg-violet-500 text-white",
+    "Java": "bg-red-600 text-white",
+    "C": "bg-gray-500 text-white",
+    "C++": "bg-cyan-800 text-white",
+    "C#": "bg-purple-800 text-white",
+    "PHP": "bg-indigo-300 text-indigo-950",
+    "WordPress": "bg-stone-700 text-white",
+    "Kotlin": "bg-fuchsia-500 text-white",
+    "Swift": "bg-amber-500 text-black",
+    "Dessa": "bg-linear-to-r from-[#1C614D] via-[#14743C] to-[#D2CB71] text-white"
+}

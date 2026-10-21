@@ -1,0 +1,8 @@
+[
+    { "id": "facebook", "label": "Facebook", "color": "text-blue-600", "link": "https://www.facebook.com/buday.py" },
+    { "id": "instagram", "label": "Instagram", "color": "text-pink-600", "link": "https://www.instagram.com/mapang.he/" },
+    { "id": "linkedin", "label": "LinkedIn", "color": "text-blue-700", "link": "https://www.linkedin.com/in/diaz5195/" },
+    { "id": "github", "label": "GitHub", "color": "text-ink", "link": "https://github.com/d-ustindwayne" },
+    { "id": "email", "label": "nepomucenodwayne@gmail.com", "color": "text-red-600", "link": "mailto:nepomucenodwayne@gmail.com" },
+    { "id": "phone", "label": "+6422-540-0799", "color": "text-green-600", "link": "tel:+64225400799" }
+]

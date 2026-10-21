@@ -1,0 +1,36 @@
+---
+// Standalone page loaded inside the sidebar's DOOM dialog (see Sidebar.astro)
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+        <title>DOOM</title>
+        <style>
+            html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+            canvas { display: block; width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+        </style>
+    </head>
+    <body>
+        <canvas width="640" height="400"></canvas>
+        <script>
+            import { DOOM } from "wasm-doom";
+
+            const canvas = document.querySelector("canvas")!;
+            const ctx = canvas.getContext("2d")!;
+            const { width, height } = canvas;
+
+            new DOOM({
+                screenWidth: width,
+                screenHeight: height,
+                wasmURL: "https://cdn.jsdelivr.net/npm/wasm-doom@1.2.0/wasm/doom.wasm",
+                onFrameRender: ({ screen }) => ctx.putImageData(new ImageData(screen, width, height), 0, 0),
+            }).start();
+
+            addEventListener("pointerdown", () => focus());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+---
+import PhotoFilm from "./PhotoFilm.astro";
+import { getContent } from "../i18n";
+import { loadImage } from "../images";
+
+const { ui, photos } = getContent(Astro.currentLocale);
+const gallery = await Promise.all(photos.slice(1).map(async (photo) => ({ ...photo, image: await loadImage(`gallery${photo.src}`) })));
+---
+
+<section id="gallery">
+    <h2 class="my-8 text-4xl font-bold underline decoration-green-400 decoration-wavy">{ui.gallery.title}</h2>
+    <p class="mb-8 text-xl">{ui.gallery.sublabel}</p>
+    <div class="grid grid-cols-1 gap-6 min-[24rem]:grid-cols-2 md:grid-cols-3">
+        {gallery.map((photo) => <PhotoFilm src={photo.image} alt={photo.alt}>{photo.caption}</PhotoFilm>)}
+    </div>
+</section>

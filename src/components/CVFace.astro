@@ -1,0 +1,75 @@
+---
+import contacts from "../data/contacts.json";
+import { getContent } from "../i18n";
+
+interface Props {
+    side: "front" | "back";
+}
+
+const { side } = Astro.props;
+const { ui, cv } = getContent(Astro.currentLocale);
+const front = side === "front";
+const skills = Object.entries(front ? cv.skills.general : cv.skills.it);
+const contactLine = [cv.name, ...contacts.filter((c) => c.id === "email" || c.id === "phone").map((c) => c.label)].join(" | ");
+
+// Front: paper. Back: "the dark side" terminal look, the same in both themes.
+const style = front
+    ? { face: "bg-card text-ink border-ink", button: "border-faint bg-paper text-muted hover:text-ink", name: "text-4xl", accent: "border-faint", tag: "bg-ink/10", soft: "text-muted" }
+    : { face: "rotate-y-180 border-[#333] bg-[#1a1a1a] text-[#f0f0f0]", button: "border-gray-600 bg-gray-800 text-green-400 hover:bg-gray-700", name: "font-mono text-3xl text-green-400", accent: "border-green-500", tag: "bg-emerald-800", soft: "text-gray-400" };
+---
+
+<article
+    data-face={side}
+    inert={!front}
+    class:list={["col-start-1 row-start-1 flex flex-col gap-6 rounded-sketch border-2 p-5 shadow-sketch backface-hidden sm:p-8", style.face]}
+>
+    <header class="flex flex-wrap-reverse items-start justify-between gap-2">
+        <div>
+            <h3 class:list={["font-bold", style.name]}>{cv.name}</h3>
+            {front
+                ? <p class:list={["italic", style.soft]}>{cv.title.general} &bull; {cv.location}</p>
+                : <p class:list={["font-mono", style.soft]}>&gt; {cv.title.it}</p>}
+        </div>
+        <button type="button" aria-pressed={!front} class:list={["ml-auto flex shrink-0 cursor-pointer items-center gap-1 rounded-full border-2 px-3 py-1 text-sm font-bold", style.button]}>
+            {front ? ui.cv.frontButton : ui.cv.backButton} <span aria-hidden="true">↻</span>
+        </button>
+    </header>
+
+    <section>
+        <h4 class="mb-2 text-3xl font-bold">{ui.cv.skillsText}</h4>
+        <ul class="list-disc space-y-1 pl-5 text-base">
+            {skills.map(([key, value]) => (
+                <li><span class:list={["px-1 font-bold", style.tag]}>{key.replaceAll("_", " ")}</span>: <span class={style.soft}>{value}</span></li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="space-y-4">
+        <h4 class="text-3xl font-bold">{ui.cv.educationText}</h4>
+        {cv.education.map((edu) => (
+            <div class:list={["border-l-4 pl-4", style.accent]}>
+                <h5 class="text-xl font-bold">{edu.degree}</h5>
+                <p class:list={["text-sm", style.soft]}>{edu.date} @ {edu.institute}, {edu.location}</p>
+                <p class:list={["text-sm", style.soft]}>{ui.cv.specializationLabel}: {edu.specialization}</p>
+            </div>
+        ))}
+    </section>
+
+    <section class="space-y-4">
+        <h4 class="text-3xl font-bold">{ui.cv.workExperiencesText}</h4>
+        {cv.experience.map((job) => (
+            <div class:list={["border-l-4 pl-4", style.accent]}>
+                <h5 class="text-xl font-bold">{job.title}</h5>
+                <p class:list={["text-sm", style.soft]}>{job.date} @ {job.company}, {job.location}</p>
+                <ul class:list={["mt-1 list-disc space-y-1 pl-5 text-sm", style.soft]}>
+                    {job.roles.map((role) => <li>{role}</li>)}
+                </ul>
+            </div>
+        ))}
+    </section>
+
+    <footer class="mt-auto">
+        <p class="text-lg italic">&mdash;&nbsp;{ui.cv.refereesText}</p>
+        <p class:list={["mt-6 text-center text-sm break-words", style.soft]}>{contactLine}</p>
+    </footer>
+</article>

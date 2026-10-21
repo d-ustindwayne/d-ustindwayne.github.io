@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import Projects from "../../components/Projects.astro";
+import Gallery from "../../components/Gallery.astro";
+import CV from "../../components/CV.astro";
+import Footer from "../../components/Footer.astro";
+import ContactModal from "../../components/ContactModal.astro";
+import { languages } from "../../i18n";
+
+export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
+---
+
+<Layout>
+    <!-- Coffee stains -->
+    <div aria-hidden="true" class="pointer-events-none absolute top-10 right-10 -z-10 hidden size-45 rotate-45 rounded-full border-8 border-amber-900/8 shadow-[0_0_0_5px_rgb(139_69_19/0.03),inset_0_0_20px_rgb(139_69_19/0.05)] blur-[1px] md:block"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute bottom-40 left-10 -z-10 hidden size-30 rotate-12 rounded-full border-8 border-amber-900/5 blur-[1px] md:block"></div>
+
+    <Sidebar />
+    <main class="mx-auto max-w-4xl px-5 pt-16 pb-20 sm:px-6">
+        <Header />
+        <hr />
+        <Projects />
+        <hr />
+        <Gallery />
+        <hr />
+        <CV />
+        <hr />
+        <Footer />
+    </main>
+    <ContactModal />
+</Layout>
