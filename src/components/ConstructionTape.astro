@@ -1,0 +1,19 @@
+---
+import { getContent } from "../i18n";
+
+// Place inside a `relative overflow-hidden` section
+const { ui } = getContent(Astro.currentLocale);
+const tapes = [
+    ["top-[20%]", "-rotate-6"],
+    ["top-[40%]", "rotate-12"],
+    ["top-[60%]", "-rotate-12"],
+    ["top-[80%]", "rotate-6"],
+];
+---
+
+<p class="sr-only">{ui.constructionTape.text}</p>
+{tapes.map(([top, rotate]) => (
+    <div aria-hidden="true" class:list={["pointer-events-none absolute -left-[10%] z-30 w-[120%] border-y-4 border-black bg-yellow-400", top, rotate]}>
+        <p class="py-2 text-center text-2xl font-black tracking-widest text-black uppercase">&#9888; {ui.constructionTape.text} &#9888;</p>
+    </div>
+))}

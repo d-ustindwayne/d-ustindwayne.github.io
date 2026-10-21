@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import SketchBox from "./SketchBox.astro";
+import ConstructionTape from "./ConstructionTape.astro";
 import badgeStyles from "../data/techBadge.json";
 import { getContent } from "../i18n";
 import { loadImage } from "../images";
@@ -21,7 +22,8 @@ const visible = await Promise.all(
 );
 ---
 
-<section id="projects">
+<section id="projects" class="relative -mx-3 overflow-hidden px-3 py-3">
+    <ConstructionTape />
     <div class="mb-10 flex flex-wrap items-center gap-x-4 gap-y-2">
         <h2 class="text-4xl font-bold underline decoration-blue-400 decoration-wavy">{ui.projects.title}</h2>
         <span class="rotate-3 border border-dashed border-faint p-1 text-sm text-muted">{ui.projects.sublabel}</span>
