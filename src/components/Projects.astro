@@ -1,56 +1,101 @@
 ---
 import { Image } from "astro:assets";
 import SketchBox from "./SketchBox.astro";
-import ConstructionTape from "./ConstructionTape.astro";
+import Pagination from "./Pagination.astro";
 import badgeStyles from "../data/techBadge.json";
 import { getContent } from "../i18n";
 import { loadImage } from "../images";
 
 const { ui, projects } = getContent(Astro.currentLocale);
 const badges: Record<string, string> = badgeStyles;
-const githubProfile = "https://github.com/d-ustindwayne";
-const githubPages = "https://d-ustindwayne.github.io";
+const perPage = 4;
+const filters = ["all", "web", "mobile", "game", "language"] as const;
 
 const visible = await Promise.all(
     projects
-        .filter((project) => !project.hidden)
-        .map(async (project) => ({
-            ...project,
-            thumbnail: await loadImage(`projects${project.image.thumbnail}`),
-            screenshot: await loadImage(`projects${project.image.screenshot}`),
-        })),
+        .filter((project) => !(project as { hidden?: boolean }).hidden)
+        .map(async (project) => {
+            const { thumbnail, screenshot } = project.image as { thumbnail: string; screenshot?: string };
+            return {
+                ...project,
+                thumbnail: await loadImage(`projects${thumbnail}`),
+                screenshot: screenshot && (await loadImage(`projects${screenshot}`)),
+            };
+        }),
 );
 ---
 
-<section id="projects" class="relative -mx-3 overflow-hidden px-3 py-3">
-    <ConstructionTape />
-    <div class="mb-10 flex flex-wrap items-center gap-x-4 gap-y-2">
+<section id="projects" class="relative scroll-mt-8">
+    <div class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
         <h2 class="text-4xl font-bold underline decoration-blue-400 decoration-wavy">{ui.projects.title}</h2>
         <span class="rotate-3 border border-dashed border-faint p-1 text-sm text-muted">{ui.projects.sublabel}</span>
     </div>
 
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <!-- Hidden until the script runs, like the pager: without JavaScript every project shows -->
+    <div id="project-filter" role="group" aria-label={ui.projects.filter.label} hidden class="mb-8 flex flex-wrap items-center gap-2 text-lg">
+        <span aria-hidden="true" class="text-muted">{ui.projects.filter.label}</span>
+        {filters.map((filter) => (
+            <button
+                type="button"
+                data-filter={filter}
+                aria-pressed={filter === "all" ? "true" : "false"}
+                class="cursor-pointer rounded-sketch-btn border-2 border-ink px-3 py-0.5 transition-colors hover:bg-ink hover:text-paper aria-pressed:bg-ink aria-pressed:text-paper"
+            >{ui.projects.filter[filter]}</button>
+        ))}
+    </div>
+
+    <div id="project-list" class="grid scroll-mt-8 grid-cols-1 gap-8 md:grid-cols-2">
         {visible.map((project) => (
-            <SketchBox class="p-6">
+            <SketchBox data-tags={project.tags.join(" ")} class="flex flex-col p-5 sm:p-6">
                 {project.tape && (
-                    <div class:list={["absolute -top-3 -right-3 rotate-12 border px-2 py-1 text-sm font-bold shadow-sm", project.tape.style]}>
+                    <div class:list={["absolute -top-3 -right-3 z-10 rotate-12 border px-2 py-1 text-sm font-bold shadow-sm", project.tape.style]}>
                         {project.tape.text}
                     </div>
                 )}
                 <h3 class="mb-2 text-2xl font-bold">{project.title}</h3>
-                <div class="group relative mb-4 h-32 overflow-hidden border border-dashed border-faint bg-paper" style={project.image.background && { background: project.image.background }}>
-                    <Image src={project.thumbnail} alt="" width={600} class:list={["size-full", project.image.background ? "object-scale-down" : "object-cover"]} />
-                    <Image src={project.screenshot} alt={project.title} widths={[480, 960]} sizes="(min-width: 768px) 400px, 90vw" class="absolute inset-0 size-full object-cover object-top opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div class="group relative mb-4 h-36 overflow-hidden border border-dashed border-faint bg-paper" style={project.image.background && { background: project.image.background }}>
+                    <Image src={project.thumbnail} alt={project.screenshot ? "" : project.title} width={600} class:list={["size-full", project.image.background ? "object-scale-down p-3" : "object-cover"]} />
+                    {project.screenshot && (
+                        <Image src={project.screenshot} alt={project.title} widths={[480, 960]} sizes="(min-width: 768px) 400px, 90vw" class="absolute inset-0 size-full object-cover object-top opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-coarse:opacity-100" />
+                    )}
                 </div>
                 <p class="mb-4" set:html={project.description} />
-                <ul class="mb-4 flex flex-wrap gap-2">
+                <ul class="mt-auto mb-4 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => <li class:list={["rounded-sm px-2 py-0.5 text-sm", badges[tech]]}>{tech}</li>)}
                 </ul>
-                <div class="flex flex-wrap gap-x-3">
-                    <a href={`${githubProfile}${project.links.code}`} target="_blank" rel="noopener" class="text-blue-pen underline transition-colors hover:text-red-pen">{ui.projects.viewCode}</a>
-                    <a href={`${githubPages}${project.links.live}`} target="_blank" rel="noopener" class="text-amber-700 underline transition-colors hover:text-blue-pen dark:text-amber-400">{ui.projects.viewLivePreview}</a>
+                <div class="flex flex-wrap items-center gap-x-4">
+                    <a href={project.links.code} target="_blank" rel="noopener" class="text-blue-pen underline transition-colors hover:text-red-pen">{ui.projects.viewCode}</a>
+                    {/* No site yet: the link is scribbled out with a note next to it */}
+                    {project.links.live ? (
+                        <a href={project.links.live} target="_blank" rel="noopener" class="text-amber-700 underline transition-colors hover:text-blue-pen dark:text-amber-400">{ui.projects.viewLivePreview}</a>
+                    ) : (
+                        <span class="text-faint">
+                            <del class="decoration-red-pen decoration-wavy decoration-2">{ui.projects.viewLivePreview}</del>
+                            <span class="ml-1 inline-block -rotate-3 text-base text-red-pen">{ui.projects.comingSoon}</span>
+                        </span>
+                    )}
                 </div>
             </SketchBox>
         ))}
     </div>
+
+    <Pagination target="project-list" total={visible.length} perPage={perPage} />
 </section>
+
+<script>
+    const filter = document.getElementById("project-filter")!;
+    const list = document.getElementById("project-list")!;
+    const buttons = [...filter.querySelectorAll<HTMLButtonElement>("[data-filter]")];
+
+    filter.addEventListener("click", (event) => {
+        const button = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-filter]");
+        if (!button) return;
+        const chosen = button.dataset.filter!;
+        buttons.forEach((other) => other.setAttribute("aria-pressed", String(other === button)));
+        for (const card of list.children as HTMLCollectionOf<HTMLElement>) {
+            card.toggleAttribute("data-filtered-out", chosen !== "all" && !card.dataset.tags!.split(" ").includes(chosen));
+        }
+        list.dispatchEvent(new Event("filter")); // the pager re-pages what is left
+    });
+    filter.hidden = false;
+</script>

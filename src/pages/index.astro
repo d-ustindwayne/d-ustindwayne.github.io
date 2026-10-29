@@ -2,15 +2,19 @@
 import { defaultLang, languages } from "../i18n";
 
 const codes = Object.keys(languages);
+// "/" only picks a language; search engines are pointed at the English page
+const home = new URL(`/${defaultLang}/`, Astro.site);
 ---
 
 <!doctype html>
 <html lang={defaultLang}>
     <head>
         <meta charset="UTF-8" />
-        <meta name="robots" content="noindex" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dustin Dwayne Diaz</title>
-        <link rel="canonical" href={`/${defaultLang}/`} />
+        <link rel="canonical" href={home} />
+        {codes.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, Astro.site)} />)}
+        <link rel="alternate" hreflang="x-default" href={home} />
         <noscript><meta http-equiv="refresh" content={`0; url=/${defaultLang}/`} /></noscript>
         <script is:inline define:vars={{ codes, defaultLang }}>
             // Send visitors to their saved language, else their browser language, else English

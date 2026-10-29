@@ -3,15 +3,17 @@ import SketchButton from "./SketchButton.astro";
 import { getContent, languages } from "../i18n";
 
 const { lang, ui } = getContent(Astro.currentLocale);
+// Language links keep the visitor on the same page (e.g. /es/wordle/ -> /tl/wordle/)
+const rest = Astro.url.pathname.replace(/^\/[^/]+\//, "");
 const row = "flex items-center justify-between gap-4 border-b border-dashed border-faint/60 py-4";
 ---
 
 <button
     popovertarget="settings"
     aria-label={ui.settings.open}
-    class="fixed top-6 left-0 z-40 cursor-pointer rounded-r-xl border-2 border-l-0 border-ink bg-card p-2.5 text-ink shadow-sketch transition-colors hover:text-blue-pen"
+    class="fixed top-3 left-0 z-40 cursor-pointer rounded-r-lg border-2 border-l-0 border-ink bg-card p-1.5 text-ink shadow-sketch transition-colors hover:text-blue-pen sm:top-6 sm:rounded-r-xl sm:p-2.5"
 >
-    <svg aria-hidden="true" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <svg aria-hidden="true" class="size-5 sm:size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M4 6h16M4 12h10M4 18h13" />
     </svg>
 </button>
@@ -47,7 +49,7 @@ const row = "flex items-center justify-between gap-4 border-b border-dashed bord
             {Object.entries(languages).map(([code, name]) => (
                 <li>
                     <a
-                        href={`/${code}/`}
+                        href={`/${code}/${rest}`}
                         hreflang={code}
                         lang={code}
                         data-lang={code}
@@ -59,8 +61,9 @@ const row = "flex items-center justify-between gap-4 border-b border-dashed bord
         </ul>
     </nav>
 
-    <div class="py-6 pointer-coarse:hidden">
-        <SketchButton data-dialog="doom-dialog" class="w-full">🎮 {ui.settings.doomButton}</SketchButton>
+    <div class="flex flex-col gap-3 py-6">
+        <SketchButton href={`/${lang}/wordle/`} class="w-full text-center">🟩 {ui.wordle.button}</SketchButton>
+        <SketchButton data-dialog="doom-dialog" class="w-full pointer-coarse:hidden">🎮 {ui.settings.doomButton}</SketchButton>
     </div>
 </aside>
 

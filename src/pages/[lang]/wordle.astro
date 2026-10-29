@@ -1,0 +1,268 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import SketchButton from "../../components/SketchButton.astro";
+import { getContent, languages } from "../../i18n";
+import { MAX_GUESSES, WORD_LENGTH, wordLanguages } from "../../wordle";
+
+export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
+
+const { lang, ui } = getContent(Astro.currentLocale);
+const t = ui.wordle;
+const defaultWordLanguage = lang === "es" ? "es" : "en";
+const keyRows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const schema = [
+    {
+        "@type": "VideoGame",
+        "@id": `${pageUrl}#game`,
+        name: t.metaTitle,
+        description: t.metaDescription,
+        url: pageUrl,
+        inLanguage: lang === "tl" ? "fil" : lang,
+        genre: "Word game",
+        gamePlatform: "Web browser",
+        applicationCategory: "Game",
+        operatingSystem: "Any",
+        isAccessibleForFree: true,
+        author: { "@id": new URL("/#person", Astro.site).href },
+    },
+];
+---
+
+<Layout title={t.metaTitle} description={t.metaDescription} schema={schema}>
+    <Sidebar />
+    <main data-text={JSON.stringify(t)} class="mx-auto flex min-h-dvh max-w-lg flex-col px-4 pt-20 pb-10 sm:px-6">
+        <a href={`/${lang}/#projects`} class="mb-4 self-start text-lg text-blue-pen underline hover:text-red-pen">&larr; {t.back}</a>
+
+        <h1 class="text-5xl font-bold underline decoration-amber-400 decoration-wavy">{t.title}</h1>
+        <p class="mt-2 -rotate-1 text-lg text-muted">{t.sublabel}</p>
+        <p class="mt-3 text-base">{t.howTo}</p>
+
+        <div class="my-5 flex flex-wrap items-end justify-between gap-3">
+            <label class="flex flex-col text-base">
+                {t.wordLanguage}
+                <select id="word-language" class="mt-1 cursor-pointer rounded-sketch-btn border-2 border-ink bg-card px-3 py-1.5 text-lg text-ink">
+                    {Object.entries(wordLanguages).map(([code, name]) => <option value={code} selected={code === defaultWordLanguage}>{name}</option>)}
+                </select>
+            </label>
+            <SketchButton id="new-word" variant="solid">{t.newWord}</SketchButton>
+        </div>
+
+        <p id="status" role="status" aria-live="polite" class="mb-3 min-h-8 text-center text-xl font-bold text-red-pen">{t.loading}</p>
+
+        <div id="board" aria-label={t.board} class="mx-auto grid w-full max-w-[20rem] gap-1.5" style={`grid-template-rows: repeat(${MAX_GUESSES}, 1fr)`}>
+            {Array.from({ length: MAX_GUESSES }, () => (
+                <div role="group" class="grid grid-cols-5 gap-1.5">
+                    {Array.from({ length: WORD_LENGTH }, () => (
+                        <div aria-label={t.empty} class="tile grid aspect-square place-items-center rounded-sketch-btn border-2 border-faint bg-card text-3xl font-bold uppercase select-none sm:text-4xl"></div>
+                    ))}
+                </div>
+            ))}
+        </div>
+
+        <div id="keyboard" aria-label={t.keyboard} class="mt-6 flex flex-col gap-1.5 select-none">
+            {keyRows.map((row, index) => (
+                <div class="flex justify-center gap-1">
+                    {index === 2 && <button type="button" data-key="Enter" class="key flex-[1.6] text-xs! uppercase sm:text-sm!">{t.enter}</button>}
+                    {[...row].map((letter) => <button type="button" data-key={letter} class="key flex-1 uppercase">{letter}</button>)}
+                    {index === 2 && <button type="button" data-key="Backspace" aria-label={t.backspace} class="key flex-[1.6]">&#9003;</button>}
+                </div>
+            ))}
+        </div>
+    </main>
+</Layout>
+
+<script>
+    import { MAX_GUESSES, WORD_LENGTH, nextWord, score, wordLanguages, type Mark, type Word, type WordLanguage } from "../../wordle";
+
+    const text: Record<string, string> = JSON.parse(document.querySelector("main")!.dataset.text!);
+    const select = document.getElementById("word-language") as HTMLSelectElement;
+    const status = document.getElementById("status")!;
+    const rows = [...document.querySelectorAll<HTMLElement>("#board > [role=group]")];
+    const keys = new Map([...document.querySelectorAll<HTMLButtonElement>("#keyboard [data-key]")].map((key) => [key.dataset.key!, key]));
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rank: Record<Mark, number> = { absent: 1, present: 2, correct: 3 };
+
+    let answer: Word | undefined;
+    let row = 0;
+    let guess = "";
+    let busy = true;
+
+    try {
+        const saved = localStorage.getItem("wordle-language");
+        if (saved && saved in wordLanguages) select.value = saved;
+    } catch {}
+
+    const tiles = (index: number) => [...rows[index].children] as HTMLElement[];
+    const say = (message: string) => (status.textContent = message);
+
+    function paintRow() {
+        tiles(row).forEach((tile, index) => {
+            const letter = guess[index] ?? "";
+            tile.textContent = letter;
+            tile.toggleAttribute("data-filled", Boolean(letter));
+            tile.setAttribute("aria-label", letter || text.empty);
+        });
+    }
+
+    async function newGame() {
+        busy = true;
+        row = 0;
+        guess = "";
+        say(text.loading);
+        rows.forEach((_, index) =>
+            tiles(index).forEach((tile) => {
+                tile.textContent = "";
+                tile.removeAttribute("data-mark");
+                tile.removeAttribute("data-filled");
+                tile.setAttribute("aria-label", text.empty);
+            }),
+        );
+        keys.forEach((key) => key.removeAttribute("data-mark"));
+
+        answer = await nextWord(select.value as WordLanguage);
+        say("offline" in answer ? text.offline : "");
+        busy = false;
+    }
+
+    async function submit() {
+        if (guess.length < WORD_LENGTH) {
+            say(text.tooShort);
+            rows[row].classList.remove("shake");
+            void rows[row].offsetWidth; // restart the animation
+            rows[row].classList.add("shake");
+            return;
+        }
+        busy = true;
+        const marks = score(guess, answer!.plain);
+
+        tiles(row).forEach((tile, index) => {
+            tile.style.animationDelay = reduceMotion ? "" : `${index * 200}ms`;
+            tile.dataset.mark = marks[index];
+            tile.setAttribute("aria-label", `${guess[index]}, ${text[marks[index]]}`);
+            // A key keeps its best result: green beats yellow beats grey
+            const key = keys.get(guess[index])!;
+            const current = key.dataset.mark as Mark | undefined;
+            if (!current || rank[marks[index]] > rank[current]) key.dataset.mark = marks[index];
+        });
+        await new Promise((done) => setTimeout(done, reduceMotion ? 0 : WORD_LENGTH * 200 + 300));
+
+        const word = answer!.display.toUpperCase();
+        if (guess === answer!.plain) {
+            say(text.win.replace("{word}", word));
+            rows[row].classList.add("win");
+            document.getElementById("new-word")!.focus();
+            return; // stays busy until a new word is picked
+        }
+        row++;
+        guess = "";
+        if (row === MAX_GUESSES) {
+            say(text.lose.replace("{word}", word));
+            document.getElementById("new-word")!.focus();
+            return;
+        }
+        say("");
+        busy = false;
+    }
+
+    function press(key: string) {
+        if (busy) return;
+        if (key === "Enter") submit();
+        else if (key === "Backspace") guess = guess.slice(0, -1);
+        else if (/^[a-z]$/.test(key) && guess.length < WORD_LENGTH) guess += key;
+        else return;
+        if (key !== "Enter") {
+            say("");
+            paintRow();
+        }
+    }
+
+    const keyboard = document.getElementById("keyboard")!;
+    // On-screen keys never take focus, so a physical Enter always submits instead of re-pressing the last key
+    keyboard.addEventListener("pointerdown", (event) => event.preventDefault());
+    keyboard.addEventListener("click", (event) => {
+        const key = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-key]");
+        if (key) press(key.dataset.key!);
+    });
+
+    addEventListener("keydown", (event) => {
+        if (event.ctrlKey || event.metaKey || event.altKey) return;
+        // Leave typing alone when focus is in a form control or an open dialog/popover
+        if ((event.target as HTMLElement).closest("select, input, dialog, [popover]")) return;
+        const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+        if (key === "Enter" || key === "Backspace" || /^[a-z]$/.test(key)) {
+            if (key === "Enter" && (event.target as HTMLElement).closest("button:not([data-key])")) return; // the focused button handles it
+            event.preventDefault();
+            press(key);
+        }
+    });
+
+    document.getElementById("new-word")!.addEventListener("click", newGame);
+    select.addEventListener("change", () => {
+        try {
+            localStorage.setItem("wordle-language", select.value);
+        } catch {}
+        newGame();
+    });
+
+    newGame();
+</script>
+
+<style>
+    @reference "../../styles/global.css";
+
+    .key {
+        @apply h-13 min-w-0 cursor-pointer rounded-md border-2 border-ink bg-card px-0.5 text-xl font-bold text-ink transition-colors hover:bg-ink/10;
+    }
+    .tile[data-filled] {
+        @apply border-ink;
+    }
+    .tile[data-mark],
+    .key[data-mark] {
+        @apply border-transparent text-white;
+    }
+    .tile[data-mark] {
+        animation: flip 0.5s ease-in-out both;
+    }
+    [data-mark="correct"] {
+        @apply bg-green-600;
+    }
+    [data-mark="present"] {
+        @apply bg-amber-500;
+    }
+    [data-mark="absent"] {
+        @apply bg-gray-500 dark:bg-gray-600;
+    }
+    .shake {
+        animation: shake 0.4s;
+    }
+    .win > * {
+        animation: bounce 0.6s ease-in-out both;
+    }
+    .win > :nth-child(2) { animation-delay: 0.1s; }
+    .win > :nth-child(3) { animation-delay: 0.2s; }
+    .win > :nth-child(4) { animation-delay: 0.3s; }
+    .win > :nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes flip {
+        0% { transform: rotateX(0); background: var(--color-card); color: var(--color-ink); border-color: var(--color-ink); }
+        49% { background: var(--color-card); color: var(--color-ink); border-color: var(--color-ink); }
+        50% { transform: rotateX(90deg); }
+        100% { transform: rotateX(0); }
+    }
+    @keyframes shake {
+        20%, 60% { transform: translateX(-6px); }
+        40%, 80% { transform: translateX(6px); }
+    }
+    @keyframes bounce {
+        40% { transform: translateY(-14px) rotate(-3deg); }
+        70% { transform: translateY(2px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .tile[data-mark], .shake, .win > * {
+            animation: none;
+        }
+    }
+</style>

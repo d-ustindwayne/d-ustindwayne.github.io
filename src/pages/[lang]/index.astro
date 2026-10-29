@@ -7,12 +7,16 @@ import Gallery from "../../components/Gallery.astro";
 import CV from "../../components/CV.astro";
 import Footer from "../../components/Footer.astro";
 import ContactModal from "../../components/ContactModal.astro";
-import { languages } from "../../i18n";
+import { getContent, languages } from "../../i18n";
+import { homeSchema } from "../../seo";
 
 export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
+
+const { lang } = getContent(Astro.currentLocale);
+const schema = homeSchema(Astro.site!, lang, new URL(Astro.url.pathname, Astro.site));
 ---
 
-<Layout>
+<Layout schema={schema}>
     <!-- Coffee stains -->
     <div aria-hidden="true" class="pointer-events-none absolute top-10 right-10 -z-10 hidden size-45 rotate-45 rounded-full border-8 border-amber-900/8 shadow-[0_0_0_5px_rgb(139_69_19/0.03),inset_0_0_20px_rgb(139_69_19/0.05)] blur-[1px] md:block"></div>
     <div aria-hidden="true" class="pointer-events-none absolute bottom-40 left-10 -z-10 hidden size-30 rotate-12 rounded-full border-8 border-amber-900/5 blur-[1px] md:block"></div>

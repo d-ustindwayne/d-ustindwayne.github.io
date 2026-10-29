@@ -1,0 +1,64 @@
+---
+import { getContent } from "../i18n";
+
+interface Props {
+    /** id of the element whose children are paged */
+    target: string;
+    total: number;
+    perPage: number;
+}
+
+const { target, total, perPage } = Astro.props;
+const { ui } = getContent(Astro.currentLocale);
+const pages = Math.ceil(total / perPage);
+const button = "min-w-11 cursor-pointer rounded-sketch-btn border-2 border-ink px-3 py-1 font-bold transition-colors hover:bg-ink hover:text-paper disabled:cursor-default disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink aria-[current=page]:bg-ink aria-[current=page]:text-paper";
+---
+
+<!-- Hidden until the script runs: without JavaScript every item stays visible (and crawlable) -->
+{pages > 1 && (
+    <nav data-pager={target} data-per-page={perPage} aria-label={ui.pagination.label} hidden class="mt-10 flex flex-wrap items-center justify-center gap-2 text-lg">
+        <button type="button" data-step="-1" aria-label={ui.pagination.previous} class={button}>&larr;</button>
+        {Array.from({ length: pages }, (_, index) => (
+            <button type="button" data-page={index} aria-label={ui.pagination.page.replace("{n}", String(index + 1))} class={button}>{index + 1}</button>
+        ))}
+        <button type="button" data-step="1" aria-label={ui.pagination.next} class={button}>&rarr;</button>
+    </nav>
+)}
+
+<script>
+    document.querySelectorAll<HTMLElement>("[data-pager]").forEach((nav) => {
+        const list = document.getElementById(nav.dataset.pager!)!;
+        const items = [...list.children] as HTMLElement[];
+        const perPage = Number(nav.dataset.perPage);
+        const numbers = [...nav.querySelectorAll<HTMLButtonElement>("[data-page]")];
+        const [previous, next] = nav.querySelectorAll<HTMLButtonElement>("[data-step]");
+        let current = 0;
+
+        const show = (page: number, scroll = false) => {
+            // Items a filter has taken out (e.g. the project filter) never show and don't count towards the pages
+            const shown = items.filter((item) => !item.hasAttribute("data-filtered-out"));
+            const pages = Math.max(1, Math.ceil(shown.length / perPage));
+            current = Math.max(0, Math.min(page, pages - 1));
+            items.forEach((item) => (item.hidden = true));
+            shown.forEach((item, index) => (item.hidden = Math.floor(index / perPage) !== current));
+            numbers.forEach((number, index) => {
+                number.hidden = index >= pages;
+                index === current ? number.setAttribute("aria-current", "page") : number.removeAttribute("aria-current");
+            });
+            previous.disabled = current === 0;
+            next.disabled = current === pages - 1;
+            nav.hidden = pages === 1;
+            // Bring the top of the list back into view when the new page starts above the screen
+            if (scroll && list.getBoundingClientRect().top < 0) list.scrollIntoView({ block: "start" });
+        };
+
+        nav.addEventListener("click", (event) => {
+            const button = (event.target as HTMLElement).closest("button");
+            if (!button) return;
+            show(button.dataset.page ? Number(button.dataset.page) : current + Number(button.dataset.step), true);
+        });
+
+        list.addEventListener("filter", () => show(0));
+        show(0);
+    });
+</script>

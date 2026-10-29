@@ -1,22 +1,93 @@
 {
     "en": [
         {
-            "title": "This website",
-            "description": "My personal portfolio website built with Astro coz I am slowly hating on React",
+            "title": "Medkit Clicker",
+            "description": "Nursing-inspired game. Good music I guess. I've been using Aseprite out of boredom, but decided to use it for something I can show off.",
             "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
+                "React Native",
+                "NativeWind",
+                "Expo",
+                "PostgreSQL"
+            ],
+            "tags": [
+                "game",
+                "mobile"
             ],
             "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png"
+                "thumbnail": "/medkit-clicker-thumbnail.png",
+                "screenshot": "/medkit-clicker-screenshot.png",
+                "background": "#f9fbf2"
             },
             "links": {
-                "code": "/d-ustindwayne.github.io",
-                "live": "/"
+                "code": "https://github.com/d-ustindwayne/Medkit-Clicker",
+                "live": "https://medkit-clicker.dustindwayn.ee/"
             },
-            "hidden": true
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Most recent project"
+            }
+        },
+        {
+            "title": "Dessa",
+            "description": "A programming language I thought of when I was wondering what it would be like to have a JavaScript-like language with a few features from Python, but at the speed of C. Named after my friend in high school.",
+            "technologies": [
+                "C++",
+                "C",
+                "Dessa"
+            ],
+            "tags": [
+                "language"
+            ],
+            "image": {
+                "thumbnail": "/dessa-thumbnail.png",
+                "background": "#f3f1e4"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/Dessa",
+                "live": null
+            }
+        },
+        {
+            "title": "Unyielding Might",
+            "description": "Originally a group project with <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a> and <a href=\"https://github.com/SaplingBeing\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@saplingbeing</a>: a mobile app written in Java. I rewrote and reworked everything to make it a functioning, good-looking app.",
+            "technologies": [
+                "Kotlin",
+                "Android Studio",
+                "MySQL"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/unyieldingmight-thumbnail.png",
+                "screenshot": "/unyieldingmight-screenshot.png",
+                "background": "#1f1f1f"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/UnyieldingMight",
+                "live": null
+            }
+        },
+        {
+            "title": "beau | be you",
+            "description": "A react website project for UI/UX course collaboration with <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Definitely rushed with 3 other projects we've done.",
+            "technologies": [
+                "Typescript",
+                "React",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/beau-thumbnail.png",
+                "screenshot": "/beau-screenshot.png",
+                "background": "#841910"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/beau",
+                "live": "https://beau.dustindwayn.ee/"
+            }
         },
         {
             "title": "Kia Ora Cafe",
@@ -27,13 +98,16 @@
                 "Javascript",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/kia-ora-cafe-thumbnail.png",
                 "screenshot": "/kia-ora-cafe-screenshot.png"
             },
             "links": {
-                "code": "/Kia-Ora-Cafe-Website",
-                "live": "/Kia-Ora-Cafe-Website/"
+                "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
+                "live": "https://kia-ora-cafe.dustindwayn.ee/"
             },
             "tape": {
                 "style": "bg-red-100 text-red-600 border-red-200",
@@ -48,22 +122,140 @@
                 "CSS",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/john-mazel-website-thumbnail.png",
                 "screenshot": "/john-mazel-website-screenshot.png"
             },
             "links": {
-                "code": "/John-Mazel",
-                "live": "/John-Mazel/"
+                "code": "https://github.com/d-ustindwayne/John-Mazel",
+                "live": "https://john-mazel.dustindwayn.ee/"
+            }
+        },
+        {
+            "title": "This website",
+            "description": "Originally a one-page HTML to show anything I want and dump photos I guess, but I wanted to organize files better.",
+            "technologies": [
+                "Astro",
+                "Typescript",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
+        {
+            "title": "SLANGit",
+            "description": "My very first grass-touch in IT ever. A mobile app made with Andromo; only the APK is available. Oh, my teammates: leader <a href=\"https://www.instagram.com/pacific_ashia/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@pacific_ashia</a> and my co-procrastinator <a href=\"https://www.instagram.com/chimbulog/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@chimbulog</a>.",
+            "technologies": [
+                "Andromo",
+                "Dart",
+                "Flutter"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/slangit-thumbnail.png",
+                "screenshot": "/slangit-screenshot.png",
+                "background": "#ffffff"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/SLANGit",
+                "live": "https://slangit.dustindwayn.ee/"
+            }
+        }
+    ],
+    "es": [
+        {
+            "title": "Medkit Clicker",
+            "description": "Un juego inspirado en la enfermería. Buena música, supongo. Usaba Aseprite por aburrimiento, pero decidí usarlo para algo que pudiera presumir.",
+            "technologies": [
+                "React Native",
+                "NativeWind",
+                "Expo",
+                "PostgreSQL"
+            ],
+            "tags": [
+                "game",
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/medkit-clicker-thumbnail.png",
+                "screenshot": "/medkit-clicker-screenshot.png",
+                "background": "#f9fbf2"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/Medkit-Clicker",
+                "live": "https://medkit-clicker.dustindwayn.ee/"
+            },
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Proyecto más reciente"
+            }
+        },
+        {
+            "title": "Dessa",
+            "description": "Un lenguaje de programación que se me ocurrió pensando cómo sería tener un lenguaje parecido a JavaScript, con algunas cosas de Python, pero con la velocidad de C. El nombre viene de mi amiga de la secundaria.",
+            "technologies": [
+                "C++",
+                "C",
+                "Dessa"
+            ],
+            "tags": [
+                "language"
+            ],
+            "image": {
+                "thumbnail": "/dessa-thumbnail.png",
+                "background": "#f3f1e4"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/Dessa",
+                "live": null
+            }
+        },
+        {
+            "title": "Unyielding Might",
+            "description": "Originalmente un proyecto grupal con <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a> y <a href=\"https://github.com/SaplingBeing\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@saplingbeing</a>: una app móvil escrita en Java. Reescribí y rehice todo para que fuera una app funcional y bonita.",
+            "technologies": [
+                "Kotlin",
+                "Android Studio",
+                "MySQL"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/unyieldingmight-thumbnail.png",
+                "screenshot": "/unyieldingmight-screenshot.png",
+                "background": "#1f1f1f"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/UnyieldingMight",
+                "live": null
             }
         },
         {
             "title": "beau | be you",
-            "description": "A react website project for UI/UX course collaboration with <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Definitely rushed with 3 other projects we've done.",
+            "description": "Un proyecto de sitio web en React para el curso de UI/UX, en colaboración con <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Definitivamente lo hicimos con prisa junto con otros 3 proyectos.",
             "technologies": [
                 "Typescript",
                 "React",
                 "TailwindCSS"
+            ],
+            "tags": [
+                "web"
             ],
             "image": {
                 "thumbnail": "/beau-thumbnail.png",
@@ -71,33 +263,9 @@
                 "background": "#841910"
             },
             "links": {
-                "code": "/beau",
-                "live": "/beau/"
-            },
-            "tape": {
-                "style": "bg-blue-700 text-white border-blue-400",
-                "text": "Most recent project"
+                "code": "https://github.com/d-ustindwayne/beau",
+                "live": "https://beau.dustindwayn.ee/"
             }
-        }
-    ],
-    "es": [
-        {
-            "title": "Este sitio web",
-            "description": "Mi portafolio personal hecho con Astro porque poco a poco le estoy agarrando odio a React",
-            "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
-            ],
-            "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png"
-            },
-            "links": {
-                "code": "/d-ustindwayne.github.io",
-                "live": "/"
-            },
-            "hidden": true
         },
         {
             "title": "Kia Ora Cafe",
@@ -108,13 +276,16 @@
                 "Javascript",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/kia-ora-cafe-thumbnail.png",
                 "screenshot": "/kia-ora-cafe-screenshot.png"
             },
             "links": {
-                "code": "/Kia-Ora-Cafe-Website",
-                "live": "/Kia-Ora-Cafe-Website/"
+                "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
+                "live": "https://kia-ora-cafe.dustindwayn.ee/"
             },
             "tape": {
                 "style": "bg-red-100 text-red-600 border-red-200",
@@ -129,22 +300,140 @@
                 "CSS",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/john-mazel-website-thumbnail.png",
                 "screenshot": "/john-mazel-website-screenshot.png"
             },
             "links": {
-                "code": "/John-Mazel",
-                "live": "/John-Mazel/"
+                "code": "https://github.com/d-ustindwayne/John-Mazel",
+                "live": "https://john-mazel.dustindwayn.ee/"
+            }
+        },
+        {
+            "title": "Este sitio web",
+            "description": "Originalmente un HTML de una sola página para mostrar lo que quisiera y tirar fotos, supongo, pero quería organizar mejor los archivos.",
+            "technologies": [
+                "Astro",
+                "Typescript",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
+        {
+            "title": "SLANGit",
+            "description": "Mi primerísimo contacto con el mundo de TI. Una app móvil hecha con Andromo; solo está disponible el APK. Ah, mi equipo: <a href=\"https://www.instagram.com/pacific_ashia/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@pacific_ashia</a> como líder y mi cómplice de procrastinación <a href=\"https://www.instagram.com/chimbulog/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@chimbulog</a>.",
+            "technologies": [
+                "Andromo",
+                "Dart",
+                "Flutter"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/slangit-thumbnail.png",
+                "screenshot": "/slangit-screenshot.png",
+                "background": "#ffffff"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/SLANGit",
+                "live": "https://slangit.dustindwayn.ee/"
+            }
+        }
+    ],
+    "tl": [
+        {
+            "title": "Medkit Clicker",
+            "description": "Larong inspired sa nursing. Maganda music, siguro. Ginagamit ko lang ang Aseprite dahil sa boredom, pero naisip kong gamitin para sa isang bagay na pwede kong ipagmayabang.",
+            "technologies": [
+                "React Native",
+                "NativeWind",
+                "Expo",
+                "PostgreSQL"
+            ],
+            "tags": [
+                "game",
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/medkit-clicker-thumbnail.png",
+                "screenshot": "/medkit-clicker-screenshot.png",
+                "background": "#f9fbf2"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/Medkit-Clicker",
+                "live": "https://medkit-clicker.dustindwayn.ee/"
+            },
+            "tape": {
+                "style": "bg-blue-700 text-white border-blue-400",
+                "text": "Pinakabagong proyekto ko"
+            }
+        },
+        {
+            "title": "Dessa",
+            "description": "Programming language na naisip ko habang iniisip kung ano kaya pakiramdam ng language na parang JavaScript, may konting features ng Python, pero kasing bilis ng C. Ipinangalan sa kaibigan ko noong high school.",
+            "technologies": [
+                "C++",
+                "C",
+                "Dessa"
+            ],
+            "tags": [
+                "language"
+            ],
+            "image": {
+                "thumbnail": "/dessa-thumbnail.png",
+                "background": "#f3f1e4"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/Dessa",
+                "live": null
+            }
+        },
+        {
+            "title": "Unyielding Might",
+            "description": "Group project namin dati nina <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a> at <a href=\"https://github.com/SaplingBeing\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@saplingbeing</a>: mobile app na nakasulat sa Java. Ni-rewrite at binago ko lahat para maging gumagana at magandang app.",
+            "technologies": [
+                "Kotlin",
+                "Android Studio",
+                "MySQL"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/unyieldingmight-thumbnail.png",
+                "screenshot": "/unyieldingmight-screenshot.png",
+                "background": "#1f1f1f"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/UnyieldingMight",
+                "live": null
             }
         },
         {
             "title": "beau | be you",
-            "description": "Un proyecto de sitio web en React para el curso de UI/UX, en colaboración con <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Definitivamente lo hicimos con prisa junto con otros 3 proyectos.",
+            "description": "React website project para sa UI/UX course namin ni ate <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Sobrang rushed dahil sabay-sabay naming ginawa yung iba pang 3 projects.",
             "technologies": [
                 "Typescript",
                 "React",
                 "TailwindCSS"
+            ],
+            "tags": [
+                "web"
             ],
             "image": {
                 "thumbnail": "/beau-thumbnail.png",
@@ -152,33 +441,9 @@
                 "background": "#841910"
             },
             "links": {
-                "code": "/beau",
-                "live": "/beau/"
-            },
-            "tape": {
-                "style": "bg-blue-700 text-white border-blue-400",
-                "text": "Proyecto más reciente"
+                "code": "https://github.com/d-ustindwayne/beau",
+                "live": "https://beau.dustindwayn.ee/"
             }
-        }
-    ],
-    "tl": [
-        {
-            "title": "Itong pahinarya",
-            "description": "Pahinaryang kartera na ginawa ko gamit Astro kasi nagcacrashout ako sa React minsan",
-            "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
-            ],
-            "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png"
-            },
-            "links": {
-                "code": "/d-ustindwayne.github.io",
-                "live": "/"
-            },
-            "hidden": true
         },
         {
             "title": "Kia Ora Cafe",
@@ -189,13 +454,16 @@
                 "Javascript",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/kia-ora-cafe-thumbnail.png",
                 "screenshot": "/kia-ora-cafe-screenshot.png"
             },
             "links": {
-                "code": "/Kia-Ora-Cafe-Website",
-                "live": "/Kia-Ora-Cafe-Website/"
+                "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
+                "live": "https://kia-ora-cafe.dustindwayn.ee/"
             },
             "tape": {
                 "style": "bg-red-100 text-red-600 border-red-200",
@@ -210,35 +478,58 @@
                 "CSS",
                 "Bootstrap"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
                 "thumbnail": "/john-mazel-website-thumbnail.png",
                 "screenshot": "/john-mazel-website-screenshot.png"
             },
             "links": {
-                "code": "/John-Mazel",
-                "live": "/John-Mazel/"
+                "code": "https://github.com/d-ustindwayne/John-Mazel",
+                "live": "https://john-mazel.dustindwayn.ee/"
             }
         },
         {
-            "title": "beau | be you",
-            "description": "React website project para sa UI/UX course namin ni ate <a href=\"https://github.com/darawesome\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@darawesome</a>. Sobrang rushed dahil sabay-sabay naming ginawa yung iba pang 3 projects.",
+            "title": "Itong pahinarya",
+            "description": "Dati one-page HTML lang para ipakita kahit anong gusto ko at tambakan ng photos, pero gusto kong ayusin nang mas maayos ang mga file.",
             "technologies": [
+                "Astro",
                 "Typescript",
-                "React",
                 "TailwindCSS"
             ],
+            "tags": [
+                "web"
+            ],
             "image": {
-                "thumbnail": "/beau-thumbnail.png",
-                "screenshot": "/beau-screenshot.png",
-                "background": "#841910"
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
             },
             "links": {
-                "code": "/beau",
-                "live": "/beau/"
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
+        {
+            "title": "SLANGit",
+            "description": "Ang pinaka-unang grass-touch ko sa IT. Mobile app na ginawa gamit ang Andromo; APK lang ang available. Oh, mga ka-team ko: leader <a href=\"https://www.instagram.com/pacific_ashia/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@pacific_ashia</a> at ang aking co-procrastinator <a href=\"https://www.instagram.com/chimbulog/\" target=\"_blank\" rel=\"noopener\" class=\"text-blue-pen underline hover:text-red-pen\">@chimbulog</a>.",
+            "technologies": [
+                "Andromo",
+                "Dart",
+                "Flutter"
+            ],
+            "tags": [
+                "mobile"
+            ],
+            "image": {
+                "thumbnail": "/slangit-thumbnail.png",
+                "screenshot": "/slangit-screenshot.png",
+                "background": "#ffffff"
             },
-            "tape": {
-                "style": "bg-blue-700 text-white border-blue-400",
-                "text": "Pinakabagong proyekto ko"
+            "links": {
+                "code": "https://github.com/d-ustindwayne/SLANGit",
+                "live": "https://slangit.dustindwayn.ee/"
             }
         }
     ]

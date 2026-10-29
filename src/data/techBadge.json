@@ -18,5 +18,13 @@
     "WordPress": "bg-stone-700 text-white",
     "Kotlin": "bg-fuchsia-500 text-white",
     "Swift": "bg-amber-500 text-black",
-    "Dessa": "bg-linear-to-r from-[#1C614D] via-[#14743C] to-[#D2CB71] text-white"
+    "Dessa": "bg-linear-to-r from-[#1C614D] via-[#14743C] to-[#D2CB71] text-white",
+    "Android Studio": "bg-green-700 text-white",
+    "MySQL": "bg-sky-700 text-orange-200",
+    "NativeWind": "bg-teal-500 text-slate-900",
+    "Expo": "bg-black text-white dark:bg-white dark:text-black",
+    "PostgreSQL": "bg-blue-900 text-white",
+    "Andromo": "bg-orange-400 text-black",
+    "Dart": "bg-teal-700 text-white",
+    "Flutter": "bg-blue-400 text-blue-950"
 }

@@ -1,14 +1,16 @@
 ---
 import CVFace from "./CVFace.astro";
+import SketchButton from "./SketchButton.astro";
 import { getContent } from "../i18n";
 
 const { ui } = getContent(Astro.currentLocale);
 ---
 
 <section id="cv" class="mb-10 scroll-mt-8">
-    <div class="mb-10 text-center">
+    <div class="mb-10 text-center print:hidden">
         <h2 class="my-5 text-4xl font-bold underline decoration-purple-400 decoration-wavy">{ui.cv.title}</h2>
         <p class="mt-2 text-muted">({ui.cv.sublabel})</p>
+        <SketchButton id="cv-download" data-file-name={ui.cv.fileName} class="mt-5">📄 {ui.cv.downloadButton}</SketchButton>
     </div>
 
     <!-- Both faces share one grid cell, so the card is as tall as its longest side -->
@@ -31,4 +33,62 @@ const { ui } = getContent(Astro.currentLocale);
         back.inert = !flipped;
         (flipped ? back : front).querySelector("button")?.focus({ preventScroll: true });
     });
+
+    // The PDF comes from the browser's print dialog ("Save as PDF"), so it always matches the CV on the page.
+    // While printing: light theme, and the page title becomes the suggested file name.
+    const download = document.getElementById("cv-download")!;
+    const root = document.documentElement;
+    let restore: { theme?: string; title: string } | undefined;
+
+    download.addEventListener("click", () => print());
+    addEventListener("beforeprint", () => {
+        restore = { theme: root.dataset.theme, title: document.title };
+        root.dataset.theme = "light";
+        document.title = download.dataset.fileName!;
+    });
+    addEventListener("afterprint", () => {
+        if (!restore) return;
+        if (restore.theme) root.dataset.theme = restore.theme;
+        document.title = restore.title;
+        restore = undefined;
+    });
 </script>
+
+<style is:global>
+    /* Printing the home page prints just the CV: the front, then the dark side on its own page */
+    @media print {
+        @page {
+            margin: 12mm;
+        }
+        body:has(#cv-card) {
+            background: none;
+            & > :not(main),
+            & main > :not(#cv) {
+                display: none !important;
+            }
+            & main {
+                padding: 0;
+            }
+            & #cv {
+                margin: 0;
+                zoom: 0.72; /* each side fits on one A4 page */
+            }
+            & #cv-card {
+                display: block;
+                transform: none;
+            }
+            & [data-face] {
+                transform: none;
+                box-shadow: none;
+                backface-visibility: visible;
+                print-color-adjust: exact;
+            }
+            & [data-face="back"] {
+                break-before: page;
+            }
+            & [data-face] button {
+                display: none;
+            }
+        }
+    }
+</style>

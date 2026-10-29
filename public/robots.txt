@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /doom/
+
+Sitemap: https://www.dustindwayn.ee/sitemap.xml

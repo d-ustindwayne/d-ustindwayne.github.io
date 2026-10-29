@@ -1,42 +1,70 @@
 ---
 import { getContent, languages } from "../i18n";
+import { personSchema, websiteSchema } from "../seo";
 
-interface Props {
+export interface Props {
     title?: string;
     description?: string;
+    /** Keeps the page out of search results (404, utility pages) */
+    noindex?: boolean;
+    /** Extra JSON-LD nodes for this page, merged into one @graph */
+    schema?: Record<string, unknown>[];
 }
 
 const OWNER = "Dustin Dwayne Diaz";
 const ogLocales = { en: "en_NZ", es: "es_ES", tl: "fil_PH" } as const;
 
 const { lang, ui } = getContent(Astro.currentLocale);
-const { title = `${ui.meta.title} - ${OWNER}`, description = ui.meta.description } = Astro.props;
+const { title = ui.meta.title, description = ui.meta.description, noindex = false, schema = [] } = Astro.props;
 
-const url = new URL(Astro.url.pathname, Astro.site);
-const thumbnail = new URL("/thumbnail.png", Astro.site);
+const site = Astro.site!;
+const url = new URL(Astro.url.pathname, site);
+const thumbnail = new URL("/thumbnail.png", site);
+
+// Every localized page exists in all languages at /{lang}/rest, so the alternates mirror the current path
+const localized = Astro.currentLocale && Astro.url.pathname.startsWith(`/${lang}/`);
+const rest = localized ? Astro.url.pathname.slice(lang.length + 2) : "";
+const alternate = (code: string) => new URL(`/${code}/${rest}`, site);
+
+const graph = { "@context": "https://schema.org", "@graph": [websiteSchema(site), personSchema(site, lang), ...schema] };
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#fdfbf7" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
 
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="author" content={OWNER} />
 <meta name="generator" content={Astro.generator} />
-<link rel="canonical" href={url} />
-{Object.keys(languages).map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, Astro.site)} />)}
-<link rel="alternate" hreflang="x-default" href={new URL("/en/", Astro.site)} />
+<meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+{!noindex && <link rel="canonical" href={url} />}
+{!noindex && localized && Object.keys(languages).map((code) => <link rel="alternate" hreflang={code} href={alternate(code)} />)}
+{!noindex && localized && <link rel="alternate" hreflang="x-default" href={alternate("en")} />}
+<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content={OWNER} />
 <meta property="og:url" content={url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={thumbnail} />
+<meta property="og:image:secure_url" content={thumbnail} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={OWNER} />
 <meta property="og:locale" content={ogLocales[lang]} />
+{Object.entries(ogLocales).filter(([code]) => code !== lang).map(([, locale]) => <meta property="og:locale:alternate" content={locale} />)}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={thumbnail} />
+<meta name="twitter:image:alt" content={OWNER} />
+
+{!noindex && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}

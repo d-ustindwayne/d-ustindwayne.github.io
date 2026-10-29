@@ -1,12 +1,9 @@
 ---
 import "../styles/global.css";
-import SEO from "../components/SEO.astro";
+import SEO, { type Props as SEOProps } from "../components/SEO.astro";
 import { getContent } from "../i18n";
 
-interface Props {
-    title?: string;
-    description?: string;
-}
+type Props = SEOProps;
 
 const { lang } = getContent(Astro.currentLocale);
 ---
