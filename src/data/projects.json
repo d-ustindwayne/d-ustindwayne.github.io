@@ -1,6 +1,27 @@
 {
     "en": [
         {
+            "title": "This website",
+            "description": "Originally a one-page HTML to show anything I want and dump photos I guess, but I wanted to organize files better.",
+            "technologies": [
+                "Astro",
+                "Typescript",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
+        {
             "title": "Medkit Clicker",
             "description": "Nursing-inspired game. Good music I guess. I've been using Aseprite out of boredom, but decided to use it for something I can show off.",
             "technologies": [
@@ -29,7 +50,7 @@
         },
         {
             "title": "Dessa",
-            "description": "A programming language I thought of when I was wondering what it would be like to have a JavaScript-like language with a few features from Python, but at the speed of C. Named after my friend in high school.",
+            "description": "JS and Python's baby language, but the blood type is C++. Named after my friend from high school. She has a turtle.",
             "technologies": [
                 "C++",
                 "C",
@@ -45,6 +66,10 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Dessa",
                 "live": null
+            },
+            "tape": {
+                "style": "bg-amber-200 text-amber-900 border-amber-400",
+                "text": "My most ambitious one"
             }
         },
         {
@@ -108,10 +133,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
                 "live": "https://kia-ora-cafe.dustindwayn.ee/"
-            },
-            "tape": {
-                "style": "bg-red-100 text-red-600 border-red-200",
-                "text": "Most proud of this"
             }
         },
         {
@@ -132,27 +153,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/John-Mazel",
                 "live": "https://john-mazel.dustindwayn.ee/"
-            }
-        },
-        {
-            "title": "This website",
-            "description": "Originally a one-page HTML to show anything I want and dump photos I guess, but I wanted to organize files better.",
-            "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
-            ],
-            "tags": [
-                "web"
-            ],
-            "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png",
-                "background": "#fdfbf7"
-            },
-            "links": {
-                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
-                "live": "https://www.dustindwayn.ee/"
             }
         },
         {
@@ -178,6 +178,27 @@
         }
     ],
     "es": [
+        {
+            "title": "Este sitio web",
+            "description": "Originalmente un HTML de una sola página para mostrar lo que quisiera y tirar fotos, supongo, pero quería organizar mejor los archivos.",
+            "technologies": [
+                "Astro",
+                "Typescript",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
         {
             "title": "Medkit Clicker",
             "description": "Un juego inspirado en la enfermería. Buena música, supongo. Usaba Aseprite por aburrimiento, pero decidí usarlo para algo que pudiera presumir.",
@@ -207,7 +228,7 @@
         },
         {
             "title": "Dessa",
-            "description": "Un lenguaje de programación que se me ocurrió pensando cómo sería tener un lenguaje parecido a JavaScript, con algunas cosas de Python, pero con la velocidad de C. El nombre viene de mi amiga de la secundaria.",
+            "description": "El bebé de JS y Python, pero su tipo de sangre es C++. Lleva el nombre de mi amiga de la secundaria. Ella tiene una tortuga.",
             "technologies": [
                 "C++",
                 "C",
@@ -223,6 +244,10 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Dessa",
                 "live": null
+            },
+            "tape": {
+                "style": "bg-amber-200 text-amber-900 border-amber-400",
+                "text": "Mi proyecto más ambicioso"
             }
         },
         {
@@ -286,10 +311,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
                 "live": "https://kia-ora-cafe.dustindwayn.ee/"
-            },
-            "tape": {
-                "style": "bg-red-100 text-red-600 border-red-200",
-                "text": "Del que más orgulloso estoy"
             }
         },
         {
@@ -310,27 +331,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/John-Mazel",
                 "live": "https://john-mazel.dustindwayn.ee/"
-            }
-        },
-        {
-            "title": "Este sitio web",
-            "description": "Originalmente un HTML de una sola página para mostrar lo que quisiera y tirar fotos, supongo, pero quería organizar mejor los archivos.",
-            "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
-            ],
-            "tags": [
-                "web"
-            ],
-            "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png",
-                "background": "#fdfbf7"
-            },
-            "links": {
-                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
-                "live": "https://www.dustindwayn.ee/"
             }
         },
         {
@@ -356,6 +356,27 @@
         }
     ],
     "tl": [
+        {
+            "title": "Itong pahinarya",
+            "description": "Dati one-page HTML lang para ipakita kahit anong gusto ko at tambakan ng photos, pero gusto kong ayusin nang mas maayos ang mga file.",
+            "technologies": [
+                "Astro",
+                "Typescript",
+                "TailwindCSS"
+            ],
+            "tags": [
+                "web"
+            ],
+            "image": {
+                "thumbnail": "/portfolio-thumbnail.png",
+                "screenshot": "/portfolio-screenshot.png",
+                "background": "#fdfbf7"
+            },
+            "links": {
+                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
+                "live": "https://www.dustindwayn.ee/"
+            }
+        },
         {
             "title": "Medkit Clicker",
             "description": "Larong inspired sa nursing. Maganda music, siguro. Ginagamit ko lang ang Aseprite dahil sa boredom, pero naisip kong gamitin para sa isang bagay na pwede kong ipagmayabang.",
@@ -385,7 +406,7 @@
         },
         {
             "title": "Dessa",
-            "description": "Programming language na naisip ko habang iniisip kung ano kaya pakiramdam ng language na parang JavaScript, may konting features ng Python, pero kasing bilis ng C. Ipinangalan sa kaibigan ko noong high school.",
+            "description": "Anak ng JS at Python, pero C++ ang blood type. Ipinangalan sa kaibigan ko noong high school. May pagong siya.",
             "technologies": [
                 "C++",
                 "C",
@@ -401,6 +422,10 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Dessa",
                 "live": null
+            },
+            "tape": {
+                "style": "bg-amber-200 text-amber-900 border-amber-400",
+                "text": "Pinaka-ambisyoso kong proyekto"
             }
         },
         {
@@ -464,10 +489,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/Kia-Ora-Cafe",
                 "live": "https://kia-ora-cafe.dustindwayn.ee/"
-            },
-            "tape": {
-                "style": "bg-red-100 text-red-600 border-red-200",
-                "text": "Ito'y aking pinagmamalaki"
             }
         },
         {
@@ -488,27 +509,6 @@
             "links": {
                 "code": "https://github.com/d-ustindwayne/John-Mazel",
                 "live": "https://john-mazel.dustindwayn.ee/"
-            }
-        },
-        {
-            "title": "Itong pahinarya",
-            "description": "Dati one-page HTML lang para ipakita kahit anong gusto ko at tambakan ng photos, pero gusto kong ayusin nang mas maayos ang mga file.",
-            "technologies": [
-                "Astro",
-                "Typescript",
-                "TailwindCSS"
-            ],
-            "tags": [
-                "web"
-            ],
-            "image": {
-                "thumbnail": "/portfolio-thumbnail.png",
-                "screenshot": "/portfolio-screenshot.png",
-                "background": "#fdfbf7"
-            },
-            "links": {
-                "code": "https://github.com/d-ustindwayne/d-ustindwayne.github.io",
-                "live": "https://www.dustindwayn.ee/"
             }
         },
         {

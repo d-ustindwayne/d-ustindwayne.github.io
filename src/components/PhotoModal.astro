@@ -1,0 +1,29 @@
+---
+import { getContent } from "../i18n";
+
+const { ui } = getContent(Astro.currentLocale);
+---
+
+<!-- One shared viewer: each photo's button fills it in before it opens -->
+<dialog id="photo-modal" aria-label={ui.gallery.title} class="m-auto overflow-visible bg-transparent p-4 text-ink backdrop:bg-black/70 backdrop:backdrop-blur-[2px] motion-safe:open:animate-pop-in">
+    <figure class="tape relative -rotate-1 bg-card p-3 shadow-xl">
+        <form method="dialog">
+            <button aria-label={ui.gallery.close} class="absolute -top-4 -right-4 z-10 size-10 cursor-pointer rounded-full border-2 border-black bg-red-500 font-bold text-white shadow-md transition-transform hover:scale-110">X</button>
+        </form>
+        <img id="photo-modal-image" src="" alt="" class="max-h-[78vh] w-auto max-w-[min(56rem,calc(100vw-4rem))] object-contain" />
+        <figcaption id="photo-modal-caption" class="mt-2 text-center text-lg font-bold text-muted empty:hidden"></figcaption>
+    </figure>
+</dialog>
+
+<script>
+    const image = document.getElementById("photo-modal-image") as HTMLImageElement;
+    const caption = document.getElementById("photo-modal-caption")!;
+
+    document.addEventListener("click", (event) => {
+        const photo = (event.target as HTMLElement).closest<HTMLElement>("[data-photo]");
+        if (!photo) return;
+        image.src = photo.dataset.photo!;
+        image.alt = photo.dataset.alt!;
+        caption.textContent = photo.dataset.caption ?? "";
+    });
+</script>

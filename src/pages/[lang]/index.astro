@@ -7,6 +7,7 @@ import Gallery from "../../components/Gallery.astro";
 import CV from "../../components/CV.astro";
 import Footer from "../../components/Footer.astro";
 import ContactModal from "../../components/ContactModal.astro";
+import PhotoModal from "../../components/PhotoModal.astro";
 import { getContent, languages } from "../../i18n";
 import { homeSchema } from "../../seo";
 
@@ -34,4 +35,5 @@ const schema = homeSchema(Astro.site!, lang, new URL(Astro.url.pathname, Astro.s
         <Footer />
     </main>
     <ContactModal />
+    <PhotoModal />
 </Layout>
