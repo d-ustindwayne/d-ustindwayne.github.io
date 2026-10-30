@@ -3,7 +3,7 @@ import SketchButton from "./SketchButton.astro";
 import { getContent, languages } from "../i18n";
 
 const { lang, ui } = getContent(Astro.currentLocale);
-// Language links keep the visitor on the same page (e.g. /es/wordle/ -> /tl/wordle/)
+// Language links keep the visitor on the same page (e.g. /es/wordilocks/ -> /tl/wordilocks/)
 const rest = Astro.url.pathname.replace(/^\/[^/]+\//, "");
 const row = "flex items-center justify-between gap-4 border-b border-dashed border-faint/60 py-4";
 ---
@@ -62,8 +62,8 @@ const row = "flex items-center justify-between gap-4 border-b border-dashed bord
     </nav>
 
     <div class="flex flex-col gap-3 py-6">
-        <SketchButton href={`/${lang}/wordle/`} class="w-full text-center">🟩 {ui.wordle.button}</SketchButton>
-        <SketchButton data-dialog="doom-dialog" class="w-full pointer-coarse:hidden">🎮 {ui.settings.doomButton}</SketchButton>
+        <SketchButton href={`/${lang}/wordilocks/`} class="w-full text-center">{ui.wordilocks.button}</SketchButton>
+        <SketchButton data-dialog="doom-dialog" class="w-full pointer-coarse:hidden">{ui.settings.doomButton}</SketchButton>
     </div>
 </aside>
 

@@ -13,10 +13,10 @@ src/
 ├── layouts/         base HTML, theme bootstrap, shared modal wiring
 ├── pages/
 │   ├── index.astro      redirects "/" to the visitor's language
-│   ├── [lang]/          the portfolio and the Wordle page, one static page per language
+│   ├── [lang]/          the portfolio and the Wordilocks word game, one static page per language
 │   ├── doom.astro       DOOM, loaded inside the sidebar dialog
 │   ├── sitemap.xml.ts   sitemap with every language version of each page
 │   └── 404.astro
 ├── styles/global.css    theme tokens (light/dark), base styles, font
-├── age.ts  i18n.ts  images.ts  seo.ts (structured data)  wordle.ts (word API + scoring)
+├── age.ts  i18n.ts  images.ts  seo.ts (structured data)  wordilocks.ts (word API, word check + scoring)
 ```

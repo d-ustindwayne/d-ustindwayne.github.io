@@ -29,7 +29,7 @@ const caption = Astro.slots.has("default") ? await Astro.slots.render("default")
 ---
 
 <figure class:list={["tape relative bg-card p-2.5 shadow-md transition-transform duration-300", tilt, cls]}>
-    <button type="button" data-dialog="photo-modal" data-photo={full.src} data-alt={alt} data-caption={caption} aria-label={ui.gallery.enlarge} class="block cursor-zoom-in">
+    <button type="button" data-dialog="photo-modal" data-photo={full.src} data-alt={alt} data-caption={caption} aria-label={ui.gallery.enlarge} class="block">
         <Image src={src} alt={alt} widths={[320, 640]} sizes="(min-width: 768px) 280px, (min-width: 384px) 45vw, 90vw" loading={loading} class:list={["object-cover", imageClass]} />
     </button>
     {Astro.slots.has("default") && (

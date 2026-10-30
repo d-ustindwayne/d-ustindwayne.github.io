@@ -97,3 +97,18 @@
         @apply absolute -top-4 left-1/2 z-10 h-7.5 w-25 -translate-x-1/2 -rotate-2 border border-black/10 bg-white/50 shadow-sm;
     }
 }
+
+/* Doodled cursors: a hand-drawn arrow, and a pencil over anything clickable.
+   Unlayered so they win over Tailwind's cursor-pointer utility; text fields keep the usual text cursor. */
+html {
+    cursor: url("/cursors/arrow.svg") 4 3, auto;
+}
+a[href],
+button:not(:disabled),
+select,
+summary,
+label:has(input),
+[role="button"],
+.cursor-pointer {
+    cursor: url("/cursors/pencil.svg") 3 3, pointer;
+}

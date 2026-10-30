@@ -3,13 +3,14 @@ import Layout from "../../layouts/Layout.astro";
 import Sidebar from "../../components/Sidebar.astro";
 import SketchButton from "../../components/SketchButton.astro";
 import { getContent, languages } from "../../i18n";
-import { MAX_GUESSES, WORD_LENGTH, wordLanguages } from "../../wordle";
+import { MAX_GUESSES, WORD_LENGTH, isWordLanguage, wordLanguages } from "../../wordilocks";
 
 export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
 
 const { lang, ui } = getContent(Astro.currentLocale);
-const t = ui.wordle;
-const defaultWordLanguage = lang === "es" ? "es" : "en";
+const t = ui.wordilocks;
+// Words come in the site's language when the game has it, otherwise English
+const defaultWordLanguage = isWordLanguage(lang) ? lang : "en";
 const keyRows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 
@@ -67,7 +68,11 @@ const schema = [
                 <div class="flex justify-center gap-1">
                     {index === 2 && <button type="button" data-key="Enter" class="key flex-[1.6] text-xs! uppercase sm:text-sm!">{t.enter}</button>}
                     {[...row].map((letter) => <button type="button" data-key={letter} class="key flex-1 uppercase">{letter}</button>)}
-                    {index === 2 && <button type="button" data-key="Backspace" aria-label={t.backspace} class="key flex-[1.6]">&#9003;</button>}
+                    {index === 2 && <button type="button" data-key="Backspace" aria-label={t.backspace} class="key flex-[1.6]">
+                        <svg aria-hidden="true" class="mx-auto size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 5h11v14H9l-6-7z" /><path d="m12 9 5 6m0-6-5 6" />
+                        </svg>
+                    </button>}
                 </div>
             ))}
         </div>
@@ -75,7 +80,7 @@ const schema = [
 </Layout>
 
 <script>
-    import { MAX_GUESSES, WORD_LENGTH, nextWord, score, wordLanguages, type Mark, type Word, type WordLanguage } from "../../wordle";
+    import { MAX_GUESSES, WORD_LENGTH, isWord, nextWord, preloadDictionary, score, type Mark, type Word, type WordLanguage } from "../../wordilocks";
 
     const text: Record<string, string> = JSON.parse(document.querySelector("main")!.dataset.text!);
     const select = document.getElementById("word-language") as HTMLSelectElement;
@@ -90,13 +95,13 @@ const schema = [
     let guess = "";
     let busy = true;
 
-    try {
-        const saved = localStorage.getItem("wordle-language");
-        if (saved && saved in wordLanguages) select.value = saved;
-    } catch {}
-
     const tiles = (index: number) => [...rows[index].children] as HTMLElement[];
     const say = (message: string) => (status.textContent = message);
+    const shake = () => {
+        rows[row].classList.remove("shake");
+        void rows[row].offsetWidth; // restart the animation
+        rows[row].classList.add("shake");
+    };
 
     function paintRow() {
         tiles(row).forEach((tile, index) => {
@@ -122,6 +127,7 @@ const schema = [
         );
         keys.forEach((key) => key.removeAttribute("data-mark"));
 
+        preloadDictionary(select.value as WordLanguage);
         answer = await nextWord(select.value as WordLanguage);
         say("offline" in answer ? text.offline : "");
         busy = false;
@@ -130,12 +136,16 @@ const schema = [
     async function submit() {
         if (guess.length < WORD_LENGTH) {
             say(text.tooShort);
-            rows[row].classList.remove("shake");
-            void rows[row].offsetWidth; // restart the animation
-            rows[row].classList.add("shake");
+            shake();
             return;
         }
         busy = true;
+        if (!(await isWord(select.value as WordLanguage, guess, answer!))) {
+            say(text.notWord);
+            shake();
+            busy = false;
+            return;
+        }
         const marks = score(guess, answer!.plain);
 
         tiles(row).forEach((tile, index) => {
@@ -200,12 +210,7 @@ const schema = [
     });
 
     document.getElementById("new-word")!.addEventListener("click", newGame);
-    select.addEventListener("change", () => {
-        try {
-            localStorage.setItem("wordle-language", select.value);
-        } catch {}
-        newGame();
-    });
+    select.addEventListener("change", newGame);
 
     newGame();
 </script>
@@ -256,9 +261,10 @@ const schema = [
         20%, 60% { transform: translateX(-6px); }
         40%, 80% { transform: translateX(6px); }
     }
+    /* Stays inside the tile's own space so it never covers the row above */
     @keyframes bounce {
-        40% { transform: translateY(-14px) rotate(-3deg); }
-        70% { transform: translateY(2px); }
+        30% { transform: scale(1.08) rotate(-4deg); }
+        60% { transform: scale(0.96) rotate(3deg); }
     }
     @media (prefers-reduced-motion: reduce) {
         .tile[data-mark], .shake, .win > * {

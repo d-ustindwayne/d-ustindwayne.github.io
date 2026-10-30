@@ -9,6 +9,10 @@ export default defineConfig({
     base: "/",
     output: "static",
     trailingSlash: "ignore",
+    // The word game used to be called Wordle
+    redirects: {
+        "/[lang]/wordle": "/[lang]/wordilocks"
+    },
     i18n: {
         locales: ["en", "es", "tl"],
         defaultLocale: "en",

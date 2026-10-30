@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { languages } from "../i18n";
 
 // Every page exists in all languages; each entry lists its translations so search engines pair them up
-const paths = ["", "wordle/"];
+const paths = ["", "wordilocks/"];
 const codes = Object.keys(languages);
 
 export const GET: APIRoute = ({ site }) => {

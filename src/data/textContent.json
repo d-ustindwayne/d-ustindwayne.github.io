@@ -2,7 +2,7 @@
     "en": {
         "meta": {
             "title": "Dustin Dwayne Diaz - Software Developer Portfolio",
-            "description": "I am Dustin Dwayne Diaz, a software developer in New Zealand. See my projects in Kotlin, React Native, Astro, C++ and Dessa (a programming language I made), my CV, photos, and a Wordle you can play."
+            "description": "I am Dustin Dwayne Diaz, a software developer in New Zealand. See my projects in Kotlin, React Native, Astro, C++ and Dessa (a programming language I made), my CV, photos, and Wordilocks, a word game you can play."
         },
         "header": {
             "title": "Hi, I'm <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
@@ -70,11 +70,11 @@
             "next": "Next",
             "page": "Page {n}"
         },
-        "wordle": {
-            "button": "Play Wordle",
-            "title": "Wordle",
-            "metaTitle": "Wordle (unlimited, multi-language) - Dustin Dwayne Diaz",
-            "metaDescription": "Play unlimited Wordle in English, Spanish, German, French, Italian, Portuguese, Dutch, Romanian or Turkish. A revamp of my very first JavaScript project.",
+        "wordilocks": {
+            "button": "Play Wordilocks",
+            "title": "Wordilocks",
+            "metaTitle": "Wordilocks (unlimited, multi-language word game) - Dustin Dwayne Diaz",
+            "metaDescription": "Unlimited 5-letter word guessing in English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian or Turkish. A revamp of my very first JavaScript project.",
             "sublabel": "My very first JS project, revamped. Unlimited games, no daily limit.",
             "wordLanguage": "Word language",
             "newWord": "New word",
@@ -83,6 +83,7 @@
             "loading": "Picking a word...",
             "offline": "Couldn't reach the word API, so here's a word from my old list.",
             "tooShort": "Not enough letters",
+            "notWord": "Not in the word list",
             "win": "You got it! The word was {word}.",
             "lose": "Nope. The word was {word}.",
             "back": "Back to portfolio",
@@ -98,7 +99,7 @@
     "es": {
         "meta": {
             "title": "Dustin Dwayne Diaz - Portafolio de Desarrollador de Software",
-            "description": "Soy Dustin Dwayne Diaz, desarrollador de software en Nueva Zelanda. Mira mis proyectos en Kotlin, React Native, Astro, C++ y Dessa (un lenguaje de programación que creé), mi CV, fotos y un Wordle para jugar."
+            "description": "Soy Dustin Dwayne Diaz, desarrollador de software en Nueva Zelanda. Mira mis proyectos en Kotlin, React Native, Astro, C++ y Dessa (un lenguaje de programación que creé), mi CV, fotos y Wordilocks, un juego de palabras para jugar."
         },
         "header": {
             "title": "Hola, soy <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
@@ -166,11 +167,11 @@
             "next": "Siguiente",
             "page": "Página {n}"
         },
-        "wordle": {
-            "button": "Jugar Wordle",
-            "title": "Wordle",
-            "metaTitle": "Wordle (ilimitado, multilingüe) - Dustin Dwayne Diaz",
-            "metaDescription": "Juega Wordle ilimitado en inglés, español, alemán, francés, italiano, portugués, neerlandés, rumano o turco. Una renovación de mi primer proyecto en JavaScript.",
+        "wordilocks": {
+            "button": "Jugar Wordilocks",
+            "title": "Wordilocks",
+            "metaTitle": "Wordilocks (juego de palabras ilimitado y multilingüe) - Dustin Dwayne Diaz",
+            "metaDescription": "Adivina palabras de 5 letras sin límite en inglés, español, filipino, alemán, francés, italiano, portugués, neerlandés, rumano o turco. Una renovación de mi primer proyecto en JavaScript.",
             "sublabel": "Mi primer proyecto en JS, renovado. Partidas ilimitadas, sin límite diario.",
             "wordLanguage": "Idioma de la palabra",
             "newWord": "Nueva palabra",
@@ -179,6 +180,7 @@
             "loading": "Eligiendo una palabra...",
             "offline": "No pude conectar con la API de palabras, así que aquí va una palabra de mi lista vieja.",
             "tooShort": "Faltan letras",
+            "notWord": "No está en la lista de palabras",
             "win": "¡Lo lograste! La palabra era {word}.",
             "lose": "Nop. La palabra era {word}.",
             "back": "Volver al portafolio",
@@ -194,7 +196,7 @@
     "tl": {
         "meta": {
             "title": "Dustin Dwayne Diaz - Portfolio ng Software Developer",
-            "description": "Ako si Dustin Dwayne Diaz, software developer sa New Zealand. Tingnan ang mga proyekto ko sa Kotlin, React Native, Astro, C++ at Dessa (programming language na ginawa ko), ang CV ko, mga litrato, at Wordle na pwedeng laruin."
+            "description": "Ako si Dustin Dwayne Diaz, software developer sa New Zealand. Tingnan ang mga proyekto ko sa Kotlin, React Native, Astro, C++ at Dessa (programming language na ginawa ko), ang CV ko, mga litrato, at ang Wordilocks, word game na pwedeng laruin."
         },
         "header": {
             "title": "Hi, Ako si <span class=\"highlight\">Dustin Dwayne Diaz</span>.",
@@ -262,11 +264,11 @@
             "next": "Susunod",
             "page": "Pahina {n}"
         },
-        "wordle": {
-            "button": "Laruin ang Wordle",
-            "title": "Wordle",
-            "metaTitle": "Wordle (walang limit, maraming wika) - Dustin Dwayne Diaz",
-            "metaDescription": "Maglaro ng walang limit na Wordle sa English, Spanish, German, French, Italian, Portuguese, Dutch, Romanian o Turkish. Binagong bersyon ng pinaka-una kong JavaScript project.",
+        "wordilocks": {
+            "button": "Laruin ang Wordilocks",
+            "title": "Wordilocks",
+            "metaTitle": "Wordilocks (walang limit, maraming wika) - Dustin Dwayne Diaz",
+            "metaDescription": "Walang limit na hulaan ng 5-letrang salita sa English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian o Turkish. Binagong bersyon ng pinaka-una kong JavaScript project.",
             "sublabel": "Ang pinaka-una kong JS project, binago. Walang limit, laro lang nang laro.",
             "wordLanguage": "Wika ng salita",
             "newWord": "Bagong salita",
@@ -275,6 +277,7 @@
             "loading": "Pumipili ng salita...",
             "offline": "Hindi maabot ang word API, kaya heto ang salita mula sa luma kong listahan.",
             "tooShort": "Kulang ang letra",
+            "notWord": "Wala sa listahan ng mga salita",
             "win": "Nakuha mo! Ang salita ay {word}.",
             "lose": "Hindi. Ang salita ay {word}.",
             "back": "Bumalik sa portfolio",
