@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Sidebar from "../../components/Sidebar.astro";
 import SketchButton from "../../components/SketchButton.astro";
 import { getContent, languages } from "../../i18n";
-import { MAX_GUESSES, WORD_LENGTH, isWordLanguage, wordLanguages } from "../../wordilocks";
+import { DEFAULT_WORD_LENGTH, MAX_GUESSES, WORD_LENGTHS, isWordLanguage, wordLanguages } from "../../wordilocks";
 
 export const getStaticPaths = () => Object.keys(languages).map((lang) => ({ params: { lang } }));
 
@@ -42,22 +42,30 @@ const schema = [
         <p class="mt-3 text-base">{t.howTo}</p>
 
         <div class="my-5 flex flex-wrap items-end justify-between gap-3">
-            <label class="flex flex-col text-base">
-                {t.wordLanguage}
-                <select id="word-language" class="mt-1 cursor-pointer rounded-sketch-btn border-2 border-ink bg-card px-3 py-1.5 text-lg text-ink">
-                    {Object.entries(wordLanguages).map(([code, name]) => <option value={code} selected={code === defaultWordLanguage}>{name}</option>)}
-                </select>
-            </label>
+            <div class="flex flex-wrap items-end gap-3">
+                <label class="flex flex-col text-base">
+                    {t.wordLanguage}
+                    <select id="word-language" class="mt-1 cursor-pointer rounded-sketch-btn border-2 border-ink bg-card px-3 py-1.5 text-lg text-ink">
+                        {Object.entries(wordLanguages).map(([code, name]) => <option value={code} selected={code === defaultWordLanguage}>{name}</option>)}
+                    </select>
+                </label>
+                <label class="flex flex-col text-base">
+                    {t.wordLength}
+                    <select id="word-length" class="mt-1 cursor-pointer rounded-sketch-btn border-2 border-ink bg-card px-3 py-1.5 text-lg text-ink">
+                        {WORD_LENGTHS.map((length) => <option value={length} selected={length === DEFAULT_WORD_LENGTH}>{length}</option>)}
+                    </select>
+                </label>
+            </div>
             <SketchButton id="new-word" variant="solid">{t.newWord}</SketchButton>
         </div>
 
         <p id="status" role="status" aria-live="polite" class="mb-3 min-h-8 text-center text-xl font-bold text-red-pen">{t.loading}</p>
 
-        <div id="board" aria-label={t.board} class="mx-auto grid w-full max-w-[20rem] gap-1.5" style={`grid-template-rows: repeat(${MAX_GUESSES}, 1fr)`}>
+        <div id="board" aria-label={t.board} class="@container mx-auto grid w-full gap-1.5" style={`--letters: ${DEFAULT_WORD_LENGTH}; grid-template-rows: repeat(${MAX_GUESSES}, 1fr)`}>
             {Array.from({ length: MAX_GUESSES }, () => (
-                <div role="group" class="grid grid-cols-5 gap-1.5">
-                    {Array.from({ length: WORD_LENGTH }, () => (
-                        <div aria-label={t.empty} class="tile grid aspect-square place-items-center rounded-sketch-btn border-2 border-faint bg-card text-3xl font-bold uppercase select-none sm:text-4xl"></div>
+                <div role="group" class="grid grid-cols-[repeat(var(--letters),minmax(0,1fr))] gap-1.5">
+                    {Array.from({ length: DEFAULT_WORD_LENGTH }, () => (
+                        <div aria-label={t.empty} class="tile grid aspect-square place-items-center rounded-sketch-btn border-2 border-faint bg-card font-bold uppercase select-none"></div>
                     ))}
                 </div>
             ))}
@@ -80,17 +88,23 @@ const schema = [
 </Layout>
 
 <script>
-    import { MAX_GUESSES, WORD_LENGTH, isWord, nextWord, preloadDictionary, score, type Mark, type Word, type WordLanguage } from "../../wordilocks";
+    import { MAX_GUESSES, isWord, nextWord, preloadDictionary, score, type Mark, type Word, type WordLanguage } from "../../wordilocks";
 
     const text: Record<string, string> = JSON.parse(document.querySelector("main")!.dataset.text!);
     const select = document.getElementById("word-language") as HTMLSelectElement;
+    const lengthSelect = document.getElementById("word-length") as HTMLSelectElement;
+    const newWordButton = document.getElementById("new-word")!;
     const status = document.getElementById("status")!;
-    const rows = [...document.querySelectorAll<HTMLElement>("#board > [role=group]")];
+    const board = document.getElementById("board")!;
+    const rows = [...board.querySelectorAll<HTMLElement>("[role=group]")];
+    const blankTile = rows[0].firstElementChild!.cloneNode() as HTMLElement;
     const keys = new Map([...document.querySelectorAll<HTMLButtonElement>("#keyboard [data-key]")].map((key) => [key.dataset.key!, key]));
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const rank: Record<Mark, number> = { absent: 1, present: 2, correct: 3 };
 
     let answer: Word | undefined;
+    let game = 0; // lets a game's pending work notice that a newer game has started
+    let letters = 0;
     let row = 0;
     let guess = "";
     let busy = true;
@@ -113,34 +127,41 @@ const schema = [
     }
 
     async function newGame() {
+        const current = ++game;
         busy = true;
         row = 0;
         guess = "";
+        letters = Number(lengthSelect.value);
         say(text.loading);
-        rows.forEach((_, index) =>
-            tiles(index).forEach((tile) => {
-                tile.textContent = "";
-                tile.removeAttribute("data-mark");
-                tile.removeAttribute("data-filled");
-                tile.setAttribute("aria-label", text.empty);
-            }),
-        );
+        board.style.setProperty("--letters", String(letters));
+        // Fresh tiles and row classes, so nothing from the last game (like the win bounce) carries over
+        rows.forEach((rowElement) => {
+            rowElement.classList.remove("win", "shake");
+            rowElement.replaceChildren(...Array.from({ length: letters }, () => blankTile.cloneNode()));
+        });
         keys.forEach((key) => key.removeAttribute("data-mark"));
 
         preloadDictionary(select.value as WordLanguage);
-        answer = await nextWord(select.value as WordLanguage);
-        say("offline" in answer ? text.offline : "");
+        const word = await nextWord(select.value as WordLanguage, letters);
+        if (current !== game) return;
+        answer = word;
+        say("offline" in word ? text.offline : "");
+        // A still-focused New word button would catch Enter and restart the game instead of submitting the guess
+        newWordButton.blur();
         busy = false;
     }
 
     async function submit() {
-        if (guess.length < WORD_LENGTH) {
+        const current = game;
+        if (guess.length < letters) {
             say(text.tooShort);
             shake();
             return;
         }
         busy = true;
-        if (!(await isWord(select.value as WordLanguage, guess, answer!))) {
+        const valid = await isWord(select.value as WordLanguage, guess, answer!);
+        if (current !== game) return;
+        if (!valid) {
             say(text.notWord);
             shake();
             busy = false;
@@ -157,20 +178,22 @@ const schema = [
             const current = key.dataset.mark as Mark | undefined;
             if (!current || rank[marks[index]] > rank[current]) key.dataset.mark = marks[index];
         });
-        await new Promise((done) => setTimeout(done, reduceMotion ? 0 : WORD_LENGTH * 200 + 300));
+        await new Promise((done) => setTimeout(done, reduceMotion ? 0 : letters * 200 + 300));
+        if (current !== game) return;
 
         const word = answer!.display.toUpperCase();
         if (guess === answer!.plain) {
             say(text.win.replace("{word}", word));
+            tiles(row).forEach((tile, index) => (tile.style.animationDelay = `${index * 100}ms`));
             rows[row].classList.add("win");
-            document.getElementById("new-word")!.focus();
+            newWordButton.focus();
             return; // stays busy until a new word is picked
         }
         row++;
         guess = "";
         if (row === MAX_GUESSES) {
             say(text.lose.replace("{word}", word));
-            document.getElementById("new-word")!.focus();
+            newWordButton.focus();
             return;
         }
         say("");
@@ -181,7 +204,7 @@ const schema = [
         if (busy) return;
         if (key === "Enter") submit();
         else if (key === "Backspace") guess = guess.slice(0, -1);
-        else if (/^[a-z]$/.test(key) && guess.length < WORD_LENGTH) guess += key;
+        else if (/^[a-z]$/.test(key) && guess.length < letters) guess += key;
         else return;
         if (key !== "Enter") {
             say("");
@@ -209,8 +232,14 @@ const schema = [
         }
     });
 
-    document.getElementById("new-word")!.addEventListener("click", newGame);
-    select.addEventListener("change", newGame);
+    newWordButton.addEventListener("click", newGame);
+    for (const control of [select, lengthSelect]) {
+        control.addEventListener("change", () => {
+            newGame();
+            // After picking with the mouse, typing goes to the board; keyboard users stay on the control
+            if (!control.matches(":focus-visible")) control.blur();
+        });
+    }
 
     newGame();
 </script>
@@ -218,6 +247,13 @@ const schema = [
 <style>
     @reference "../../styles/global.css";
 
+    #board {
+        max-width: calc(var(--letters) * 4rem);
+    }
+    /* Letters scale with the tiles, which shrink as words get longer */
+    .tile {
+        font-size: calc(100cqw / var(--letters) * 0.58);
+    }
     .key {
         @apply h-13 min-w-0 cursor-pointer rounded-md border-2 border-ink bg-card px-0.5 text-xl font-bold text-ink transition-colors hover:bg-ink/10;
     }
@@ -246,10 +282,6 @@ const schema = [
     .win > * {
         animation: bounce 0.6s ease-in-out both;
     }
-    .win > :nth-child(2) { animation-delay: 0.1s; }
-    .win > :nth-child(3) { animation-delay: 0.2s; }
-    .win > :nth-child(4) { animation-delay: 0.3s; }
-    .win > :nth-child(5) { animation-delay: 0.4s; }
 
     @keyframes flip {
         0% { transform: rotateX(0); background: var(--color-card); color: var(--color-ink); border-color: var(--color-ink); }

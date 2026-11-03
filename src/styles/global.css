@@ -88,6 +88,42 @@
 /* Marker-pen stroke behind text */
 @utility highlight {
     background: linear-gradient(120deg, transparent 0%, var(--color-highlight) 100%) no-repeat 0 88% / 100% 40%;
+    /* Hovering draws the stroke again */
+    @media (prefers-reduced-motion: no-preference) {
+        &:hover {
+            animation: marker-sweep 0.5s ease-out;
+        }
+    }
+}
+
+@keyframes marker-sweep {
+    from { background-size: 0 40%; }
+}
+
+/* A pencil doodle left on the paper by a click (see Doodles.astro): it draws itself, then fades */
+.doodle {
+    @apply pointer-events-none absolute z-30 size-10 -translate-1/2;
+    animation: doodle-fade 1.8s ease-in forwards;
+
+    & path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+        animation: doodle-draw 0.5s ease-out both;
+    }
+}
+
+@keyframes doodle-draw {
+    from { stroke-dashoffset: 1; }
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes doodle-fade {
+    70% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* Piece of sticky tape across the top edge of a photo */

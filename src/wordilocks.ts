@@ -1,6 +1,7 @@
 import fallbackWords from "./data/wordilocksFallback.json";
 
-export const WORD_LENGTH = 5;
+export const WORD_LENGTHS = [4, 5, 6, 7, 8, 9, 10];
+export const DEFAULT_WORD_LENGTH = 5;
 export const MAX_GUESSES = 6;
 
 /**
@@ -37,42 +38,44 @@ export interface Word {
 export const toPlain = (word: string) =>
     word.toLocaleLowerCase().replace(/ı/g, "i").normalize("NFD").replace(/\p{M}/gu, "");
 
-const isPlayable = (plain: string) => plain.length === WORD_LENGTH && /^[a-z]+$/.test(plain);
+const isPlayable = (plain: string) => plain.length >= WORD_LENGTHS[0] && plain.length <= WORD_LENGTHS.at(-1)! && /^[a-z]+$/.test(plain);
+const pickRandom = (words: string[]) => words[Math.floor(Math.random() * words.length)];
 
 /** Bundled Filipino words (Wiktionary's Tagalog entries), loaded only when Filipino is played */
 const tagalog = () => import("./data/wordilocksTagalog.json").then((module) => module.default);
 
-const queues = new Map<WordLanguage, Word[]>();
+const queues = new Map<string, Word[]>();
 
-async function fetchWords(lang: WordLanguage): Promise<Word[]> {
+async function fetchWords(lang: WordLanguage, length: number): Promise<Word[]> {
     if (lang === "tl") {
-        const { answers } = await tagalog();
-        return Array.from({ length: 10 }, () => answers[Math.floor(Math.random() * answers.length)]).map((plain) => ({ plain, display: plain }));
+        const answers = (await tagalog()).answers.filter((word) => word.length === length);
+        return Array.from({ length: 10 }, () => pickRandom(answers)).map((plain) => ({ plain, display: plain }));
     }
     const url = new URL("https://random-word-api.herokuapp.com/word");
-    url.searchParams.set("length", String(WORD_LENGTH));
+    url.searchParams.set("length", String(length));
     url.searchParams.set("number", "10");
     if (lang !== "en") url.searchParams.set("lang", lang);
 
     const response = await fetch(url, { signal: AbortSignal.timeout(6000) });
     const words: string[] = await response.json();
-    return words.map((display) => ({ plain: toPlain(display), display: display.toLocaleLowerCase() })).filter((word) => isPlayable(word.plain));
+    return words.map((display) => ({ plain: toPlain(display), display: display.toLocaleLowerCase() })).filter((word) => isPlayable(word.plain) && word.plain.length === length);
 }
 
-/** Next word for a language. Words are fetched 10 at a time; if the API is down the original word list is used. */
-export async function nextWord(lang: WordLanguage): Promise<Word & { offline?: true }> {
-    const queue = queues.get(lang) ?? [];
-    queues.set(lang, queue);
+/** Next word for a language and length. Words are fetched 10 at a time; if the API is down the bundled word list is used. */
+export async function nextWord(lang: WordLanguage, length: number): Promise<Word & { offline?: true }> {
+    const id = `${lang}:${length}`;
+    const queue = queues.get(id) ?? [];
+    queues.set(id, queue);
 
     if (!queue.length) {
         try {
-            queue.push(...(await fetchWords(lang)));
+            queue.push(...(await fetchWords(lang, length)));
         } catch {}
     }
 
     const word = queue.shift();
     if (word) return word;
-    const plain = fallbackWords[Math.floor(Math.random() * fallbackWords.length)];
+    const plain = pickRandom(fallbackWords.filter((word) => word.length === length));
     return { plain, display: plain, offline: true };
 }
 
@@ -113,14 +116,14 @@ export async function isWord(lang: WordLanguage, plain: string, answer: Word): P
 
 /** Same two-pass rule as the original: greens first, then yellows only while that letter has copies left */
 export function score(guess: string, answer: string): Mark[] {
-    const marks: Mark[] = Array(WORD_LENGTH).fill("absent");
+    const marks: Mark[] = Array(guess.length).fill("absent");
     const left: Record<string, number> = {};
 
-    for (let i = 0; i < WORD_LENGTH; i++) {
+    for (let i = 0; i < guess.length; i++) {
         if (guess[i] === answer[i]) marks[i] = "correct";
         else left[answer[i]] = (left[answer[i]] ?? 0) + 1;
     }
-    for (let i = 0; i < WORD_LENGTH; i++) {
+    for (let i = 0; i < guess.length; i++) {
         if (marks[i] !== "correct" && left[guess[i]] > 0) {
             marks[i] = "present";
             left[guess[i]]--;

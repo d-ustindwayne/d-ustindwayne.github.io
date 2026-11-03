@@ -48,7 +48,7 @@ const visible = await Promise.all(
         {visible.map((project) => (
             <SketchBox data-tags={project.tags.join(" ")} class="flex flex-col p-5 sm:p-6">
                 {project.tape && (
-                    <div class:list={["absolute -top-3 -right-3 z-10 rotate-12 border px-2 py-1 text-sm font-bold shadow-sm", project.tape.style]}>
+                    <div class:list={["absolute -top-3 -right-3 z-10 rotate-12 border px-2 py-1 text-sm font-bold shadow-sm motion-safe:hover:animate-wiggle", project.tape.style]}>
                         {project.tape.text}
                     </div>
                 )}

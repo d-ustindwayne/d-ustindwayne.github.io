@@ -1,0 +1,30 @@
+<script>
+    // Clicking empty paper leaves a quick pencil doodle. Styles live in global.css.
+    const shapes = [
+        "M16 4l3.6 8 8.4 1-6.2 5.8L23.4 28 16 23.6 8.6 28l1.6-9.2L4 13l8.4-1z", // star
+        "M16 27C6 19 4 14 5 10c1.4-5 8.5-5 11 1 2.500-6 9.600-6 11-1 1 4-1 9-11 17z", // heart
+        "M16 16c1-2 4-1 4 1.500S16 22 13 20s-3-7 1-9.500 11 0 11.500 6-5 11-11 10.500S4 22 4.500 15 11 3.500 18 4", // spiral
+        "M4 18l7 8L28 6", // tick
+        "M3 20c3-9 5-12 7-11s-3 13-1 14 7-16 9-15-3 15-1 16 6-12 11-13", // scribble
+        "M16 4v24M4 16h24M7.500 7.500l17 17M24.500 7.500l-17 17", // sparkle
+    ];
+    const colors = ["text-blue-pen", "text-red-pen", "text-amber-500", "text-green-600"];
+    const pick = (items: string[]) => items[Math.floor(Math.random() * items.length)];
+    const blankPaper = "html, body, main, section, hr, #project-list, #photo-list";
+
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.addEventListener("click", (event) => {
+            if (!(event.target as Element).matches(blankPaper) || !getSelection()?.isCollapsed) return;
+            const doodle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            doodle.setAttribute("viewBox", "0 0 32 32");
+            doodle.setAttribute("aria-hidden", "true");
+            doodle.setAttribute("class", `doodle ${pick(colors)}`);
+            doodle.style.left = `${event.pageX}px`;
+            doodle.style.top = `${event.pageY}px`;
+            doodle.style.rotate = `${Math.round(Math.random() * 30 - 15)}deg`;
+            doodle.innerHTML = `<path pathLength="1" d="${pick(shapes)}" />`;
+            doodle.addEventListener("animationend", (end) => end.target === doodle && doodle.remove());
+            document.body.append(doodle);
+        });
+    }
+</script>

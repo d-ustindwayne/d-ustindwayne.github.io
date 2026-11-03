@@ -4,6 +4,8 @@ import { getContent, type Lang } from "./i18n";
 // Structured data (schema.org JSON-LD) shared by the pages; ids let the nodes reference each other
 const id = (site: URL, name: string) => new URL(`/#${name}`, site).href;
 const stripTags = (html: string) => html.replace(/<[^>]+>/g, "").trim();
+// The only projects promoted to search engines (matched by repo, since titles are translated)
+const searchableProjects = ["d-ustindwayne.github.io", "Medkit-Clicker", "Dessa"];
 
 export function websiteSchema(site: URL) {
     return {
@@ -51,7 +53,7 @@ export function homeSchema(site: URL, lang: Lang, pageUrl: URL) {
         {
             "@type": "ItemList",
             name: ui.projects.title,
-            itemListElement: projects.map((project, index) => ({
+            itemListElement: projects.filter((project) => searchableProjects.some((repo) => project.links.code.endsWith(`/${repo}`))).map((project, index) => ({
                 "@type": "ListItem",
                 position: index + 1,
                 item: {

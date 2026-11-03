@@ -45,7 +45,7 @@
         },
         "footer": {
             "text": "Dustin Dwayne Diaz. Made on a random 2 am breakdown.",
-            "secondLine": "by <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+            "secondLine": "by <button type=\"button\" data-dialog=\"contact-modal\" class=\"cursor-pointer text-ink hover:underline\">Dustin Dwayne Diaz</button>"
         },
         "contact": {
             "title": "Contacts",
@@ -61,6 +61,7 @@
             "themeLabel": "Dark Mode",
             "languageLabel": "Language",
             "doomButton": "Play DOOM",
+            "medkitButton": "Play Medkit Clicker",
             "doomHint": "Keyboard only. Click the screen first, arrows to move, Ctrl to shoot.",
             "close": "Close"
         },
@@ -74,9 +75,10 @@
             "button": "Play Wordilocks",
             "title": "Wordilocks",
             "metaTitle": "Wordilocks (unlimited, multi-language word game) - Dustin Dwayne Diaz",
-            "metaDescription": "Unlimited 5-letter word guessing in English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian or Turkish. A revamp of my very first JavaScript project.",
+            "metaDescription": "Unlimited word guessing, 4 to 10 letters, in English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian or Turkish. A revamp of my very first JavaScript project.",
             "sublabel": "My very first JS project, revamped. Unlimited games, no daily limit.",
             "wordLanguage": "Word language",
+            "wordLength": "Letters",
             "newWord": "New word",
             "enter": "Enter",
             "backspace": "Delete",
@@ -87,7 +89,7 @@
             "win": "You got it! The word was {word}.",
             "lose": "Nope. The word was {word}.",
             "back": "Back to portfolio",
-            "howTo": "Guess the 5-letter word in 6 tries. Green: right spot. Yellow: wrong spot. Grey: not in the word.",
+            "howTo": "Guess the word in 6 tries. Green: right spot. Yellow: wrong spot. Grey: not in the word.",
             "board": "Game board",
             "keyboard": "Keyboard",
             "correct": "correct",
@@ -142,7 +144,7 @@
         },
         "footer": {
             "text": "Dustin Dwayne Diaz. Hecho durante una crisis aleatoria a las 2 de la mañana.",
-            "secondLine": "por <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+            "secondLine": "por <button type=\"button\" data-dialog=\"contact-modal\" class=\"cursor-pointer text-ink hover:underline\">Dustin Dwayne Diaz</button>"
         },
         "contact": {
             "title": "Contactos",
@@ -158,6 +160,7 @@
             "themeLabel": "Modo Oscuro",
             "languageLabel": "Idioma",
             "doomButton": "Jugar DOOM",
+            "medkitButton": "Jugar Medkit Clicker",
             "doomHint": "Solo con teclado. Haz clic en la pantalla primero, flechas para moverte, Ctrl para disparar.",
             "close": "Cerrar"
         },
@@ -171,9 +174,10 @@
             "button": "Jugar Wordilocks",
             "title": "Wordilocks",
             "metaTitle": "Wordilocks (juego de palabras ilimitado y multilingüe) - Dustin Dwayne Diaz",
-            "metaDescription": "Adivina palabras de 5 letras sin límite en inglés, español, filipino, alemán, francés, italiano, portugués, neerlandés, rumano o turco. Una renovación de mi primer proyecto en JavaScript.",
+            "metaDescription": "Adivina palabras de 4 a 10 letras sin límite en inglés, español, filipino, alemán, francés, italiano, portugués, neerlandés, rumano o turco. Una renovación de mi primer proyecto en JavaScript.",
             "sublabel": "Mi primer proyecto en JS, renovado. Partidas ilimitadas, sin límite diario.",
             "wordLanguage": "Idioma de la palabra",
+            "wordLength": "Letras",
             "newWord": "Nueva palabra",
             "enter": "Enviar",
             "backspace": "Borrar",
@@ -184,7 +188,7 @@
             "win": "¡Lo lograste! La palabra era {word}.",
             "lose": "Nop. La palabra era {word}.",
             "back": "Volver al portafolio",
-            "howTo": "Adivina la palabra de 5 letras en 6 intentos. Verde: lugar correcto. Amarillo: lugar incorrecto. Gris: no está en la palabra.",
+            "howTo": "Adivina la palabra en 6 intentos. Verde: lugar correcto. Amarillo: lugar incorrecto. Gris: no está en la palabra.",
             "board": "Tablero",
             "keyboard": "Teclado",
             "correct": "correcta",
@@ -239,7 +243,7 @@
         },
         "footer": {
             "text": "Dustin Dwayne Diaz. Ginawa noong ako'y nagka-2 AM breakdown nang wala sa oras.",
-            "secondLine": "ni <a href=\"https://github.com/d-ustindwayne\" target=\"_blank\" rel=\"noopener\" class=\"text-ink hover:underline\">Dustin Dwayne Diaz</a>"
+            "secondLine": "ni <button type=\"button\" data-dialog=\"contact-modal\" class=\"cursor-pointer text-ink hover:underline\">Dustin Dwayne Diaz</button>"
         },
         "contact": {
             "title": "Contact",
@@ -255,6 +259,7 @@
             "themeLabel": "Padilimin",
             "languageLabel": "Wika",
             "doomButton": "Laruin ang DOOM",
+            "medkitButton": "Laruin ang Medkit Clicker",
             "doomHint": "Keyboard lang. I-click muna ang screen, arrows para gumalaw, Ctrl para bumaril.",
             "close": "Isara"
         },
@@ -268,9 +273,10 @@
             "button": "Laruin ang Wordilocks",
             "title": "Wordilocks",
             "metaTitle": "Wordilocks (walang limit, maraming wika) - Dustin Dwayne Diaz",
-            "metaDescription": "Walang limit na hulaan ng 5-letrang salita sa English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian o Turkish. Binagong bersyon ng pinaka-una kong JavaScript project.",
+            "metaDescription": "Walang limit na hulaan ng salitang may 4 hanggang 10 letra sa English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian o Turkish. Binagong bersyon ng pinaka-una kong JavaScript project.",
             "sublabel": "Ang pinaka-una kong JS project, binago. Walang limit, laro lang nang laro.",
             "wordLanguage": "Wika ng salita",
+            "wordLength": "Letra",
             "newWord": "Bagong salita",
             "enter": "Enter",
             "backspace": "Burahin",
@@ -281,7 +287,7 @@
             "win": "Nakuha mo! Ang salita ay {word}.",
             "lose": "Hindi. Ang salita ay {word}.",
             "back": "Bumalik sa portfolio",
-            "howTo": "Hulaan ang 5-letrang salita sa 6 na subok. Berde: tamang puwesto. Dilaw: maling puwesto. Abo: wala sa salita.",
+            "howTo": "Hulaan ang salita sa 6 na subok. Berde: tamang puwesto. Dilaw: maling puwesto. Abo: wala sa salita.",
             "board": "Board ng laro",
             "keyboard": "Keyboard",
             "correct": "tama",
