@@ -15,7 +15,7 @@
             "title": "Projects I Actually Finished",
             "sublabel": "Which is honestly surprising",
             "viewCode": "View Code",
-            "viewLivePreview": "View Live Preview",
+            "viewLivePreview": "Visit Site",
             "comingSoon": "Coming soon!",
             "filter": {
                 "label": "Show:",
@@ -74,7 +74,7 @@
         "wordilocks": {
             "button": "Play Wordilocks",
             "title": "Wordilocks",
-            "metaTitle": "Wordilocks (unlimited, multi-language word game) - Dustin Dwayne Diaz",
+            "metaTitle": "Wordilocks",
             "metaDescription": "Unlimited word guessing, 4 to 10 letters, in English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian or Turkish. A revamp of my very first JavaScript project.",
             "sublabel": "My very first JS project, revamped. Unlimited games, no daily limit.",
             "wordLanguage": "Word language",
@@ -114,7 +114,7 @@
             "title": "Proyectos que Realmente Terminé",
             "sublabel": "Lo cual es sinceramente sorprendente",
             "viewCode": "Ver Código",
-            "viewLivePreview": "Ver Sitio",
+            "viewLivePreview": "Visitar sitio",
             "comingSoon": "¡Próximamente!",
             "filter": {
                 "label": "Mostrar:",
@@ -173,7 +173,7 @@
         "wordilocks": {
             "button": "Jugar Wordilocks",
             "title": "Wordilocks",
-            "metaTitle": "Wordilocks (juego de palabras ilimitado y multilingüe) - Dustin Dwayne Diaz",
+            "metaTitle": "Wordilocks",
             "metaDescription": "Adivina palabras de 4 a 10 letras sin límite en inglés, español, filipino, alemán, francés, italiano, portugués, neerlandés, rumano o turco. Una renovación de mi primer proyecto en JavaScript.",
             "sublabel": "Mi primer proyecto en JS, renovado. Partidas ilimitadas, sin límite diario.",
             "wordLanguage": "Idioma de la palabra",
@@ -213,7 +213,7 @@
             "title": "Mga Proyektong Natapos Ko",
             "sublabel": "Na 'Di Ko Akalain Na Matatapos Ko",
             "viewCode": "Tingnan Code",
-            "viewLivePreview": "Tingnan Preview",
+            "viewLivePreview": "Bisitahin ang Site",
             "comingSoon": "Malapit na!",
             "filter": {
                 "label": "Ipakita:",
@@ -272,7 +272,7 @@
         "wordilocks": {
             "button": "Laruin ang Wordilocks",
             "title": "Wordilocks",
-            "metaTitle": "Wordilocks (walang limit, maraming wika) - Dustin Dwayne Diaz",
+            "metaTitle": "Wordilocks",
             "metaDescription": "Walang limit na hulaan ng salitang may 4 hanggang 10 letra sa English, Spanish, Filipino, German, French, Italian, Portuguese, Dutch, Romanian o Turkish. Binagong bersyon ng pinaka-una kong JavaScript project.",
             "sublabel": "Ang pinaka-una kong JS project, binago. Walang limit, laro lang nang laro.",
             "wordLanguage": "Wika ng salita",
