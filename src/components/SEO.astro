@@ -12,14 +12,19 @@ export interface Props {
 }
 
 const OWNER = "Dustin Dwayne Diaz";
-const ogLocales = { en: "en_NZ", es: "es_ES", tl: "fil_PH" } as const;
+const ogLocales = { en: "en_NZ", es: "es_ES", tl: "tl_PH" } as const;
 
 const { lang, ui } = getContent(Astro.currentLocale);
 const { title = ui.meta.title, description = ui.meta.description, noindex = false, schema = [] } = Astro.props;
 
 const site = Astro.site!;
 const url = new URL(Astro.url.pathname, site).href;
-const thumbnail = new URL("/thumbnail.png", site).href; 
+const thumbnail = new URL("/thumbnail.png", site).href;
+const socialLinks = [
+    "https://github.com/d-ustindwayne",
+    "https://www.linkedin.com/in/diaz5195/",
+    "https://www.instagram.com/mapang.he/",
+];
 
 // Every localized page exists in all languages at /{lang}/rest, so the alternates mirror the current path
 const localePrefix = new RegExp(`^/${lang}(?:/|$)`);
@@ -37,6 +42,12 @@ const graph = { "@context": "https://schema.org", "@graph": [websiteSchema(site)
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#fdfbf7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<meta name="application-name" content={OWNER} />
+<meta name="apple-mobile-web-app-title" content={OWNER} />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+{socialLinks.map((link) => <link rel="me" href={link} />)}
 
 <title>{title}</title>
 <meta name="description" content={description} />
@@ -63,6 +74,7 @@ const graph = { "@context": "https://schema.org", "@graph": [websiteSchema(site)
 {Object.entries(ogLocales).filter(([code]) => code !== lang).map(([, locale]) => <meta property="og:locale:alternate" content={locale} />)}
 
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={url} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={thumbnail} />

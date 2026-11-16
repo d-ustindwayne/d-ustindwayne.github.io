@@ -13,6 +13,7 @@ export function websiteSchema(site: URL) {
         "@id": id(site, "website"),
         url: site.href,
         name: "Dustin Dwayne Diaz",
+        alternateName: "Dustin Dwayne Diaz · @d-ustindwayne",
         inLanguage: ["en", "es", "fil"],
         publisher: { "@id": id(site, "person") },
     };
@@ -24,10 +25,15 @@ export function personSchema(site: URL, lang: Lang) {
         "@type": "Person",
         "@id": id(site, "person"),
         name: "Dustin Dwayne Diaz",
-        alternateName: cv.name,
+        alternateName: [cv.name, "@d-ustindwayne"],
         url: site.href,
         image: new URL("/icon-512.png", site).href,
         jobTitle: cv.title.it,
+        identifier: {
+            "@type": "PropertyValue",
+            propertyID: "GitHub username",
+            value: "d-ustindwayne",
+        },
         address: { "@type": "PostalAddress", addressLocality: "Pukekohe", addressRegion: "Auckland", addressCountry: "NZ" },
         alumniOf: cv.education.map((edu) => ({ "@type": "EducationalOrganization", name: edu.institute })),
         // The first IT skill group is the programming languages (its key is translated)

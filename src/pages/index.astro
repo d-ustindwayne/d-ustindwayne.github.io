@@ -1,4 +1,5 @@
 ---
+import SEO from "../components/SEO.astro";
 import { defaultLang, languages } from "../i18n";
 
 const codes = Object.keys(languages);
@@ -9,10 +10,7 @@ const home = new URL(`/${defaultLang}/`, Astro.site);
 <!doctype html>
 <html lang={defaultLang}>
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dustin Dwayne Diaz</title>
-        <link rel="canonical" href={home} />
+        <SEO />
         {codes.map((code) => <link rel="alternate" hreflang={code} href={new URL(`/${code}/`, Astro.site)} />)}
         <link rel="alternate" hreflang="x-default" href={home} />
         <noscript><meta http-equiv="refresh" content={`0; url=/${defaultLang}/`} /></noscript>
