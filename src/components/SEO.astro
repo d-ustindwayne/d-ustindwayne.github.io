@@ -18,13 +18,14 @@ const { lang, ui } = getContent(Astro.currentLocale);
 const { title = ui.meta.title, description = ui.meta.description, noindex = false, schema = [] } = Astro.props;
 
 const site = Astro.site!;
-const url = new URL(Astro.url.pathname, site);
-const thumbnail = new URL("/thumbnail.png", site);
+const url = new URL(Astro.url.pathname, site).href;
+const thumbnail = new URL("/thumbnail.png", site).href; 
 
 // Every localized page exists in all languages at /{lang}/rest, so the alternates mirror the current path
-const localized = Astro.currentLocale && Astro.url.pathname.startsWith(`/${lang}/`);
-const rest = localized ? Astro.url.pathname.slice(lang.length + 2) : "";
-const alternate = (code: string) => new URL(`/${code}/${rest}`, site);
+const localePrefix = new RegExp(`^/${lang}(?:/|$)`);
+const localized = Boolean(Astro.currentLocale) && localePrefix.test(Astro.url.pathname);
+const rest = localized ? Astro.url.pathname.replace(localePrefix, "") : "";
+const alternate = (code: string) => new URL(rest ? `/${code}/${rest}` : `/${code}`, site).href;
 
 const graph = { "@context": "https://schema.org", "@graph": [websiteSchema(site), personSchema(site, lang), ...schema] };
 ---
